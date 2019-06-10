@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-
-import { ListPage } from './list.page';
+import { ListPage } from 'src/app/pages/list/list.page';
 
 @NgModule({
   imports: [
@@ -20,4 +19,4 @@ import { ListPage } from './list.page';
   ],
   declarations: [ListPage]
 })
-export class ListPageModule {}
+export class ListPageModule { }

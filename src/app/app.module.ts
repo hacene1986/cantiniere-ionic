@@ -1,3 +1,4 @@
+import { Httpinterceptor } from './models/httpinterceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -27,7 +28,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    {
+      provide: RouteReuseStrategy,
+      useClass: IonicRouteStrategy
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Httpinterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

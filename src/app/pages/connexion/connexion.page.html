@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Connexion</ion-title>
+    <!-- <ion-title>Connexion</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +13,7 @@
 
     <!-- Debut du formulaire de connexion -->
     <form class="needs-validation" novalidate>
-      <ion-button class="forgotPassword">Mot de passe oublié</ion-button>
+      <ion-button color="danger" class="forgotPassword" routerLink="/motdepassoublie">Mot de passe oublié</ion-button>
       <div class="form-group">
         <ion-input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
         </ion-input>
@@ -58,7 +58,7 @@
 
       <div class="form-group">
         <!-- <ion-button (click)="closeModal()" class="btn btn-dark float-left buttons">Retour</ion-button> -->
-        <ion-button (click)="connexion()" type="submit" class="btn-test">
+        <ion-button color="danger" (click)="connexion()" type="submit" class="btn-test">
           Identifiez-vous
         </ion-button>
       </div>
@@ -66,16 +66,16 @@
   </div>
 
   <!-- Les templates pour les pop-up snackBar -->
-  <ng-template #snackBarTemplate>
+  <!-- <ng-template #snackBarTemplate>
     <div class="text-center text-monospace text-success">
       Bienvenue {{ userConnected.firstname }}!
     </div>
-  </ng-template>
+  </ng-template> -->
 
-  <ng-template #snackBarTemplateError>
+  <!-- <ng-template #snackBarTemplateError>
     <div class="text-center text-danger2 font-weight-bold">
       ❌ Erreur d'authentification
     </div>
-  </ng-template>
+  </ng-template> -->
 
 </ion-content>

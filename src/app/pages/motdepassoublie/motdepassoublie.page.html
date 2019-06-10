@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>motdepassoublie</ion-title>
+    <ion-title>Mot de passe oublié</ion-title>
+    <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="container">
+    <h2 class="aide" style="text-align: center">Aide sur le mot de passe</h2>
+    <h5 class="saisir">Saisissez l'adresse e-mail associé
+      à votre compte La Cantinière</h5>
+    <form class="needs-validation" novalidate>
+      <div class="form-group">
+        <div class="body">
+          <br />
+          <ion-input name="email" type="email" class="form-control" id="inputEmail5" placeholder="Adresse email"
+            required></ion-input>
+          <br />
+        </div>
 
+        <h5 class="saisir">Vous devriez recevoir un mail de réinitialisation.</h5>
+
+        <div class="footer">
+          <ion-button type="submit" class="btn-test">
+            Confirmer
+          </ion-button>
+        </div>
+      </div>
+    </form>
+  </div>
 </ion-content>
