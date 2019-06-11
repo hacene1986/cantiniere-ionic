@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Home
+      La cantinière
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,15 +15,14 @@
       <p class="animated">Mangez frais, Mangez prêt</p>
       <p class="animated">Commandez avant 10h30</p>
     </div>
-    <ion-button color="danger" class="commander">Commander</ion-button>
-    <!-- <button type="button" class="btn btn-commander btn-outline-light" [routerLink]="['/menu']"
-    *ngIf="userConnected == '' || userConnected.isLunchLady == 0">
-    Commander
-  </button>
-  <button type="button" class="btn btn-primary btn-admin btn-outline-light" *ngIf="userConnected.isLunchLady == 1"
-    [routerLink]="['/cantiniereRecap']">
-    Administrer
-  </button> -->
+    <ion-button color="danger" class="commander" [routerLink]="['/menu']"
+      *ngIf="userConnected == '' || userConnected.isLunchLady == 0">
+      Commander
+    </ion-button>
+    <ion-button color="warning" class="commander" *ngIf="userConnected.isLunchLady == 1"
+      [routerLink]="['/cantiniereRecap']">
+      Administrer
+    </ion-button>
   </div>
 
 </ion-content>

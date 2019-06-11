@@ -12,6 +12,7 @@
 
 
     <!-- Debut du formulaire de connexion -->
+
     <form class="needs-validation" novalidate>
       <ion-button color="danger" class="forgotPassword" routerLink="/motdepassoublie">Mot de passe oublié</ion-button>
       <div class="form-group">
@@ -19,51 +20,39 @@
         </ion-input>
       </div>
 
-      <div class="form-group mb-4">
+      <div class="form-group">
         <ion-input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Mot de passe"
           required></ion-input>
-        <!-- <a href="#" class="card-link" style="font-size: 0.8em" (click)="openPasswordOublie(modalPassword)">Mot de passe
-          oublié ?</a> -->
       </div>
 
-      <!-- Le modal pour l'oubli de password' -->
-      <!-- <ng-template #modalPassword let-modal> -->
-      <!-- Début du formaulaire d'oublie de password -->
-      <!-- <form [formGroup]="lostPasswordForm" class="needs-validation" novalidate>
-          <div class="form-group">
-            <div class="modal-header">
-              <h2 class="modal-title font-weight-bolder forgot" id="modal-basic-title">
-                Mot de passe oublié ?
-              </h2>
-            </div>
-            <div class="modal-body">
-              <br />
-              <ion-label for="inputEmail5">Email</ion-label>
-              <ion-input name="email" type="email" class="form-control rounded-2" id="inputEmail5" placeholder="Email"
-                formControlName="emailLost" required />
-              <br />
-            </div>
-
-            <div class="modal-footer">
-              <ion-button (click)="closeModal()" class="btn btn-retour float-left">
-                Retour
-              </ion-button>
-              <ion-button type="button" class="btn btn-test float-right" (click)="modal.dismiss('cancel click')">
-                Valider
-              </ion-button>
-            </div>
-          </div>
-        </form> -->
-      <!-- </ng-template> -->
-
       <div class="form-group">
-        <!-- <ion-button (click)="closeModal()" class="btn btn-dark float-left buttons">Retour</ion-button> -->
         <ion-button color="danger" (click)="connexion()" type="submit" class="btn-test">
           Identifiez-vous
         </ion-button>
       </div>
     </form>
   </div>
+
+  <!-- <form class="needs-validation" [formGroup]="connexionForm" novalidate>
+      <ion-button color="danger" class="forgotPassword" routerLink="/motdepassoublie">Mot de passe oublié</ion-button>
+      <div class="form-group">
+        <ion-input formControlName="login" name="email" type="email" class="form-control" id="inputEmail4"
+          placeholder="Email" required>
+        </ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-input formControlName="pwd" name="password" type="password" class="form-control" id="inputPassword4"
+          placeholder="Mot de passe" required></ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-button color="danger" (click)="connexion()" type="submit" class="btn-test">
+          Identifiez-vous
+        </ion-button>
+      </div>
+    </form>
+  </div> -->
 
   <!-- Les templates pour les pop-up snackBar -->
   <!-- <ng-template #snackBarTemplate>

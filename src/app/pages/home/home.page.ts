@@ -1,12 +1,30 @@
-import { Component } from '@angular/core';
+import { AuthentificationService } from 'src/app/services/authentification.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor() {}
+  constructor(
+    private auth: AuthentificationService
+  ) { }
+
+  isAuth: boolean;
+  userConnected: any;
+
+  ngOnInit() {
+    if (this.auth.isLogged()) {
+      this.isAuth = true;
+      this.userConnected = JSON.parse(localStorage.getItem('user'));
+      console.log('userConnected : ' + JSON.stringify(this.userConnected));
+    } else {
+      this.userConnected = '';
+      this.isAuth = false;
+    }
+    console.log('user connecté (isAuth) : ' + this.isAuth);
+  }
 
 }

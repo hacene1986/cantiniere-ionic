@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MotdepassoubliePage implements OnInit {
 
-  constructor() { }
+  lostPasswordForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit() {
   }
 
+  initForm() {
+    this.lostPasswordForm = this.formBuilder.group({
+      emailLost: ['', Validators.required],
+    });
+  }
+
+  validerPasswordOublie() {
+    const formValue = this.lostPasswordForm.value;
+    const emailLost: string = formValue.emailLost;
+    // this.modalService.open(modalPassword, { centered: true, windowClass: 'modalPassword' });
+    // this.authService.forgotPassword(emailLost);
+  }
 }

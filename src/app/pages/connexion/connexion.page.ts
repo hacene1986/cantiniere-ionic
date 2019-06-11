@@ -1,7 +1,8 @@
+import { AuthentificationService } from 'src/app/services/authentification.service';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-connexion',
@@ -12,7 +13,6 @@ export class ConnexionPage implements OnInit {
 
   connectionUserData = {};
   connexionForm: FormGroup;
-  lostPasswordForm: FormGroup;
   userConnected: User;
 
   // @ViewChild('snackBarTemplate')
@@ -24,25 +24,19 @@ export class ConnexionPage implements OnInit {
   constructor(
     // private modalService: NgbModal,
     // private snackBar: MatSnackBar,
-    private formBuilder: FormBuilder,
     private router: Router,
-    // private authService: AuthentificationService
-  ) { }
+    private authService: AuthentificationService,
+    public formBuilder: FormBuilder) {
 
-  ngOnInit() {
-    this.initForm();
-  }
-
-  initForm() {
     this.connexionForm = this.formBuilder.group({
       login: ['', Validators.required],
       pwd: ['', Validators.required],
     });
-
-    this.lostPasswordForm = this.formBuilder.group({
-      emailLost: ['', Validators.required],
-    });
   }
+
+  ngOnInit() {
+  }
+
 
   // Appel de la méthode de connexion
   connexion() {
@@ -50,38 +44,25 @@ export class ConnexionPage implements OnInit {
     const login: string = formValue.login;
     const pwd: string = formValue.pwd;
 
-    // this.authService.authentification(login, pwd)
-    //   .subscribe(
-    //     (user: User) => {
-    //       console.log('user dans connexion:' + user.id);
+    this.authService.authentification(login, pwd)
+      .subscribe(
+        (user: User) => {
+          console.log('user dans connexion:' + user.id);
 
-    //       // Placement dans le localStorage
-    //       localStorage.setItem('user', JSON.stringify(user));
-    //       this.userConnected = user;
-    //       this.closeModal();
-    //       window.location.reload();
-    //       this.router.navigate(['/']);
-    //       this.openSnackBar();
-    //     },
-    //     err => {
-    //       console.log('Erreur d\'authentification:' + err);
-    //       if (localStorage.getItem('user') == null) {
-    //         this.openSnackBarError();
-    //       }
-    //     }
-    //   );
-  }
-
-  openPasswordOublie(modalPassword) {
-    this.closeModal();
-    const formValue = this.lostPasswordForm.value;
-    const emailLost: string = formValue.emailLost;
-    // this.modalService.open(modalPassword, { centered: true, windowClass: 'modalPassword' });
-    // this.authService.forgotPassword(emailLost);
-  }
-
-  closeModal() {
-    // this.modalService.dismissAll();
+          // Placement dans le localStorage
+          localStorage.setItem('user', JSON.stringify(user));
+          this.userConnected = user;
+          window.location.reload();
+          this.router.navigate(['/']);
+          this.openSnackBar();
+        },
+        err => {
+          console.log('Erreur d\'authentification:' + err);
+          if (localStorage.getItem('user') == null) {
+            this.openSnackBarError();
+          }
+        }
+      );
   }
 
   openSnackBar() {
