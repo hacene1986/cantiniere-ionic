@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Plats</ion-title> -->
+    <ion-card-header>La cantinière</ion-card-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="container-fluid">
+    <br>
+    <h1 class="text-h1">Les plats de la semaine</h1>
+    <br>
+    <!-- On définit les différents boutons -->
+    <ul id="tabsNav" class="tabsNav nav">
+      <li class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
+        [class.active]="viewMode == 'tabToday'" rel="tabToday" (click)="viewMode ='tabToday'">Aujourd'hui</li>
+      <li class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
+        [class.active]="viewMode == 'tabThisWeek'" rel="tabThisWeek" (click)="viewMode ='tabThisWeek'">Cette semaine
+      </li>
+    </ul>
+
+    <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+
+      <!-- Pour "tabToday", on récupère tous les plats du jour avec listPlatsToday -->
+      <div id="tabToday" *ngSwitchCase="'tabToday'" class="tab-pane fade active show">
+        <ng-container *ngFor="let meal of listPlatsToday; let i = index">
+
+
+          <ion-card class="card-ion">
+            <img class="" src="../../../assets/menu-default.png">
+            <ion-card-header class="header-ion">
+              <ion-card-title class="" role="heading"> {{ meal.label }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-ion">
+              <div class="meals">
+                <div class="meallabel" *ngFor="let ingredient of meal.ingredients">
+                  • &nbsp;&nbsp;{{ ingredient.label }}
+                  <br>
+                </div>
+              </div>
+              <div class="price-div">
+                <div class="priceWeek">
+                  <p class="card-text">
+                    {{ meal.priceDF }} €
+                  </p>
+                </div>
+                <hr>
+              </div>
+            </ion-card-content>
+          </ion-card>
+
+
+        </ng-container>
+      </div>
+
+      <!-- Pour "tabThisWeek", on récupère tous les plats de la semaine avec listPlatsWeek -->
+      <div id="tabThisWeek" *ngSwitchCase="'tabThisWeek'" class="tab-pane fade active show">
+        <ng-container *ngFor="let meal of listPlatsWeek; let i = index">
+
+
+          <ion-card class="card-ion">
+            <img class="" src="../../../assets/menu-default.png">
+            <ion-card-header class="header-ion">
+              <ion-card-title class="" role="heading"> {{ meal.label }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-ion">
+              <div class="meals">
+                <div class="meallabel" *ngFor="let ingredient of meal.ingredients">
+                  • &nbsp;&nbsp;{{ ingredient.label }}
+                  <br>
+                </div>
+              </div>
+              <div class="price-div">
+                <div class="priceWeek">
+                  <p class="card-text">
+                    {{ meal.priceDF }} €
+                  </p>
+                </div>
+                <hr>
+              </div>
+            </ion-card-content>
+          </ion-card>
+
+
+        </ng-container>
+      </div>
+
+    </div>
+    <br><br><br>
+    <ng-template #snackBarTemplateError>
+      <div class="text-center text-danger2 font-weight-bold">
+        ⚠️ Vérifier que l'application est lancée (Eclipse).
+      </div>
+    </ng-template>
+  </div>
+
+
+</ion-content>

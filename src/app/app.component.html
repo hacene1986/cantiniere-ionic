@@ -8,9 +8,30 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <div *ngIf="isAuth">
-            Bienvenue {{ userConnected.firstname }}
-          </div>
+          <ion-item *ngIf="isAuth">contact
+            <ion-icon slot="start" name="contact"></ion-icon>
+            <ion-label>
+              Bienvenue {{ userConnected.firstname }}
+            </ion-label>
+          </ion-item>
+          <ion-item [routerDirection]="'root'" routerLink="/home">
+            <ion-icon slot="start" name="home"></ion-icon>
+            <ion-label>
+              Home
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="!isAuth" [routerDirection]="'root'" routerLink="/connexion">
+            <ion-icon slot="start" name="log-in"></ion-icon>
+            <ion-label>
+              Connexion
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="!isAuth" [routerDirection]="'root'" routerLink="/inscription">
+            <ion-icon slot="start" name="key"></ion-icon>
+            <ion-label>
+              Inscription
+            </ion-label>
+          </ion-item>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>

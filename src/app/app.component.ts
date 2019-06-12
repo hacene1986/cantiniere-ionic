@@ -13,24 +13,14 @@ import { AuthentificationService } from 'src/app/services/authentification.servi
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
+      title: 'Menu',
+      url: '/menu',
+      icon: 'pizza'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
-      title: 'Connexion',
-      url: '/connexion',
-      icon: 'log-in'
-    },
-    {
-      title: 'Inscription',
-      url: '/inscription',
-      icon: 'sign'
+      title: 'Plats',
+      url: '/plat',
+      icon: 'plat'
     }
   ];
 

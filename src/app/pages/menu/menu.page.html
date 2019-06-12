@@ -1,0 +1,155 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>Menu</ion-title> -->
+    <ion-card-header>La cantinière</ion-card-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-fluid">
+    <br>
+    <br>
+    <h1 class="ion-text-center h1 text-h1" color="danger">Les menus</h1>
+    <br>
+    <ul id="tabsNav" class="tabsNav nav">
+      <li class="nav-item nav-link nav-link-custom small text-uppercase active today"
+        [class.active]="viewMode == 'tabToday'" rel="tabToday" (click)="viewMode ='tabToday'">Aujourd'hui
+      </li>
+      <li class="nav-item nav-link nav-link-custom small text-uppercase active thisweek"
+        [class.active]="viewMode == 'tabThisWeek'" rel="tabThisWeek" (click)="viewMode ='tabThisWeek'">Cette semaine
+      </li>
+    </ul>
+
+    <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+
+      <div id="tabToday" *ngSwitchCase="'tabToday'" class="tab-pane fade active show">
+        <ng-container *ngFor="let menu of listMenuToday">
+          <ion-card class="card-ion">
+            <img class="" src="../../../assets/menu-default.png">
+            <ion-card-header class="header-ion">
+              <ion-card-title class="" role="heading"> {{ menu.label }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-ion">
+              <div class="meals">
+                <div class="meallabel" *ngFor="let meal of menu.meals">
+                  • &nbsp;&nbsp;{{ meal.label }}
+                  <br>
+                </div>
+              </div>
+              <div class="price-div">
+                <div class="price">
+                  <p class="card-text">
+                    {{ menu.priceDF }} €
+                  </p>
+                </div>
+                <hr>
+
+                <div class="details">
+                  <a class="btn btn-more " (click)="openDetailMenu()">...</a>
+                  <a class="btn btn-add " (click)="addToPanier(menu)">&nbsp;+&nbsp;</a>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ng-container>
+      </div>
+
+      <div id="tabThisWeek" *ngSwitchCase="'tabThisWeek'" class="tab-pane fade active show">
+        <ng-container *ngFor="let menu of listMenuThisWeek">
+
+
+          <ion-card class="card-ion">
+            <img class="" src="../../../assets/menu-default.png">
+            <ion-card-header class="header-ion">
+              <ion-card-title class="" role="heading"> {{ menu.label }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-ion">
+              <div class="meals">
+                <div class="meallabel" *ngFor="let meal of menu.meals">
+                  • &nbsp;&nbsp;{{ meal.label }}
+                  <br>
+                </div>
+              </div>
+              <div class="price-div">
+                <div class="priceWeek">
+                  <p class="card-text">
+                    {{ menu.priceDF }} €
+                  </p>
+                </div>
+                <hr>
+              </div>
+            </ion-card-content>
+          </ion-card>
+
+
+        </ng-container>
+      </div>
+
+      <!-- <ng-template #ajoutPanier let-modal>
+              <div class="modal-header d-inline-block">
+                <button type="button" class="close float-right" aria-describedby="modal-title"
+                  (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title font-weight-bolder" id="modal-basic-title">Ajouter au panier</h4>
+                <h4 class="text-dark">{{ menu.label }}</h4>
+              </div>
+              <div class="modal-body">
+  
+                <div class="img-div">
+                  <img class="img-meal" src="../../../assets/menu-default.png">
+                </div>
+  
+                <div class="ingredients col-6 float-left">
+                  <h4 class="text-center font-weight-light">Plats :</h4>
+                  <div class="row" *ngFor="let plat of menu.meals; let i = index">
+                    <span class="col-12 text-center">•
+                      <i>{{ plat.label }}</i></span>
+                     <div class="row" *ngFor="let ingredient of plat.ingredients">
+                      <span class="col-12 text-center">• <i>{{ ingredient.label }}</i></span>
+                    </div> -->
+      <!-- </div>
+      </div>
+      <div class="plats col-6 float-right">
+        <h4 class="text-center font-weight-light">Ingredients :</h4>
+        <div class="row" *ngFor="let plat of menu.meals; let i = index">
+          <span class="col-12 text-center" *ngFor="let ingredient of plat.ingredients">•
+            <i>{{ ingredient.label }}</i></span> -->
+      <!-- <div class="row" *ngFor="let ingredient of plat.ingredients">
+                      <span class="col-12 text-center">• <i>{{ ingredient.label }}</i></span>
+                    </div> -->
+      <!-- </div>
+      </div>
+
+
+      <br>
+      <div class="full">
+        <mat-form-field>
+          <mat-label>Quantité</mat-label>
+          <mat-select [(value)]="quantity">
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.dismiss('cancel click')">Retour</button>
+      <button type="button" class="btn btn-success" (click)="closeValiderAjoutPanier(menu,quantity)">Valider</button>
+    </div>
+    </ng-template> -->
+    </div>
+    <!-- <br><br><br> -->
+    <!-- <ng-template #snackBarTemplateError>
+      <div class="text-center text-danger2 font-weight-bold">
+        ⚠️ Vérifier que l'application est lancée (Eclipse).
+      </div>
+    </ng-template>
+    <ng-template #snackBarTemplateAjoutPanier>
+      <div class="text-center text-success font-weight-bold">
+        ✅ Menu ajouté au panier.
+      </div>
+    </ng-template> -->
+  </div>
+</ion-content>
