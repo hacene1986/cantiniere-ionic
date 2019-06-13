@@ -1,5 +1,5 @@
-import { AuthentificationService } from 'src/app/services/authentification.service';
-import { User } from 'src/app/models/user';
+import { AuthentificationService } from '../../services/authentification.service';
+import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms';

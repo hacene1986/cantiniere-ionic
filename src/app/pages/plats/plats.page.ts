@@ -17,22 +17,14 @@ export class PlatsPage implements OnInit {
   listPlatsWeek: Array<Meal>;
   listPlatsToday: Array<Meal>;
 
-  quantity = '1';
-
   // Pour initialiser le numéro de la semaine
   weekNumber: number;
   dateWeek = new Date();
   yearStart: any;
 
-  // // Pour les snackBar (messages de confirmation/erreur)
-  // @ViewChild('snackBarTemplateError')
-  // snackBarTemplateError: TemplateRef<any>;
-
   constructor(
     private platServices: PlatService,
-    // private snackbar: MatSnackBar,
     private router: Router,
-    // private modalService: NgbModal,
   ) { }
 
   ngOnInit() {
@@ -49,7 +41,6 @@ export class PlatsPage implements OnInit {
           console.log('listPlatsWeek: ', this.listPlatsWeek);
         },
         (error) => {
-          // this.openSnackBarError();
           console.log('Error in Plats.ts ... getAllMealsForWeek()', error);
         }
       );
@@ -63,7 +54,6 @@ export class PlatsPage implements OnInit {
           console.log('listPlatsToday: ', this.listPlatsToday);
         },
         (error) => {
-          // this.openSnackBarError();
           console.log('Error in Plats.ts ... getAllMealsForToday()', error);
         }
       );
@@ -79,14 +69,5 @@ export class PlatsPage implements OnInit {
 
     return this.weekNumber;
   }
-
-  // // Méthode qui permet d'afficher un message d'erreur, en cas d'erreur
-  // openSnackBarError() {
-  //   this.snackbar.openFromTemplate(this.snackBarTemplateError, {
-  //     duration: 15000,
-  //     verticalPosition: 'bottom',
-  //     horizontalPosition: 'center',
-  //   });
-  // }
 
 }

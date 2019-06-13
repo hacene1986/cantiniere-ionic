@@ -1,0 +1,29 @@
+.right {
+    float: right;
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+h1 {
+    filter: drop-shadow(2px 2px 7px rgb(167, 167, 167));
+}
+
+th {
+    font-size: 20px;
+}
+
+.btn-test {
+    float: right;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    // border-radius: 10px;
+}
+
+.delete:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}

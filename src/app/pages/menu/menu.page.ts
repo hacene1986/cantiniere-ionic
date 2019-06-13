@@ -26,17 +26,10 @@ export class MenuPage implements OnInit {
 
   quantity = '1';
 
-  // Pour les snackBar (messages de confirmation/erreur)
-  @ViewChild('snackBarTemplateError')
-  snackBarTemplateError: TemplateRef<any>;
-  @ViewChild('snackBarTemplateAjoutPanier')
-  snackBarTemplateAjoutPanier: TemplateRef<any>;
-
   constructor(
     private menuService: MenuService,
     public toastController: ToastController,
     private router: Router,
-    // private modalService: NgbModal,
   ) { }
 
   // On initialise la vue en calculant le numéro de la semaine, et en récupérant tous les menu du jour et de la semaine
@@ -116,7 +109,7 @@ export class MenuPage implements OnInit {
   //   localStorage.setItem('panier', JSON.stringify(panier));
 
   //   this.closeModal();
-  //   this.openSnackBarAjoutPanier();
+  //   this.toastSuccess();
   //   console.log(JSON.parse(localStorage.getItem('panier')));
   // }
 
