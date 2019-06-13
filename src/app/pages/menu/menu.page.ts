@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Menu } from './../../models/menu';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
+import { ToastController } from '@ionic/angular';
 // import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -33,7 +34,7 @@ export class MenuPage implements OnInit {
 
   constructor(
     private menuService: MenuService,
-    // private snackbar: MatSnackBar,
+    public toastController: ToastController,
     private router: Router,
     // private modalService: NgbModal,
   ) { }
@@ -101,7 +102,7 @@ export class MenuPage implements OnInit {
     }
     panier.push({ quantity: this.quantity, menu });
     localStorage.setItem('panier', JSON.stringify(panier));
-    // this.openSnackBarAjoutPanier();
+    this.toastSuccess();
     console.log(JSON.parse(localStorage.getItem('panier')));
   }
 
@@ -119,21 +120,50 @@ export class MenuPage implements OnInit {
   //   console.log(JSON.parse(localStorage.getItem('panier')));
   // }
 
-  // Méthode qui permet d'afficher un message de confirmation d'ajout de menu dans le panier
-  // openSnackBarAjoutPanier() {
-  //   this.snackbar.openFromTemplate(this.snackBarTemplateAjoutPanier, {
-  //     duration: 10000,
-  //     verticalPosition: 'bottom',
-  //     horizontalPosition: 'right',
-  //   });
-  // }
+  async toastSuccess() {
+    const toast = await this.toastController.create({
+      message: 'Menu ajouté au panier',
+      position: 'bottom',
+      color: 'success',
+      duration: 10000,
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
+  }
 
-  // Méthode qui permet d'afficher un message d'erreur, en cas d'erreur
-  // openSnackBarError() {
-  //   this.snackbar.openFromTemplate(this.snackBarTemplateError, {
-  //     duration: 15000,
-  //     verticalPosition: 'bottom',
-  //     horizontalPosition: 'center',
-  //   });
-  // }
+
+  async toastError() {
+    const toast = await this.toastController.create({
+      message: 'Vérifier que le back est lancé',
+      position: 'bottom',
+      color: 'success',
+      duration: 10000,
+      buttons: [
+        {
+          side: 'start',
+          icon: 'star',
+          text: 'Favorite',
+          handler: () => {
+            console.log('Favorite clicked');
+          }
+        }, {
+          text: 'Done',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
+  }
+
 }

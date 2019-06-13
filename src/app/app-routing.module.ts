@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'connexion', loadChildren: './pages/connexion/connexion.module#ConnexionPageModule' },
   { path: 'inscription', loadChildren: './pages/inscription/inscription.module#InscriptionPageModule' },
   { path: 'motdepassoublie', loadChildren: './pages/motdepassoublie/motdepassoublie.module#MotdepassoubliePageModule' },  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
-  { path: 'plats', loadChildren: './pages/plats/plats.module#PlatsPageModule' }
+  { path: 'plats', loadChildren: './pages/plats/plats.module#PlatsPageModule' },
+  { path: 'panier', loadChildren: './pages/panier/panier.module#PanierPageModule' }
 
 
 

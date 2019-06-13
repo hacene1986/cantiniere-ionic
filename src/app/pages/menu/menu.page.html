@@ -9,7 +9,7 @@
   <div class="container-fluid">
     <br>
     <br>
-    <h1 class="ion-text-center h1 text-h1" color="danger">Les menus</h1>
+    <h1 class="text-h1" color="danger">Les menus</h1>
     <br>
     <ul id="tabsNav" class="tabsNav nav">
       <li class="nav-item nav-link nav-link-custom small text-uppercase active today"
@@ -45,6 +45,24 @@
                 <hr>
 
                 <div class="details">
+                  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed"> -->
+
+                  <!-- <ion-fab-button>
+                      <ion-icon name="add"></ion-icon>
+                    </ion-fab-button>
+
+                    <ion-fab-list side="top">
+                      <ion-fab-button (click)="addToPanier(menu)">
+                        <ion-icon name="add-circle"></ion-icon>
+                      </ion-fab-button>
+
+                      <ion-fab-button (click)="openDetailMenu()">
+                        <ion-icon name="more"></ion-icon>
+                      </ion-fab-button>
+                    </ion-fab-list>
+
+                  </ion-fab> -->
+
                   <a class="btn btn-more " (click)="openDetailMenu()">...</a>
                   <a class="btn btn-add " (click)="addToPanier(menu)">&nbsp;+&nbsp;</a>
                 </div>
@@ -63,7 +81,7 @@
             <ion-card-header class="header-ion">
               <ion-card-title class="" role="heading"> {{ menu.label }}</ion-card-title>
             </ion-card-header>
-            <ion-card-content class="content-ion">
+            <ion-card-content class="content-ionv2">
               <div class="meals">
                 <div class="meallabel" *ngFor="let meal of menu.meals">
                   • &nbsp;&nbsp;{{ meal.label }}

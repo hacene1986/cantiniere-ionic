@@ -15,12 +15,18 @@ export class AppComponent {
     {
       title: 'Menu',
       url: '/menu',
-      icon: 'pizza'
+      icon: 'pizza',
+      color: 'danger'
     },
     {
       title: 'Plats',
-      url: '/plat',
-      icon: 'plat'
+      url: '/plats',
+      icon: 'beer'
+    },
+    {
+      title: 'Panier',
+      url: '/panier',
+      icon: 'cart'
     }
   ];
 
