@@ -27,3 +27,13 @@ th {
     opacity: 0.6;
     cursor: pointer;
 }
+
+.block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+}

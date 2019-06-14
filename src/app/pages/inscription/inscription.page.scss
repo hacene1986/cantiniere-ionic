@@ -1,0 +1,59 @@
+.container {
+    height: 100%;
+    padding-top: 30px;
+    padding-bottom: 65px;
+    padding-right: 30px;
+    padding-left: 30px;
+    background: #f0f0f0;
+}
+
+.connexion {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.btn-retour {
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 23px;
+    width: 120px;
+}
+
+.btn-test:hover {
+    background-color: rgba(211, 40, 63, 0.822)
+}
+
+.btn-retour:hover {
+    opacity: 0.8;
+}
+
+.forgot {
+    font-family: 'Open Sans', sans-serif;
+}
+
+form.needs-validation {
+    background-color: #f0f0f0 !important;
+    text-align: center;
+}
+
+.forgotPassword {
+    font-weight: 300;
+    font-size: 0.8em;
+    margin-bottom: 32px;
+}
+
+.form-control {
+    border: 1px solid rgb(110, 110, 110);
+    border-radius: 15px;
+    margin-bottom: 5px;
+}
+
+.btn-test {
+    margin-top: 22px;
+}
+
+.form-group {
+    margin: 14px;
+}

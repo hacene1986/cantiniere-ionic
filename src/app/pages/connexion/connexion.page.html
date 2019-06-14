@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <!-- <ion-title>Connexion</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
@@ -7,27 +10,25 @@
 
 <ion-content>
   <div class="container">
-    <h2 class="bienvenue" style="text-align: center">Bienvenue</h2>
-    <h3 class="connexion">Connexion</h3>
+    <h1 class="bienvenue" style="text-align: center">Bienvenue</h1>
+    <h4 class="connexion ion-text-center">Connexion</h4>
 
 
     <!-- Debut du formulaire de connexion -->
-
-    <!-- TODO fix formGroup -->
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" (ngSubmit)="connexion(f)" #f="ngForm" novalidate>
       <ion-button color="danger" class="forgotPassword" routerLink="/motdepassoublie">Mot de passe oublié</ion-button>
       <div class="form-group">
-        <ion-input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+        <ion-input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" ngModel required>
         </ion-input>
       </div>
 
       <div class="form-group">
         <ion-input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Mot de passe"
-          required></ion-input>
+          ngModel required></ion-input>
       </div>
 
       <div class="form-group">
-        <ion-button color="danger" (click)="connexion()" type="submit" class="btn-test">
+        <ion-button color="danger" type="submit" class="btn-test">
           Identifiez-vous
         </ion-button>
       </div>
@@ -54,18 +55,5 @@
       </div>
     </form>
   </div> -->
-
-  <!-- Les templates pour les pop-up snackBar -->
-  <!-- <ng-template #snackBarTemplate>
-    <div class="text-center text-monospace text-success">
-      Bienvenue {{ userConnected.firstname }}!
-    </div>
-  </ng-template> -->
-
-  <!-- <ng-template #snackBarTemplateError>
-    <div class="text-center text-danger2 font-weight-bold">
-      ❌ Erreur d'authentification
-    </div>
-  </ng-template> -->
 
 </ion-content>

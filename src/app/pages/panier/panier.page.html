@@ -1,17 +1,29 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <!-- <ion-title>Panier</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1 class="ion-text-center">Votre panier</h1>
+
+  <ion-text *ngIf="menuPanier === null" color="danger" class="block">
+    <h1 class="ion-text-center ion-margin-bottom">Votre panier est vide !</h1>
+    <br>
+    <ion-button color="danger" routerLink="/menu">Choisir un menu
+    </ion-button>
+  </ion-text>
+
+  <h1 *ngIf="menuPanier != null" class="ion-text-center">Votre panier</h1>
+
   <h4 class="right" *ngIf="isAuth">
     Ma cagnotte:
     <span class="user-details"> {{ userConnected.wallet }} €</span>
   </h4>
-  <ion-list>
+  <ion-list *ngIf="menuPanier != null">
     <ion-item-sliding>
       <ion-item *ngFor="let panier of menuPanier; let i = index">
         <ion-label text-wrap>
@@ -25,5 +37,10 @@
     </ion-item-sliding>
   </ion-list>
 
-  <ion-button color="danger" class="search-btn btn-test btn-block" (click)="creerLaCommande()">Valider</ion-button>
+  <ion-button *ngIf="isAuth && menuPanier != null" color="danger" class="search-btn btn-test btn-block"
+    (click)="creerLaCommande()">Valider
+  </ion-button>
+  <ion-button *ngIf="!isAuth && menuPanier != null" color="danger" class="search-btn btn-test btn-block"
+    routerLink="/connexion">Se connecter
+  </ion-button>
 </ion-content>

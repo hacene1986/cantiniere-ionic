@@ -77,7 +77,8 @@ export class MenuPage implements OnInit {
   }
 
   // // Méthode pour ouvrir le détail du menu
-  openDetailMenu() {
+  openDetailMenu(id) {
+    this.router.navigate(['/menu', id]);
     // this.modalService.open(ajoutPanier, { ariaLabelledBy: 'modal-basic-title', centered: true })
     //   .result.then((result) => {
     //     this.closeModal();
@@ -118,7 +119,7 @@ export class MenuPage implements OnInit {
       message: 'Menu ajouté au panier',
       position: 'bottom',
       color: 'success',
-      duration: 10000,
+      duration: 3000,
       buttons: [
         {
           text: 'OK',
@@ -135,10 +136,10 @@ export class MenuPage implements OnInit {
 
   async toastError() {
     const toast = await this.toastController.create({
-      message: 'Vérifier que le back est lancé',
+      message: 'Erreur serveur',
       position: 'bottom',
-      color: 'success',
-      duration: 10000,
+      color: 'danger',
+      duration: 5000,
       buttons: [
         {
           side: 'start',

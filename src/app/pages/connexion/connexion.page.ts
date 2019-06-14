@@ -1,8 +1,9 @@
+import { ToastController } from '@ionic/angular';
 import { AuthentificationService } from '../../services/authentification.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-connexion',
@@ -15,36 +16,25 @@ export class ConnexionPage implements OnInit {
   connexionForm: FormGroup;
   userConnected: User;
 
-  // @ViewChild('snackBarTemplate')
-  // snackBarTemplate: TemplateRef<any>;
-
-  // @ViewChild('snackBarTemplateError')
-  // snackBarTemplateError: TemplateRef<any>;
-
   constructor(
-    // private modalService: NgbModal,
-    // private snackBar: MatSnackBar,
     private router: Router,
     private authService: AuthentificationService,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    private toastController: ToastController
+  ) { }
 
+  ngOnInit() {
     this.connexionForm = this.formBuilder.group({
       login: ['', Validators.required],
       pwd: ['', Validators.required],
     });
   }
 
-  ngOnInit() {
-  }
-
 
   // Appel de la méthode de connexion
-  connexion() {
-    const formValue = this.connexionForm.value;
-    const login: string = formValue.login;
-    const pwd: string = formValue.pwd;
+  connexion(form: NgForm) {
 
-    this.authService.authentification(login, pwd)
+    this.authService.authentification(form.value.email, form.value.password)
       .subscribe(
         (user: User) => {
           console.log('user dans connexion:' + user.id);
@@ -54,31 +44,53 @@ export class ConnexionPage implements OnInit {
           this.userConnected = user;
           window.location.reload();
           this.router.navigate(['/']);
-          this.openSnackBar();
         },
         err => {
           console.log('Erreur d\'authentification:' + err);
           if (localStorage.getItem('user') == null) {
-            this.openSnackBarError();
+            this.toastError();
           }
         }
       );
   }
 
-  openSnackBar() {
-    // this.snackBar.openFromTemplate(this.snackBarTemplate, {
-    //   duration: 7000,
-    //   verticalPosition: 'bottom',
-    //   horizontalPosition: 'right',
-    // });
+  async toastSuccess() {
+    const toast = await this.toastController.create({
+      message: 'Bienvenu ! Vous allez être redirigé.',
+      position: 'bottom',
+      color: 'success',
+      duration: 3000,
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
   }
 
-  openSnackBarError() {
-    // this.snackBar.openFromTemplate(this.snackBarTemplateError, {
-    //   duration: 10000,
-    //   verticalPosition: 'bottom',
-    //   horizontalPosition: 'center',
-    // });
+
+  async toastError() {
+    const toast = await this.toastController.create({
+      message: 'Probleme serveur',
+      position: 'bottom',
+      color: 'danger',
+      duration: 10000,
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
   }
 
 }

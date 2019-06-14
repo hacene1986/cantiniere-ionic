@@ -9,7 +9,9 @@ const routes: Routes = [
   { path: 'motdepassoublie', loadChildren: './pages/motdepassoublie/motdepassoublie.module#MotdepassoubliePageModule' },
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
   { path: 'plats', loadChildren: './pages/plats/plats.module#PlatsPageModule' },
-  { path: 'panier', loadChildren: './pages/panier/panier.module#PanierPageModule' }
+  { path: 'panier', loadChildren: './pages/panier/panier.module#PanierPageModule' },
+  { path: 'menu/:id', loadChildren: './pages/menudetails/menudetails.module#MenudetailsPageModule' }
+
 ];
 
 @NgModule({

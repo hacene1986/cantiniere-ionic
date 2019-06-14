@@ -62,4 +62,14 @@ export class AppComponent {
     }
     console.log('user connecté (isAuth) : ' + this.isAuth);
   }
+
+  deconnexion() {
+    localStorage.removeItem('user');
+    this.auth.logout();
+    window.location.reload();
+    this.router.navigate(['/']);
+    this.initializeApp();
+
+  }
+
 }

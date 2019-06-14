@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <!-- <ion-title>Menu</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
@@ -63,7 +66,7 @@
 
                   </ion-fab> -->
 
-                  <a class="btn btn-more " (click)="openDetailMenu()">...</a>
+                  <a class="btn btn-more " (click)="openDetailMenu(menu.id)">...</a>
                   <a class="btn btn-add " (click)="addToPanier(menu)">&nbsp;+&nbsp;</a>
                 </div>
               </div>
