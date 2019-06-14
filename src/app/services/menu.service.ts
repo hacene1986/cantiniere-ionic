@@ -25,6 +25,10 @@ export class MenuService {
     return this.httpClient.get<Menu>(environment.urlServeurBackEnd + 'menu/find/' + menu);
   }
 
+  getMenuById(id: number): Observable<Menu> {
+    return this.httpClient.get<Menu>(environment.urlServeurBackEnd + 'menu/find/' + id);
+  }
+
   // PROCHAINES METHODES SEULEMENT POUR LA CANTINIERE
   // Méthode pour récuperer tous les menus
   getAllMenu(): Observable<Menu[]> {

@@ -100,20 +100,6 @@ export class MenuPage implements OnInit {
     console.log(JSON.parse(localStorage.getItem('panier')));
   }
 
-  // Méthode du modal, qui valide l'ajout du menu dans le panier
-  // closeValiderAjoutPanier(menu, quantity) {
-  //   let panier = [];
-  //   if (localStorage.getItem('panier')) {
-  //     panier = JSON.parse(localStorage.getItem('panier'));
-  //   }
-  //   panier.push({ quantity, menu });
-  //   localStorage.setItem('panier', JSON.stringify(panier));
-
-  //   this.closeModal();
-  //   this.toastSuccess();
-  //   console.log(JSON.parse(localStorage.getItem('panier')));
-  // }
-
   async toastSuccess() {
     const toast = await this.toastController.create({
       message: 'Menu ajouté au panier',
