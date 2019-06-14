@@ -3,16 +3,13 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <!-- <ion-title>Inscription</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <div class="container">
     <h1 class="bienvenue" style="text-align: center">Bienvenue</h1>
-    <h4 class="connexion ion-text-center">Inscription</h4>
-
+    <h4 class="inscription ion-text-center">Inscription</h4>
     <!-- Debut du formulaire d'inscription -->
     <form (ngSubmit)="creerUtilisateur(f)" #f="ngForm" for="validerInscription" class="formulaire ion-text-center"
       novalidate>
@@ -33,7 +30,6 @@
           required>
         </ion-input>
       </div>
-
       <div class="form-group ion-text-center">
         <ion-button color="danger" type="submit" class="btn-test">
           S'inscrire
@@ -41,5 +37,4 @@
       </div>
     </form>
   </div>
-
 </ion-content>

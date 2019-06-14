@@ -3,19 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <!-- <ion-title>Plats</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
-
   <div class="container-fluid">
     <br>
     <h1 class="text-h1">Les plats de la semaine</h1>
     <br>
-    <!-- On définit les différents boutons -->
     <ul id="tabsNav" class="tabsNav nav">
       <li class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
         [class.active]="viewMode == 'tabToday'" rel="tabToday" (click)="viewMode ='tabToday'">Aujourd'hui</li>
@@ -23,14 +18,9 @@
         [class.active]="viewMode == 'tabThisWeek'" rel="tabThisWeek" (click)="viewMode ='tabThisWeek'">Cette semaine
       </li>
     </ul>
-
     <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
-
-      <!-- Pour "tabToday", on récupère tous les plats du jour avec listPlatsToday -->
       <div id="tabToday" *ngSwitchCase="'tabToday'" class="tab-pane fade active show">
         <ng-container *ngFor="let meal of listPlatsToday; let i = index">
-
-
           <ion-card class="card-ion">
             <img class="" src="../../../assets/menu-default.png">
             <ion-card-header class="header-ion">
@@ -53,16 +43,11 @@
               </div>
             </ion-card-content>
           </ion-card>
-
-
         </ng-container>
       </div>
-
       <!-- Pour "tabThisWeek", on récupère tous les plats de la semaine avec listPlatsWeek -->
       <div id="tabThisWeek" *ngSwitchCase="'tabThisWeek'" class="tab-pane fade active show">
         <ng-container *ngFor="let meal of listPlatsWeek; let i = index">
-
-
           <ion-card class="card-ion">
             <img class="" src="../../../assets/menu-default.png">
             <ion-card-header class="header-ion">
@@ -85,13 +70,8 @@
               </div>
             </ion-card-content>
           </ion-card>
-
-
         </ng-container>
       </div>
-
     </div>
   </div>
-
-
 </ion-content>

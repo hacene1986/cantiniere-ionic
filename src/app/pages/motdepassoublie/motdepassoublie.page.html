@@ -3,11 +3,9 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="inscription"></ion-back-button>
     </ion-buttons>
-    <!-- <ion-title>Mot de passe oublié</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <div class="container">
     <h2 class="aide" style="text-align: center">Aide sur le mot de passe</h2>
@@ -21,9 +19,7 @@
             required></ion-input>
           <br />
         </div>
-
         <h5 class="saisir">Vous devriez recevoir un mail de réinitialisation.</h5>
-
         <div class="footer">
           <ion-button type="submit" class="btn-test">
             Confirmer
@@ -31,32 +27,5 @@
         </div>
       </div>
     </form>
-
-    <!-- <form [formGroup]="lostPasswordForm" class="needs-validation" novalidate>
-      <div class="form-group">
-        <div class="modal-header">
-          <h2 class="modal-title font-weight-bolder forgot" id="modal-basic-title">
-            Mot de passe oublié ?
-          </h2>
-        </div>
-        <div class="modal-body">
-          <br />
-          <ion-label for="inputEmail5">Email</ion-label>
-          <ion-input name="email" type="email" class="form-control rounded-2" id="inputEmail5" placeholder="Email"
-            formControlName="emailLost" required />
-          <br />
-        </div>
-
-        <div class="modal-footer">
-          <ion-button (click)="closeModal()" class="btn btn-retour float-left">
-            Retour
-          </ion-button>
-          <ion-button type="button" class="btn btn-test float-right" (click)="modal.dismiss('cancel click')">
-            Valider
-          </ion-button>
-        </div>
-      </div>
-    </form> -->
-
   </div>
 </ion-content>

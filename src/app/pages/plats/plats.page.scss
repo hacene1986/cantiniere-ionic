@@ -38,13 +38,6 @@ li {
     text-align: center;
 }
 
-.nav-link-all.active {
-    filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
-    background-color: #3a3a3a;
-    color: rgb(235, 235, 235);
-    font-weight: 600;
-}
-
 .nav-link:hover {
     filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
 }
@@ -84,20 +77,6 @@ li {
     transition: .5s ease;
 }
 
-
-.card-img-top {
-    height: 150px;
-    opacity: 0.85;
-    transition: .5s ease;
-}
-
-.card-title-custom {
-    text-align: center;
-    font-size: 1.15em;
-    font-weight: 500;
-    min-height: 62px;
-}
-
 .card-text {
     font-size: 0.9em;
 }
@@ -114,36 +93,6 @@ li {
     text-align: center;
 }
 
-.radio-group {
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-}
-
-.radio-button {
-    margin: 5px;
-}
-
-.img-meal {
-    border: 3px solid rgb(105, 105, 105);
-    border-radius: 50%;
-    height: 150px;
-    width: 150px;
-    opacity: 0.7;
-    display: block;
-    margin: auto;
-    margin-bottom: 10px;
-}
-
-.full {
-    width: 50%;
-    margin: 0 auto;
-}
-
-.quantity {
-    width: 100%;
-}
-
 /* Pour le responsive */
 @media (max-width: 768px) {
     .nav-item {
@@ -151,18 +100,9 @@ li {
     }
 }
 
-
 .text-h1 {
     font-weight: 800;
     text-align: center;
-}
-
-.today {
-    margin-right: 10px;
-}
-
-.thisweek {
-    margin-left: 10px;
 }
 
 .header-ion {
@@ -176,11 +116,6 @@ li {
 
 .meals {
     padding-bottom: 23px;
-}
-
-.details {
-    float: right;
-    margin-top: -5px;
 }
 
 .meallabel {

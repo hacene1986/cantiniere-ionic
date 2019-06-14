@@ -3,22 +3,17 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <!-- <ion-title>Panier</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
   <ion-text *ngIf="menuPanier === null" color="danger" class="block">
     <h1 class="ion-text-center ion-margin-bottom">Votre panier est vide !</h1>
     <br>
     <ion-button color="danger" routerLink="/menu">Choisir un menu
     </ion-button>
   </ion-text>
-
   <h1 *ngIf="menuPanier != null" class="ion-text-center">Votre panier</h1>
-
   <h4 class="right" *ngIf="isAuth">
     Ma cagnotte:
     <span class="user-details"> {{ userConnected.wallet }} €</span>
@@ -36,9 +31,7 @@
       </ion-item>
     </ion-item-sliding>
   </ion-list>
-
-  <ion-button *ngIf="isAuth && menuPanier != null" color="danger" class="search-btn btn-test btn-block"
-    (click)="creerLaCommande()">Valider
+  <ion-button *ngIf="isAuth && menuPanier != null" color="danger" class="btn-test" (click)="creerLaCommande()">Valider
   </ion-button>
   <ion-button *ngIf="!isAuth && menuPanier != null" color="danger" class="search-btn btn-test btn-block"
     routerLink="/connexion">Se connecter

@@ -3,17 +3,13 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <!-- <ion-title>Connexion</ion-title> -->
     <ion-card-header>La cantinière</ion-card-header>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <div class="container">
     <h1 class="bienvenue" style="text-align: center">Bienvenue</h1>
     <h4 class="connexion ion-text-center">Connexion</h4>
-
-
     <!-- Debut du formulaire de connexion -->
     <form class="needs-validation" (ngSubmit)="connexion(f)" #f="ngForm" novalidate>
       <ion-button color="danger" class="forgotPassword" routerLink="/motdepassoublie">Mot de passe oublié</ion-button>
@@ -21,12 +17,10 @@
         <ion-input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" ngModel required>
         </ion-input>
       </div>
-
       <div class="form-group">
         <ion-input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Mot de passe"
           ngModel required></ion-input>
       </div>
-
       <div class="form-group">
         <ion-button color="danger" type="submit" class="btn-test">
           Identifiez-vous
@@ -34,26 +28,4 @@
       </div>
     </form>
   </div>
-
-  <!-- <form class="needs-validation" [formGroup]="connexionForm" novalidate>
-      <ion-button color="danger" class="forgotPassword" routerLink="/motdepassoublie">Mot de passe oublié</ion-button>
-      <div class="form-group">
-        <ion-input formControlName="login" name="email" type="email" class="form-control" id="inputEmail4"
-          placeholder="Email" required>
-        </ion-input>
-      </div>
-
-      <div class="form-group">
-        <ion-input formControlName="pwd" name="password" type="password" class="form-control" id="inputPassword4"
-          placeholder="Mot de passe" required></ion-input>
-      </div>
-
-      <div class="form-group">
-        <ion-button color="danger" (click)="connexion()" type="submit" class="btn-test">
-          Identifiez-vous
-        </ion-button>
-      </div>
-    </form>
-  </div> -->
-
 </ion-content>

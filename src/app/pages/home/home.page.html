@@ -1,28 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot=start>
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title class="ion-text-capitalize">
-      La cantinière
-    </ion-title>
+    <ion-title class=ion-text-capitalize>La cantinière</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div class="body">
-    <div class="paragraph">
-      <p>Mangez frais, Mangez prêt</p>
-      <p>Commandez avant 10h30</p>
+  <div class=body>
+    <div class=paragraph>
+      <p>Mangez frais, Mangez prêt<p>Commandez avant 10h30
     </div>
-    <ion-button color="danger" class="commander" [routerLink]="['/menu']"
-      *ngIf="userConnected == '' || userConnected.isLunchLady == 0">
-      Commander
-    </ion-button>
-    <ion-button color="primary" class="commander" *ngIf="userConnected.isLunchLady == 1"
-      [routerLink]="['/cantiniereRecap']">
-      Administrer
-    </ion-button>
+    <ion-button *ngIf="userConnected == '' || userConnected.isLunchLady == 0" [routerLink]="['/menu']" class=commander
+      color=danger>Commander</ion-button>
+    <ion-button *ngIf="userConnected.isLunchLady == 1" [routerLink]="['/cantiniereRecap']" class=commander
+      color=primary>Administrer</ion-button>
   </div>
-
 </ion-content>
