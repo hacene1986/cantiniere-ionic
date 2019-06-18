@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
   { path: 'plats', loadChildren: './pages/plats/plats.module#PlatsPageModule' },
   { path: 'panier', loadChildren: './pages/panier/panier.module#PanierPageModule' },
-  { path: 'menu/:id', loadChildren: './pages/menudetails/menudetails.module#MenudetailsPageModule' }
+  { path: 'menu/:id', loadChildren: './pages/menudetails/menudetails.module#MenudetailsPageModule' },  { path: 'my-account', loadChildren: './pages/backoff-user/my-account/my-account.module#MyAccountPageModule' }
+
 
 ];
 
