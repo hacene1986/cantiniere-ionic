@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'plats', loadChildren: './pages/plats/plats.module#PlatsPageModule' },
   { path: 'panier', loadChildren: './pages/panier/panier.module#PanierPageModule' },
   { path: 'menu/:id', loadChildren: './pages/menudetails/menudetails.module#MenudetailsPageModule' },  { path: 'my-account', loadChildren: './pages/backoff-user/my-account/my-account.module#MyAccountPageModule' },
-  { path: 'user-account', loadChildren: './pages/backoff-cantiniere/user-account/user-account.module#UserAccountPageModule' }
+  { path: 'user-account', loadChildren: './pages/backoff-cantiniere/user-account/user-account.module#UserAccountPageModule' },
+  { path: 'user-details', loadChildren: './pages/backoff-cantiniere/user-details/user-details.module#UserDetailsPageModule' }
 
 
 ];
