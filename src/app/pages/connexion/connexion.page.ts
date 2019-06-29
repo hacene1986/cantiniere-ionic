@@ -42,8 +42,9 @@ export class ConnexionPage implements OnInit {
           // Placement dans le localStorage
           localStorage.setItem('user', JSON.stringify(user));
           this.userConnected = user;
-          window.location.reload();
           this.router.navigate(['/']);
+          // window.location.reload();
+          this.toastSuccess();
         },
         err => {
           console.log('Erreur d\'authentification:' + err);
@@ -56,7 +57,7 @@ export class ConnexionPage implements OnInit {
 
   async toastSuccess() {
     const toast = await this.toastController.create({
-      message: 'Bienvenu ! Vous allez être redirigé.',
+      message: 'Bienvenu ! Vous êtes connecté.',
       position: 'bottom',
       color: 'success',
       duration: 3000,

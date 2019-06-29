@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Menu } from './../../models/menu';
 import { MenuService } from 'src/app/services/menu.service';
@@ -20,7 +21,8 @@ export class MenudetailsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private menuService: MenuService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -50,6 +52,7 @@ export class MenudetailsPage implements OnInit {
 
     this.toastSuccess();
     console.log(JSON.parse(localStorage.getItem('panier')));
+    this.router.navigate(['/panier']);
   }
 
   async toastSuccess() {

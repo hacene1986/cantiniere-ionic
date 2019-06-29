@@ -79,12 +79,6 @@ export class MenuPage implements OnInit {
   // // Méthode pour ouvrir le détail du menu
   openDetailMenu(id) {
     this.router.navigate(['/menu', id]);
-    // this.modalService.open(ajoutPanier, { ariaLabelledBy: 'modal-basic-title', centered: true })
-    //   .result.then((result) => {
-    //     this.closeModal();
-    //   }, (reason) => {
-    //     this.closeModal();
-    //   });
   }
 
   // Méthode du bouton "+" de la card pour directement ajouter un menu dans le panier
