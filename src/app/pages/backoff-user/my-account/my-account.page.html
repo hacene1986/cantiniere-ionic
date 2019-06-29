@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot=start>
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons> -->
+    <ion-title>Mon compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <h4 class="cagnotte-border">Cagnotte: 50€</h4>
+    <h4 class="infos">Nom</h4>
+    <h4 class="infos">Prénom</h4>
+    <h4 class="infos">Email</h4>
+  </div>
+
+  <div>
+    <h4 class="commande">Commandes en cours:</h4>
+  </div>
+
+  <div class="recap">
+    <h4 class="recapTitle">Récapitulatif de la commande</h4>
+  </div>
+
+  <div class="btnGroup">
+    <ion-button class="btn-modifier" [routerLink]="['/account-modifications']"
+      >Modifier</ion-button
+    >
+    <ion-button class="btn-supprimer">Supprimer</ion-button>
+  </div>
+</ion-content>

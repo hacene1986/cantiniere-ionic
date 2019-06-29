@@ -1,32 +1,37 @@
-import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Router } from "@angular/router";
+import { Component } from "@angular/core";
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { AuthentificationService } from 'src/app/services/authentification.service';
+import { Platform } from "@ionic/angular";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
+import { AuthentificationService } from "src/app/services/authentification.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html'
+  selector: "app-root",
+  templateUrl: "app.component.html"
 })
 export class AppComponent {
   public appPages = [
     {
-      title: 'Menu',
-      url: '/menu',
-      icon: 'pizza',
-      color: 'danger'
+      title: "Menus",
+      url: "/menu",
+      icon: "pizza",
+      color: "danger"
     },
     {
-      title: 'Plats',
-      url: '/plats',
-      icon: 'beer'
+      title: "Plats",
+      url: "/plats",
+      icon: "beer"
     },
     {
-      title: 'Panier',
-      url: '/panier',
-      icon: 'cart'
+      title: "Contact",
+      url: "/contact",
+      icon: "cart"
+    },
+    {
+      title: "Panier",
+      url: "/panier",
+      icon: "cart"
     }
   ];
 
@@ -55,21 +60,19 @@ export class AppComponent {
   checkConnexion() {
     if (this.auth.isLogged()) {
       this.isAuth = true;
-      this.userConnected = JSON.parse(localStorage.getItem('user'));
-      console.log('userConnected : ' + JSON.stringify(this.userConnected));
+      this.userConnected = JSON.parse(localStorage.getItem("user"));
+      console.log("userConnected : " + JSON.stringify(this.userConnected));
     } else {
       this.isAuth = false;
     }
-    console.log('user connecté (isAuth) : ' + this.isAuth);
+    console.log("user connecté (isAuth) : " + this.isAuth);
   }
 
   deconnexion() {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     this.auth.logout();
     window.location.reload();
-    this.router.navigate(['/']);
+    this.router.navigate(["/"]);
     this.initializeApp();
-
   }
-
 }

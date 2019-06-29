@@ -1,6 +1,21 @@
 // App Styles
 // ----------------------------------------------------------------------------
-// Put style rules here that you want to apply to the entire application. These 
-// styles are for the entire app and not just one component. Additionally, this 
-// file can hold Sass mixins, functions, and placeholder classes to be imported 
+// Put style rules here that you want to apply to the entire application. These
+// styles are for the entire app and not just one component. Additionally, this
+// file can hold Sass mixins, functions, and placeholder classes to be imported
 // and used throughout the application.
+
+ion-menu {
+  --ion-background-color: #dc3545;
+  --ion-text-color: white;
+}
+
+ion-item {
+  --border-style: none;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.firstItem {
+  margin-top: 30px;
+}
