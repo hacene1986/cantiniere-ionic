@@ -15,7 +15,7 @@ h1 {
     color: white;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-right: 10px;
+    margin-right: 23px;
     // border-radius: 10px;
 }
 
@@ -32,4 +32,14 @@ h1 {
     align-items: center;
     margin: 0;
     height: 100%;
+}
+
+.imgMenuPanier {
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.nomMenu {
+    margin-top: -20px !important;
+    margin-bottom: 20px !important;
 }

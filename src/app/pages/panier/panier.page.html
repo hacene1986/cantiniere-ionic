@@ -22,10 +22,13 @@
     <ion-item-sliding>
       <ion-item *ngFor="let panier of menuPanier; let i = index">
         <ion-label text-wrap>
-          <h2> <b>{{ panier.menu.label }}</b></h2>
-          Quantité : {{ panier.quantity }}
+          <img class="imgMenuPanier" src="../../../assets/menu-default.png" />
         </ion-label>
-        <ion-label>{{ panier.menu.priceDF }} €</ion-label>
+        <ion-label class="ion-text-center">
+          <h1 class="ion-text-center nomMenu"> <b>{{ panier.menu.label }}</b></h1>
+          <ion-label><b>Quantité :</b> {{ panier.quantity }}</ion-label>
+          <ion-label><b>Prix :</b> {{ panier.menu.priceDF }} €</ion-label>
+        </ion-label>
         <ion-icon side="end" name="trash" class="delete" (click)="supprimerMenu(i)">
         </ion-icon>
       </ion-item>
