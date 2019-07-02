@@ -14,7 +14,11 @@ const routes: Routes = [
   { path: 'my-account', loadChildren: './pages/backoff-user/my-account/my-account.module#MyAccountPageModule' },
   { path: 'user-account', loadChildren: './pages/backoff-cantiniere/user-account/user-account.module#UserAccountPageModule' },
   { path: 'user-details', loadChildren: './pages/backoff-cantiniere/user-details/user-details.module#UserDetailsPageModule' },
-  { path: 'account-modifications', loadChildren: './pages/backoff-user/account-modifications/account-modifications.module#AccountModificationsPageModule' },  { path: 'contact', loadChildren: './pages/contact/contact.module#ContactPageModule' }
+  { path: 'account-modifications', loadChildren: './pages/backoff-user/account-modifications/account-modifications.module#AccountModificationsPageModule' },
+  { path: 'contact', loadChildren: './pages/contact/contact.module#ContactPageModule' },
+  { path: 'cantiniere-menu', loadChildren: './pages/cantiniere-menu/cantiniere-menu.module#CantiniereMenuPageModule' },  { path: 'cantiniere-plat', loadChildren: './pages/cantiniere-plat/cantiniere-plat.module#CantinierePlatPageModule' },
+  { path: 'recap-cantiniere', loadChildren: './pages/recap-cantiniere/recap-cantiniere.module#RecapCantinierePageModule' }
+
 
 
 
