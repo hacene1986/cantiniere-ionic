@@ -1,10 +1,11 @@
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { User } from 'src/app/models/user';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -16,31 +17,31 @@ export class AuthentificationService {
     private router: Router
   ) { }
 
+  token = null;
+  decode = null;
+
   // Méthode d'authentification
-  authentification(email: string, password: string): Observable<User> {
-    return this.httpClient.post<User>(environment.urlServeurBackEnd + 'login/', null,
-      { params: { email, password } })
+  authentification(email: string, password: string): Observable<HttpResponse<any>> {
+    return this.httpClient.post<HttpResponse<any>>(
+      environment.urlServeurBackEnd + 'login',
+      { email, password },
+      { observe: 'response' })
       .pipe(
         tap(data => {
-          console.log(data);
-          console.log('user id:' + data.id.toString());
+          console.log(data.headers.get('Authorization'));
+          localStorage.setItem('token', data.headers.get('Authorization'));
 
-          localStorage.setItem('user', JSON.stringify(data));
-          catchError(this.handleError<User>('getUserByKey'));
+          this.token = localStorage.getItem('token');
+          this.decode = jwt_decode(this.token);
+
+          catchError(this.handleError<HttpResponse<any>>('getUserByKey'));
         }));
   }
 
-  // Méthode de déconnexion
-  logout(): Observable<User> {
-    return this.httpClient.get<User>(environment.urlServeurBackEnd + 'logout/'
-    ).pipe(
-      tap(data => {
-        console.log(data);
-        console.log('user id logout:' + data.id.toString());
-
-        localStorage.clear(),
-          catchError(this.handleError<User>('getUserByKey'));
-      }));
+  getUserConnected() {
+    this.token = localStorage.getItem('token');
+    this.decode = jwt_decode(this.token);
+    return this.decode.user;
   }
 
   // Méthode pour l'oubli du mot de passe
@@ -50,11 +51,17 @@ export class AuthentificationService {
   }
 
   isLogged() {
-    if (localStorage.getItem('user') != null) {
+    if (localStorage.getItem('token') != null) {
       return true;
     } else {
       return false;
     }
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    // window.location.reload();
+    this.router.navigate(['/']);
   }
 
   //  Handle Http operation that failed.

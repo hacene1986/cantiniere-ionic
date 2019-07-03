@@ -1,3 +1,4 @@
+import { AuthentificationService } from './../../services/authentification.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +12,8 @@ export class MotdepassoubliePage implements OnInit {
   lostPasswordForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthentificationService
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,6 @@ export class MotdepassoubliePage implements OnInit {
     const formValue = this.lostPasswordForm.value;
     const emailLost: string = formValue.emailLost;
     // this.modalService.open(modalPassword, { centered: true, windowClass: 'modalPassword' });
-    // this.authService.forgotPassword(emailLost);
+    this.authService.forgotPassword(emailLost);
   }
 }

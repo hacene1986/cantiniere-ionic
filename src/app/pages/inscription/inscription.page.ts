@@ -63,8 +63,6 @@ export class InscriptionPage implements OnInit {
                 console.log(err);
               });
           form.reset();
-          // Placement dans le localStorage
-          localStorage.setItem('user', JSON.stringify(user));
           this.userConnected = user;
           window.location.reload();
           this.router.navigate(['/']);
