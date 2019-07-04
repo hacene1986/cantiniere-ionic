@@ -1,34 +1,95 @@
+ion-header {
+  --ion-background-color: #dc3545;
+}
+
+ion-content {
+  --ion-background-color: #f5f5f5;
+}
+
 .container {
-    height: 100%;
-    padding-top: 30px;
-    padding-bottom: 65px;
-    padding-right: 30px;
-    padding-left: 30px;
-    background: #f0f0f0;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 65px;
+  padding-right: 30px;
+  padding-left: 30px;
+  //   background: #f0f0f0;
+}
+
+h1 {
+  font-weight: bold;
 }
 
 .connexion {
-    margin-top: 40px;
-    margin-bottom: 30px;
+  margin-top: 40px;
+  //   margin-bottom: 30px;
 }
 
 form.needs-validation {
-    background-color: #f0f0f0 !important;
-    text-align: center;
+  //   background-color: #f0f0f0 !important;
+  text-align: center;
 }
 
 .forgotPassword {
-    font-weight: 300;
-    font-size: 0.8em;
-    margin-bottom: 32px;
+  //   font-weight: 300;
+  //   font-size: 0.8em;
+  //   margin-bottom: 32px;
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 65%;
+  height: 40px;
+  margin-top: 20px;
 }
 
-.form-control {
-    border: 1px solid rgb(110, 110, 110);
-    border-radius: 15px;
-    margin-bottom: 5px;
+// .form-control {
+//   border: 1px solid rgb(110, 110, 110);
+//   border-radius: 15px;
+//   margin-bottom: 5px;
+// }
+
+.formConnexion {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.formConnexionInput {
+  margin-top: 2px;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  width: 80%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    color: #495057;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  }
 }
 
 .btn-test {
-    margin-top: 22px;
+  margin-top: 30px;
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 50%;
+  height: 40px;
+}
+
+.userPolicy {
+  margin-top: 50px;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: bold;
 }

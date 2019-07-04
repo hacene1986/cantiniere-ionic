@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 <ion-header>
+=======
+<!-- <ion-header>
+  <ion-buttons slot=start>
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+  <ion-card-header>La cantinière</ion-card-header>
+>>>>>>> connexion style modifications
   <ion-toolbar>
     <ion-buttons slot=start>
       <ion-menu-button></ion-menu-button>
@@ -8,27 +16,69 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img
+        src="../../../assets/img/logo_cantiniere.png"
+        alt=""
+        width="200"
+        height="75"
+      />
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <div class="container">
-    <h1 class="bienvenue" style="text-align: center">Bienvenue</h1>
-    <h4 class="connexion ion-text-center">Connexion</h4>
+    <h1 class="bienvenue">Bienvenue</h1>
+    <h4 class="connexion">Connexion. Déjà client(e) ?</h4>
     <!-- Debut du formulaire de connexion -->
-    <form class="needs-validation" (ngSubmit)="connexion(f)" #f="ngForm" novalidate>
-      <ion-button color="danger" class="forgotPassword" routerLink="/motdepassoublie">Mot de passe oublié</ion-button>
-      <div class="form-group">
-        <ion-input name="email" type="email" class="form-control" id="inputEmail4" placeholder="Email" ngModel required>
-        </ion-input>
+    <form
+      class="needs-validation"
+      (ngSubmit)="connexion(f)"
+      #f="ngForm"
+      novalidate
+    >
+      <ion-button class="forgotPassword" routerLink="/motdepassoublie"
+        >Mot de passe oublié</ion-button
+      >
+
+      <div class="formConnexion">
+        <input
+          class="formConnexionInput"
+          name="email"
+          type="email"
+          id="inputEmail4"
+          placeholder="Email"
+          ngModel
+          required
+        />
+        <input
+          class="formConnexionInput"
+          name="password"
+          type="password"
+          id="inputPassword4"
+          placeholder="Mot de passe"
+          ngModel
+          required
+        />
       </div>
       <div class="form-group">
-        <ion-input name="password" type="password" class="form-control" id="inputPassword4" placeholder="Mot de passe"
-          ngModel required></ion-input>
-      </div>
-      <div class="form-group">
-        <ion-button color="danger" type="submit" class="btn-test">
+        <ion-button type="submit" class="btn-test">
           Identifiez-vous
         </ion-button>
       </div>
     </form>
+
+    <div>
+      <p class="userPolicy">
+        En continuant, vous acceptez les
+        <a href="">Conditions d'utilisation</a> et la
+        <a href="">Politique de confidentialité</a> de la Cantinière.
+      </p>
+    </div>
   </div>
 </ion-content>
