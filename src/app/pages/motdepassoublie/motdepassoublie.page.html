@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot=start>
       <ion-menu-button></ion-menu-button>
@@ -8,24 +8,47 @@
       <ion-back-button defaultHref="inscription"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img
+        src="../../../assets/img/logo_cantiniere.png"
+        alt=""
+        width="200"
+        height="75"
+      />
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <div class="container">
-    <h2 class="aide" style="text-align: center">Aide sur le mot de passe</h2>
-    <h5 class="saisir">Saisissez l'adresse e-mail associé
-      à votre compte La Cantinière</h5>
-    <form class="lostPasswordForm" novalidate>
+    <h1 class="aide">Aide sur le mot de passe</h1>
+    <h4 class="saisir">
+      Saisissez l'adresse e-mail associé à votre compte La Cantinière
+    </h4>
+    <form class="formPasswordForgot" novalidate>
       <div class="form-group">
-        <div class="body">
+        <div class="formPasswordForgot">
           <br />
-          <ion-input name="email" type="email" class="form-control" id="inputEmail5" placeholder="Adresse email"
-            required></ion-input>
+          <input
+            name="email"
+            type="email"
+            class="formPasswordForgotInput"
+            id="inputEmail5"
+            placeholder="Adresse e-mail"
+            required
+          />
           <br />
         </div>
-        <h5 class="saisir">Vous devriez recevoir un mail de réinitialisation.</h5>
+        <p class="saisir">
+          Vous devriez recevoir un mail de réinitialisation.
+        </p>
         <div class="footer">
           <ion-button type="submit" class="btn-test">
-            Confirmer
+            Continuer
           </ion-button>
         </div>
       </div>
