@@ -4,6 +4,7 @@ import { User } from '../../models/user';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators, FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-connexion',
@@ -36,19 +37,18 @@ export class ConnexionPage implements OnInit {
 
     this.authService.authentification(form.value.email, form.value.password)
       .subscribe(
-        (user: User) => {
-          console.log('user dans connexion:' + user.id);
+        (user) => {
+          this.userConnected = this.authService.getUserConnected();
+          console.log('userConnected in Connexion :');
+          console.log(this.userConnected);
 
-          // Placement dans le localStorage
-          localStorage.setItem('user', JSON.stringify(user));
-          this.userConnected = user;
           this.router.navigate(['/']);
-          // window.location.reload();
           this.toastSuccess();
+          // window.location.reload();
         },
         err => {
-          console.log('Erreur d\'authentification:' + err);
-          if (localStorage.getItem('user') == null) {
+          console.log('Erreur d\'authentification: ' + err);
+          if (localStorage.getItem('token') == null) {
             this.toastError();
           }
         }

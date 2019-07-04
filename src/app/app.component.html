@@ -5,11 +5,7 @@
         <ion-toolbar>
           <ion-title>
             <a>
-              <img
-                src="../assets/img/logo_cantiniere.png"
-                width="200"
-                height="75"
-              />
+              <img src="../assets/img/logo_cantiniere.png" width="200" height="75" />
             </a>
           </ion-title>
         </ion-toolbar>
@@ -17,7 +13,7 @@
       <ion-content>
         <ion-list>
           <ion-item *ngIf="isAuth" color="dark">
-            <!-- <ion-icon slot="end" name="contact"></ion-icon> -->
+            <ion-icon slot="start" name="contact"></ion-icon>
             <ion-label>
               Bienvenue <b>{{ userConnected.firstname }}</b> !
             </ion-label>
@@ -41,11 +37,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item
-              *ngIf="!isAuth"
-              [routerDirection]="'root'"
-              routerLink="/inscription"
-            >
+            <ion-item *ngIf="!isAuth" [routerDirection]="'root'" routerLink="/inscription">
               <!-- <ion-icon slot="start" name="key"></ion-icon> -->
               <ion-label>
                 Inscription
@@ -54,11 +46,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item
-              *ngIf="!isAuth"
-              [routerDirection]="'root'"
-              routerLink="/connexion"
-            >
+            <ion-item *ngIf="!isAuth" [routerDirection]="'root'" routerLink="/connexion">
               <!-- <ion-icon slot="start" name="log-in"></ion-icon> -->
               <ion-label>
                 Connexion
@@ -67,12 +55,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item
-              *ngIf="isAuth"
-              (click)="deconnexion()"
-              [routerDirection]="'root'"
-              routerLink="/home"
-            >
+            <ion-item *ngIf="isAuth" (click)="deconnexion()" [routerDirection]="'root'" routerLink="/home">
               <!-- <ion-icon slot="end" name="undo"></ion-icon> -->
               <ion-label>
                 Se déconnecter

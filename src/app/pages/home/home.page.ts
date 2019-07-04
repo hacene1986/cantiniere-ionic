@@ -1,5 +1,6 @@
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import { Component, OnInit } from '@angular/core';
+// import { jwt_decode } from 'jwt-decode';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +17,13 @@ export class HomePage implements OnInit {
   userConnected: any;
 
   ngOnInit() {
+
+
     if (this.auth.isLogged()) {
       this.isAuth = true;
-      this.userConnected = JSON.parse(localStorage.getItem('user'));
-      console.log('userConnected : ' + JSON.stringify(this.userConnected));
+      this.userConnected = this.auth.getUserConnected();
+      console.log('userConnected in Home : ');
+      console.log(this.userConnected);
     } else {
       this.userConnected = '';
       this.isAuth = false;
