@@ -1,27 +1,91 @@
+ion-header {
+  --ion-background-color: #dc3545;
+}
+
+ion-content {
+  --ion-background-color: #f5f5f5;
+}
+
 .container {
-    height: 100%;
-    padding-top: 30px;
-    padding-bottom: 65px;
-    padding-right: 30px;
-    padding-left: 30px;
-    background: #f0f0f0;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 65px;
+  padding-right: 30px;
+  padding-left: 30px;
+  //   background: #f0f0f0;
+}
+
+.container {
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 65px;
+  padding-right: 30px;
+  padding-left: 30px;
+  //   background: #f0f0f0;
+}
+
+h1 {
+  font-weight: bold;
 }
 
 .inscription {
-    margin-top: 40px;
-    margin-bottom: 30px;
+  margin-top: 40px;
+  //   margin-bottom: 30px;
 }
 
-.form-control {
-    border: 1px solid rgb(110, 110, 110);
-    border-radius: 15px;
-    margin-bottom: 5px;
+.formInscription {
+  text-align: center;
+  margin-top: 30px;
 }
+
+.formInscriptionInput {
+  margin-top: 2px;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  width: 80%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    color: #495057;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  }
+}
+
+// .form-control {
+//   border: 1px solid rgb(110, 110, 110);
+//   border-radius: 15px;
+//   margin-bottom: 5px;
+// }
 
 .btn-test {
-    margin-top: 22px;
+  //   margin-top: 22px;
+  margin-top: 20px;
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 60%;
+  height: 40px;
 }
 
-.form-group {
-    margin: 14px;
+.passwordInfo {
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: bold;
+  text-align: left !important;
 }
+
+// .form-group {
+//   margin: 14px;
+// }

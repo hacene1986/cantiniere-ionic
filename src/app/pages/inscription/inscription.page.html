@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot=start>
       <ion-menu-button></ion-menu-button>
@@ -8,35 +8,80 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img
+        src="../../../assets/img/logo_cantiniere.png"
+        alt=""
+        width="200"
+        height="75"
+      />
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <div class="container">
-    <h1 class="bienvenue" style="text-align: center">Bienvenue</h1>
-    <h4 class="inscription ion-text-center">Inscription</h4>
+    <h1 class="bienvenue">Bienvenue</h1>
+    <h4 class="inscription">Créer un compte. Nouveau chez La Cantinière ?</h4>
     <!-- Debut du formulaire d'inscription -->
-    <form (ngSubmit)="creerUtilisateur(f)" #f="ngForm" for="validerInscription" class="formulaire ion-text-center"
-      novalidate>
-      <div class="form-group">
-        <ion-input name="prenom" type="text" class="form-control" id="prenom" placeholder="Prénom" ngModel required>
-        </ion-input>
-      </div>
-      <div class="form-group">
-        <ion-input name="nom" type="text" class="form-control" id="nom" placeholder="Nom" ngModel required>
-        </ion-input>
-      </div>
-      <div class="form-group">
-        <ion-input name="mail" type="email" class="form-control" id="email" placeholder="Email" ngModel required>
-        </ion-input>
-      </div>
-      <div class="form-group">
-        <ion-input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" ngModel
-          required>
-        </ion-input>
-      </div>
-      <div class="form-group ion-text-center">
-        <ion-button color="danger" type="submit" class="btn-test">
-          S'inscrire
-        </ion-button>
+    <form
+      (ngSubmit)="creerUtilisateur(f)"
+      #f="ngForm"
+      for="validerInscription"
+      class="formulaire"
+      novalidate
+    >
+      <div class="formInscription">
+        <input
+          name="prenom"
+          type="text"
+          class="formInscriptionInput"
+          id="prenom"
+          placeholder="Prénom"
+          ngModel
+          required
+        />
+        <input
+          name="nom"
+          type="text"
+          class="formInscriptionInput"
+          id="nom"
+          placeholder="Nom"
+          ngModel
+          required
+        />
+        <input
+          name="mail"
+          type="email"
+          class="formInscriptionInput"
+          id="email"
+          placeholder="Email"
+          ngModel
+          required
+        />
+        <input
+          name="password"
+          type="password"
+          class="formInscriptionInput"
+          id="password"
+          placeholder="Mot de passe"
+          ngModel
+          required
+        />
+        <div class="passwordInfo">
+          <p>
+            Les mots de passe doivent au moins avoir 6 caractères.
+          </p>
+        </div>
+        <div class="form-group">
+          <ion-button type="submit" class="btn-test">
+            Créer mon compte
+          </ion-button>
+        </div>
       </div>
     </form>
   </div>
