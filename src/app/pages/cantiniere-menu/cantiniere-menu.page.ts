@@ -9,13 +9,13 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class CantiniereMenuPage implements OnInit {
 
-   // Pour afficher l'onglet Formules (menu) par défaut
-   viewMode = 'tabToday';
-   weekNumber = 49;
-   listMenuThisWeek: Array<Menu>;
-   listMenuToday: Array<Menu>;
-   // listMenuWeek: Array<Menu>;
-    //listPlatsWeek: Array<Meal>;
+  // Pour afficher l'onglet Formules (menu) par défaut
+  viewMode = 'tabToday';
+  weekNumber = 49;
+  listMenuThisWeek: Array<Menu>;
+  listMenuToday: Array<Menu>;
+  // listMenuWeek: Array<Menu>;
+  // listPlatsWeek: Array<Meal>;
 
   constructor(
     private menuService: MenuService,
@@ -39,7 +39,7 @@ export class CantiniereMenuPage implements OnInit {
           console.log('Error in Plats.ts ... getAllMealsForWeek()', error);
         }
       );
-    
+
   }
 
   getAllMealsForToday() {
@@ -50,7 +50,7 @@ export class CantiniereMenuPage implements OnInit {
           // console.log('listPlatsToday: ', this.listMenuToday);
         },
         (error) => {
-         // this.openSnackBarError();
+          // this.openSnackBarError();
           console.log('Error in Plats.ts ... getAllMealsForToday()', error);
         }
       );
@@ -65,22 +65,25 @@ export class CantiniereMenuPage implements OnInit {
       meals: form.value.meals,
       availableForWeeks: form.value.availableForWeeks
     };
-    console.log(menu)
+    console.log(menu);
     this.menuService.addMenu(menu)
       .subscribe(
-        menu => {
-          console.log(menu);
+        data => {
+          console.log(data);
           form.reset();
+        },
+        err => {
+
         });
   }
 
-  deleteMenu(id){
+  deleteMenu(id) {
     this.menuService.deleteMenu(id)
-    .subscribe(successCode =>{
-     // console.log(this.listPlatsWeek);
-      this.listMenuThisWeek = this.listMenuThisWeek.filter(listMenuThisWeek => listMenuThisWeek.id !== id);
-      this.listMenuToday = this.listMenuToday.filter(listMenuToday => listMenuToday.id !== id)
-    })
-    
-    }
+      .subscribe(successCode => {
+        // console.log(this.listPlatsWeek);
+        this.listMenuThisWeek = this.listMenuThisWeek.filter(listMenuThisWeek => listMenuThisWeek.id !== id);
+        this.listMenuToday = this.listMenuToday.filter(listMenuToday => listMenuToday.id !== id);
+      });
+
+  }
 }

@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { Order } from '../models/order';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,11 @@ export class OrderService {
 
   // Méthode pour récupérer toutes les commandes
   getAllOrder(): Observable<Order[]> {
-    return this.httpClient.get<Order[]>(environment.urlServeurBackEnd + 'order/findall/');
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.get<Order[]>(environment.urlServeurBackEnd + 'order/findall/', { headers: reqHeader });
   }
 
   // Méthode pour récupérer toute les commandes de tous les utilisateurs en fonction des parametres

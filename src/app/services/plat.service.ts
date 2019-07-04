@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Meal } from '../models/meal';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -34,16 +34,28 @@ export class PlatService {
 
   // Méthode pour ajouter un plat
   addMeal(meal: Meal): Observable<Meal> {
-    return this.httpClient.post<Meal>(environment.urlServeurBackEnd + 'meal/add', meal);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.post<Meal>(environment.urlServeurBackEnd + 'meal/add', meal, { headers: reqHeader });
   }
 
   // Méthode pour supprimer un plat
   deleteMeal(meal: Meal): Observable<Meal> {
-    return this.httpClient.delete<Meal>(environment.urlServeurBackEnd + 'meal/delete/' + meal);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.delete<Meal>(environment.urlServeurBackEnd + 'meal/delete/' + meal, { headers: reqHeader });
   }
 
   // Méthode pour update un plat
   updateMeal(mealId: number, meal: Meal): Observable<Meal> {
-    return this.httpClient.patch<Meal>(environment.urlServeurBackEnd + 'meal/update/' + mealId, meal);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.patch<Meal>(environment.urlServeurBackEnd + 'meal/update/' + mealId, meal, { headers: reqHeader });
   }
 }

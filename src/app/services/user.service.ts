@@ -2,7 +2,7 @@ import { User } from '../models/user';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -23,12 +23,20 @@ export class UserService {
 
   // Méthode pour update le compte d'un utilisateur
   updateUtilisateur(userId: number, user: User): Observable<User> {
-    return this.httpClient.patch<User>(this.urlServeur + 'user/update/' + userId, user);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.patch<User>(this.urlServeur + 'user/update/' + userId, user, { headers: reqHeader });
   }
 
   // Méthode pour supprimer le compte d'un utilisateur
   deleteUtilisateur(user: User): Observable<User> {
-    return this.httpClient.delete<User>(this.urlServeur + 'user/delete/' + user.id);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.delete<User>(this.urlServeur + 'user/delete/' + user.id, { headers: reqHeader });
   }
 
   // Méthode pour desactiver le compte d'un utilisateur
@@ -43,21 +51,37 @@ export class UserService {
 
   // Méthode pour créditer la cagnotte d'un utilisateur
   crediterUtilisateur(id: string, amount: number): Observable<User> {
-    return this.httpClient.post<User>(this.urlServeur + 'user/credit/' + id, amount);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.post<User>(this.urlServeur + 'user/credit/' + id, amount, { headers: reqHeader });
   }
 
   // Méthode pour débiter la cagnotte d'un utilisateur
   debiterUtilisateur(user: User, amount: number): Observable<User> {
-    return this.httpClient.post<User>(this.urlServeur + 'user/debit/' + user.id, amount);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.post<User>(this.urlServeur + 'user/debit/' + user.id, amount, { headers: reqHeader });
   }
 
   // Méthode pour récuperer un utilisateur
   getUtilisateur(id: string): Observable<User> {
-    return this.httpClient.get<User>(this.urlServeur + 'user/find/' + id);
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.get<User>(this.urlServeur + 'user/find/' + id, { headers: reqHeader });
   }
 
   // Méthode pour récuperer tous les utilisateur
   getAllUtilisateur(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.urlServeur + 'user/findall');
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.httpClient.get<User[]>(this.urlServeur + 'user/findall', { headers: reqHeader });
   }
 }

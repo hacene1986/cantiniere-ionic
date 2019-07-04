@@ -41,6 +41,8 @@ export class AuthentificationService {
   getUserConnected() {
     this.token = localStorage.getItem('token');
     this.decode = jwt_decode(this.token);
+    console.log('token decodé : ');
+    console.log(this.decode);
     return this.decode.user;
   }
 
