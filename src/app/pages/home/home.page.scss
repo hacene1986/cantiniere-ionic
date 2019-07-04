@@ -1,35 +1,62 @@
-@media (max-width: 992px) {
-  p {
-    font-size: 20px;
-  }
+ion-title {
+  font-size: 25px;
+  // text-align: center;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
-@media (max-width: 768px) {
-  p {
-    font-size: 10px;
-  }
-}
+// @media (max-width: 992px) {
+//   p {
+//     font-size: 20px;
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   p {
+//     font-size: 10px;
+//   }
+// }
 
 .body {
   text-align: center;
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.2),
-      rgba(255, 255, 255, 0.2)),
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2)
+    ),
     url("../../../assets/img/food-acceuil.jpg") no-repeat center center fixed;
   height: 100%;
 }
 
 p {
   color: white;
-  font-size: 30px;
+  font-size: 23px;
+  margin: none;
   font-family: Georgia, "Times New Roman", Times, serif;
   filter: drop-shadow(0px 0px 8px rgb(0, 0, 0));
 }
 
 .commander {
-  filter: drop-shadow(0px 0px 16px rgb(0, 0, 0));
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 35%;
+  // margin-right: 20px;
+  height: 40px;
+  font-size: 18px;
+  // filter: drop-shadow(0px 0px 16px rgb(0, 0, 0));
+}
+
+@media (max-width: 320px) {
+  .commander {
+    font-size: 16px;
+  }
 }
