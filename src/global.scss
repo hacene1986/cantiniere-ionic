@@ -9,3 +9,25 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+
+ion-menu-button {
+    color: #dc3545;
+}
+
+ion-back-button {
+    color: #dc3545 !important;
+    font-weight: bold;
+    font-stretch: expanded;
+}
+
+ion-card-header {
+    text-align: center;
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+ion-toolbar {
+    // --background: rgba(78, 78, 78, 0.945);
+}

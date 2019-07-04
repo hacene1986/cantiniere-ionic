@@ -22,9 +22,9 @@
     <span class="user-details"> {{ userConnected.wallet }} €</span>
   </h4>
   <ion-list *ngIf="menuPanier != null">
-    <ion-item-sliding>
-      <ion-item *ngFor="let panier of menuPanier; let i = index">
-        <ion-label text-wrap>
+    <ion-item-sliding *ngFor="let panier of menuPanier; let i = index">
+      <ion-item>
+        <ion-label class="imgLabel" text-wrap>
           <img class="imgMenuPanier" src="../../../assets/menu-default.png" />
         </ion-label>
         <ion-label class="ion-text-center">
@@ -32,8 +32,7 @@
           <ion-label><b>Quantité :</b> {{ panier.quantity }}</ion-label>
           <ion-label><b>Prix :</b> {{ panier.menu.priceDF }} €</ion-label>
         </ion-label>
-        <ion-icon side="end" name="trash" class="delete" (click)="supprimerMenu(i)">
-        </ion-icon>
+        <img class="delete" src="../../../assets/img/delete.png" (click)="supprimerMenu(i)" />
       </ion-item>
     </ion-item-sliding>
   </ion-list>

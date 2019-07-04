@@ -1,3 +1,4 @@
+import { ToastController } from '@ionic/angular';
 import { Quantity } from './../../models/quantity';
 import { Menu } from './../../models/menu';
 import { Order } from './../../models/order';
@@ -28,7 +29,8 @@ export class PanierPage implements OnInit {
   constructor(
     // private snackbar: MatSnackBar,
     private auth: AuthentificationService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private toastController: ToastController
   ) { }
 
   ngOnInit() {
@@ -49,7 +51,7 @@ export class PanierPage implements OnInit {
     console.log(this.menuPanier);
     // Pour supprimer 'panier' du localstorage s'il est vide
     if (JSON.stringify(this.menuPanier) === '[]') {
-      localStorage.clear();
+      localStorage.removeItem('panier');
     }
   }
 
@@ -61,6 +63,7 @@ export class PanierPage implements OnInit {
     localStorage.setItem('panier', JSON.stringify(storagePanier));
     console.log(JSON.parse(localStorage.getItem('panier')));
     this.ngOnInit();
+    this.toastSuccess();
   }
 
   // Pour calculer le prix total du panier
@@ -111,6 +114,25 @@ export class PanierPage implements OnInit {
     //       console.log('order: ', this.order);
     //     }
     //   );
+  }
+
+  async toastSuccess() {
+    const toast = await this.toastController.create({
+      message: 'Menu supprimé du panier',
+      position: 'bottom',
+      color: 'danger',
+      duration: 3500,
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
   }
 
 }
