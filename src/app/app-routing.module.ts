@@ -16,8 +16,14 @@ const routes: Routes = [
   { path: 'user-details', loadChildren: './pages/backoff-cantiniere/user-details/user-details.module#UserDetailsPageModule' },
   { path: 'account-modifications', loadChildren: './pages/backoff-user/account-modifications/account-modifications.module#AccountModificationsPageModule' },
   { path: 'contact', loadChildren: './pages/contact/contact.module#ContactPageModule' },
-  { path: 'cantiniere-menu', loadChildren: './pages/cantiniere-menu/cantiniere-menu.module#CantiniereMenuPageModule' },  { path: 'cantiniere-plat', loadChildren: './pages/cantiniere-plat/cantiniere-plat.module#CantinierePlatPageModule' },
-  { path: 'recap-cantiniere', loadChildren: './pages/recap-cantiniere/recap-cantiniere.module#RecapCantinierePageModule' }
+  { path: 'cantiniere-menu', loadChildren: './pages/cantiniere-menu/cantiniere-menu.module#CantiniereMenuPageModule' },
+  { path: 'cantiniere-plat', loadChildren: './pages/cantiniere-plat/cantiniere-plat.module#CantinierePlatPageModule' },
+  { path: 'recap-cantiniere', loadChildren: './pages/backoff-cantiniere/recap-cantiniere/recap-cantiniere.module#RecapCantinierePageModule' },
+  { path: 'crediter', loadChildren: './pages/backoff-cantiniere/crediter/crediter.module#CrediterPageModule' },
+  { path: 'solder', loadChildren: './pages/backoff-cantiniere/solder/solder.module#SolderPageModule' },
+  { path: 'delete-account', loadChildren: './pages/backoff-user/delete-account/delete-account.module#DeleteAccountPageModule' },  { path: 'delete-order', loadChildren: './pages/backoff-cantiniere/delete-order/delete-order.module#DeleteOrderPageModule' }
+
+
 
 
 
