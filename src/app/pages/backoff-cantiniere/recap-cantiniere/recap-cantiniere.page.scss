@@ -1,0 +1,131 @@
+ion-title {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+ion-content {
+  --ion-background-color: #f5f5f5;
+}
+
+.nav-item {
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px;
+}
+
+.tabsNav {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 0px !important;
+}
+
+li {
+  text-align: center;
+  display: inline-block;
+}
+
+.nav-link-custom {
+  background-color: #dfdfdf;
+  color: rgb(104, 104, 104);
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin: 30px 10px;
+}
+
+.nav-link:hover {
+  filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
+}
+
+.nav-link-custom.active {
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  background-color: #3a3a3a;
+  color: rgb(235, 235, 235);
+  font-weight: 600;
+}
+
+ion-slides {
+  margin-top: 30px;
+}
+
+ion-card {
+  background-color: #ffff !important;
+  width: 65%;
+}
+
+ion-card-content {
+  text-align: center;
+
+  & h4 {
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    margin-top: 20px;
+  }
+
+  & h5 {
+    margin-top: 20px;
+  }
+
+  & label {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    margin-left: 2px;
+  }
+
+  & input {
+    margin-right: 2px;
+  }
+}
+
+.takeaway {
+  margin-top: 20px;
+}
+
+.card-text {
+  font-size: 0.9em;
+}
+
+.btn-remove {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-weight: 1000;
+  font-size: 1.2em;
+  margin-bottom: -8px;
+  background-color: rgb(248, 68, 68);
+  color: white;
+  opacity: 0.82;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+.price {
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 0px 8px rgba(175, 175, 175, 0.9);
+  border-radius: 33px;
+  padding: 9px;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.15em;
+  font-weight: 700;
+  float: left;
+  margin-bottom: 10px;
+}
+.details {
+  float: right;
+  margin-top: -5px;
+}

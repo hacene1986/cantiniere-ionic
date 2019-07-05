@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Récapitulatif</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ul id="tabsNav" class="tabsNav nav">
+    <li
+      class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
+      [class.active]="viewMode == 'tabToday'"
+      rel="tabToday"
+      (click)="viewMode = 'tabToday'"
+    >
+      Aujourd'hui
+    </li>
+    <li
+      class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
+      [class.active]="viewMode == 'tabThisWeek'"
+      rel="tabThisWeek"
+      (click)="viewMode = 'tabThisWeek'"
+    >
+      Cette semaine
+    </li>
+  </ul>
+
+  <ion-slides>
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          <h4 class="infos">John Azerty</h4>
+          <h5 class="infos">Spaghetti à la sauce gremolata</h5>
+          <!-- <h4 class="infos">Email</h4> -->
+          <div class="takeaway">
+            <input type="checkbox" />
+            <label>Emporter</label>
+          </div>
+          <div class="price-div">
+            <div class="price">
+              <p class="card-text">10€</p>
+            </div>
+            <hr />
+            <div class="details">
+              <a class="btn btn-remove " [routerLink]="['/delete-order']">X</a>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          <h4 class="infos">Kevin Lorem</h4>
+          <h5 class="infos">Soupe de tomate</h5>
+          <!-- <h4 class="infos">Email</h4> -->
+          <div class="takeaway">
+            <input type="checkbox" />
+            <label>Emporter</label>
+          </div>
+          <div class="price-div">
+            <div class="price">
+              <p class="card-text">10.95€</p>
+            </div>
+            <hr />
+            <div class="details">
+              <a class="btn btn-remove " [routerLink]="['/delete-order']">X</a>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
