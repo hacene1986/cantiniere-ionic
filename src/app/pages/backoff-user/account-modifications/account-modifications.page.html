@@ -9,13 +9,21 @@
     <h4 class="cagnotte-border">Cagnotte: 50€</h4>
   </div>
   <div class="search">
-    <input class="searchInput" type="text" placeholder="Prénom"/>
-    <input class="searchInput" type="text" placeholder="Nom"/>
-    <input class="searchInput" type="email" placeholder="Email"/>
-    <input class="searchInput" type="password" placeholder="Mot de passe"/>
+    <input class="searchInput" type="text" placeholder="Prénom" />
+    <input class="searchInput" type="text" placeholder="Nom" />
+    <input class="searchInput" type="email" placeholder="Email" />
+    <input class="searchInput" type="password" placeholder="Mot de passe" />
   </div>
 
-  <div class="btn">
-    <ion-button class="btn-valider">Valider</ion-button>
+  <div class="btnGroup">
+    <ion-button class="btn-valider" [routerLink]="['/account-modifications']"
+      >Valider</ion-button
+    >
+    <ion-button class="btn-annuler" [routerLink]="['/my-account']"
+      >Annuler</ion-button
+    >
   </div>
+  <!-- <div class="btn">
+    <ion-button class="btn-valider">Valider</ion-button>
+  </div> -->
 </ion-content>

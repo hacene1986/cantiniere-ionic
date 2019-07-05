@@ -49,7 +49,39 @@ ion-content {
   }
 }
 
+// .btn-valider {
+//   text-transform: none;
+//   // background-color: #D3283F;
+//   --border-radius: 19px !important;
+//   --background: #d3283f;
+//   font-weight: bold;
+//   width: 35%;
+//   margin-left: 20px;
+//   height: 40px;
+// }
+
+// .btn {
+//   margin-top: 30px;
+//   text-align: center;
+// }
+
+.btnGroup {
+  text-align: center;
+  margin-top: 30px;
+}
+
 .btn-valider {
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 35%;
+  margin-right: 20px;
+  height: 40px;
+}
+
+.btn-annuler {
   text-transform: none;
   // background-color: #D3283F;
   --border-radius: 19px !important;
@@ -58,9 +90,4 @@ ion-content {
   width: 35%;
   margin-left: 20px;
   height: 40px;
-}
-
-.btn {
-  margin-top: 30px;
-  text-align: center;
 }
