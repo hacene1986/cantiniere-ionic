@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cagnotte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="infos">
+    <p>
+      Veuillez indiquer le montant que vous souhaiter créditer au compte de
+      Kevin Lorem.
+    </p>
+  </div>
+  <div class="cagnotte">
+    <label for="">Créditer: </label>
+    <input class="cagnotteInput" type="number" />
+  </div>
+  <div class="btnGroup">
+    <ion-button class="btn-valider" [routerLink]="['/account-modifications']"
+      >Valider</ion-button
+    >
+    <ion-button class="btn-annuler">Annuler</ion-button>
+  </div>
+</ion-content>
