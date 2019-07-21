@@ -6,13 +6,14 @@
 
 <ion-content>
   <div>
-    <h4 class="cagnotte-border">Cagnotte: 50€</h4>
+    <h4 class="cagnotte-border">Cagnotte: {{ user.wallet }}€</h4>
   </div>
+  <form (ngSubmit)='updateUser(f)' #f='ngForm'>
   <div class="search">
-    <input class="searchInput" type="text" placeholder="Prénom" />
-    <input class="searchInput" type="text" placeholder="Nom" />
-    <input class="searchInput" type="email" placeholder="Email" />
-    <input class="searchInput" type="password" placeholder="Mot de passe" />
+    <input class="searchInput" type="text" placeholder="Prénom" name='firstname' [ngModel]="user.firstname" ngModel />
+    <input class="searchInput" type="text" placeholder="Nom" name='name' [ngModel]="user.name" ngModel />
+    <input class="searchInput" type="email" placeholder="Email" name='email' [ngModel]="user.email" ngModel />
+    <input class="searchInput" type="password" placeholder="Mot de passe" name='password' [ngModel]="user.password" ngModel />
   </div>
 
   <div class="btnGroup">
@@ -23,6 +24,7 @@
       >Annuler</ion-button
     >
   </div>
+</form>
   <!-- <div class="btn">
     <ion-button class="btn-valider">Valider</ion-button>
   </div> -->

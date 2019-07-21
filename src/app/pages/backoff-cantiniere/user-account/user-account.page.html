@@ -7,35 +7,43 @@
 <ion-content>
   <div class="search">
     <label for="">Votre recherche:</label><br />
-    <input class="searchInput" type="text" /><br />
+    <input class="searchInput" type="text" [(ngModel)]="searchText" /><br />
     <ion-button class="btn-search">Rechercher</ion-button>
   </div>
 
-  <ion-slides>
+  <ion-slides
+    *ngFor="
+      let user of users
+        | search
+          : { firstname: searchText, name: searchText, email: searchText };
+      let i = index
+    "
+  >
     <ion-slide>
       <ion-card>
         <ion-card-content>
-          <h4 class="infos">Nom</h4>
-          <h4 class="infos">Prénom</h4>
-          <h4 class="infos">Email</h4>
-          <a class="chevron-icon" [routerLink]= "['/user-details']">
+          <h4 class="infos">{{ user.id }}</h4>
+          <h4 class="infos">{{ user.name }}</h4>
+          <h4 class="infos">{{ user.firstname }}</h4>
+          <h4 class="infos">{{ user.email }}</h4>
+          <a class="chevron-icon" [routerLink]="['/user-details', user.id]">
             <i class="fas fa-chevron-circle-down"></i>
           </a>
         </ion-card-content>
       </ion-card>
     </ion-slide>
 
-    <ion-slide>
+    <!-- <ion-slide>
       <ion-card>
         <ion-card-content>
           <h4 class="infos">Nom</h4>
           <h4 class="infos">Prénom</h4>
           <h4 class="infos">Email</h4>
-          <a class="chevron-icon" [routerLink]= "['/user-details']">
+          <a class="chevron-icon" [routerLink]="['/user-details']">
             <i class="fas fa-chevron-circle-down"></i>
           </a>
         </ion-card-content>
       </ion-card>
-    </ion-slide>
+    </ion-slide> -->
   </ion-slides>
 </ion-content>
