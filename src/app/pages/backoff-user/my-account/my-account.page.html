@@ -9,10 +9,10 @@
 
 <ion-content>
   <div>
-    <h4 class="cagnotte-border">Cagnotte: 50€</h4>
-    <h4 class="infos">Nom</h4>
-    <h4 class="infos">Prénom</h4>
-    <h4 class="infos">Email</h4>
+    <h4 class="cagnotte-border">Cagnotte: {{user.wallet}}€</h4>
+    <h4 class="infos">{{user.name}}</h4>
+    <h4 class="infos">{{user.firstname}}</h4>
+    <h4 class="infos">{{user.email}}</h4>
   </div>
 
   <div>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="btnGroup">
-    <ion-button class="btn-modifier" [routerLink]="['/account-modifications']"
+    <ion-button class="btn-modifier" [routerLink]="['/account-modifications', user.id]"
       >Modifier</ion-button
     >
     <ion-button class="btn-supprimer" [routerLink]="['/delete-account']"

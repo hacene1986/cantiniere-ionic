@@ -1,0 +1,69 @@
+ion-title {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+ion-content {
+  --ion-background-color: #f5f5f5;
+}
+
+.ajoutMenu {
+  margin-top: 30px;
+  text-align: center;
+
+  & > label {
+    font-weight: bold;
+  }
+}
+
+.ajoutInput {
+  margin-top: 30px;
+  margin-left: 10px;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    color: #495057;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  }
+}
+
+.btnGroup {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-ajouter {
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 35%;
+  margin-right: 20px;
+  height: 40px;
+}
+
+.btn-annuler {
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 35%;
+  margin-left: 20px;
+  height: 40px;
+}

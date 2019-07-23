@@ -2,16 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { PipesModule } from '../pipe/pipe.module';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserAccountPage } from './user-account.page';
+import { DeletePlatsPage } from './delete-plats.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: UserAccountPage
+    component: DeletePlatsPage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    PipesModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [UserAccountPage]
+  declarations: [DeletePlatsPage]
 })
-export class UserAccountPageModule {}
+export class DeletePlatsPageModule {}

@@ -21,7 +21,15 @@ const routes: Routes = [
   { path: 'recap-cantiniere', loadChildren: './pages/backoff-cantiniere/recap-cantiniere/recap-cantiniere.module#RecapCantinierePageModule' },
   { path: 'crediter', loadChildren: './pages/backoff-cantiniere/crediter/crediter.module#CrediterPageModule' },
   { path: 'solder', loadChildren: './pages/backoff-cantiniere/solder/solder.module#SolderPageModule' },
-  { path: 'delete-account', loadChildren: './pages/backoff-user/delete-account/delete-account.module#DeleteAccountPageModule' },  { path: 'delete-order', loadChildren: './pages/backoff-cantiniere/delete-order/delete-order.module#DeleteOrderPageModule' }
+  { path: 'delete-account', loadChildren: './pages/backoff-user/delete-account/delete-account.module#DeleteAccountPageModule' },
+  { path: 'delete-order', loadChildren: './pages/backoff-cantiniere/delete-order/delete-order.module#DeleteOrderPageModule' },
+  { path: 'add-plats', loadChildren: './pages/backoff-cantiniere/add-plats/add-plats.module#AddPlatsPageModule' },
+  { path: 'editer-plats', loadChildren: './pages/backoff-cantiniere/editer-plats/editer-plats.module#EditerPlatsPageModule' },  { path: 'delete-plats', loadChildren: './pages/backoff-cantiniere/delete-plats/delete-plats.module#DeletePlatsPageModule' },
+  { path: 'delete-menus', loadChildren: './pages/backoff-cantiniere/delete-menus/delete-menus.module#DeleteMenusPageModule' },
+  { path: 'add-menus', loadChildren: './pages/backoff-cantiniere/add-menus/add-menus.module#AddMenusPageModule' },
+  { path: 'editer-menus', loadChildren: './pages/backoff-cantiniere/editer-menus/editer-menus.module#EditerMenusPageModule' }
+
+
 
 
 
