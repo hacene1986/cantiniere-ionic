@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editer un plat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="editPlat">
+    <div>
+      <label for="">Plat: </label>
+      <input class="editInput" type="text" />
+    </div>
+    <div>
+      <label for="">Desc: </label>
+      <input class="editInput" type="text" />
+    </div>
+    <div>
+      <label for="">Prix: </label>
+      <input class="editInput" type="number" />
+    </div>
+  </div>
+  <div class="btnGroup">
+    <ion-button class="btn-modifier" [routerLink]="['/cantiniere-plat']"
+      >Modifier</ion-button
+    >
+    <ion-button class="btn-annuler" [routerLink]="['/cantiniere-plat']"
+      >Annuler</ion-button
+    >
+  </div>
+</ion-content>

@@ -1,94 +1,130 @@
+ion-title {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+ion-content {
+  --ion-background-color: #f5f5f5;
+}
+
 .nav-item {
-    cursor: pointer;
-    font-size: 1.3em;
-    font-weight: 600;
-    text-align: center;
-  }
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px;
+}
 
-  .tabsNav {
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-   /* max-width: 100%;*/
-    margin-bottom: 37px;
-    display: inline-block;
-    padding: 45px;
-  }
+.tabsNav {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 0px !important;
+}
 
-  a {
-    text-align: center;
-    display: inline-block;
-  }
-  
-  .nav-link-custom {
-    background-color: #dfdfdf;
-    color: rgb(17, 14, 14);
-    border-radius: 20px;
-   /* font-weight: 600;*/
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .nav-link:hover {
-    filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
-    background-color: #cb2a3f;
-    color: white
-  }
-  
-  .nav-link-custom.active {
-    filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
-    background-color: #3a3a3a;
-    color: rgb(235, 235, 235);
-    font-weight: 600;
-  }
-
-  .tabsNav {
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 37px;
-    /* background-color: #e2e2e2; */
-    /* border-radius: 10px; */
-    display: inline-block;
-  }
-
-  
 li {
-    text-align: center;
-    display: inline-block;
+  text-align: center;
+  display: inline-block;
+}
+
+.nav-link-custom {
+  background-color: #dfdfdf;
+  color: rgb(104, 104, 104);
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin: 30px 10px;
+}
+
+.nav-link:hover {
+  filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
+}
+
+.nav-link-custom.active {
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  background-color: #3a3a3a;
+  color: rgb(235, 235, 235);
+  font-weight: 600;
+}
+
+.add {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-ajouter,
+.btn-edit {
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 35%;
+  height: 40px;
+}
+
+.btn-edit {
+  float: left;
+}
+
+.btn-delete {
+  text-transform: none;
+  // background-color: #D3283F;
+  --border-radius: 19px !important;
+  --background: black;
+  font-weight: bold;
+  width: 50%;
+  height: 40px;
+  float: right;
+}
+
+.tab-pane {
+  text-align: center;
+}
+
+.tab-pane.active {
+  animation: appear 1.2s ease-in-out;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
   }
-  
-  .nav-link-custom-tab {
-    background-color: #dfdfdf;
-    color: rgb(104, 104, 104);
-    border-radius: 20px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+
+  100% {
+    opacity: 1;
   }
-  
-  .nav-link-all {
-    background-color: #ffcdcd;
-    color: rgb(104, 104, 104);
-    border-radius: 20px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-  }
-  
-  .nav-link-all.active {
-    filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
-    background-color: #3a3a3a;
-    color: rgb(235, 235, 235);
-    font-weight: 600;
-  }
-  
-  .nav-link:hover {
-    filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
-  }
-  
-  .nav-link-custom-tab.active {
-    filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
-    background-color: #3a3a3a;
-    color: rgb(235, 235, 235);
-    font-weight: 600;
-  }
+}
+
+.card-ion {
+  margin: 15px;
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  width: 60%;
+  height: -moz-fit-content;
+  display: inline-block;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+.card-text {
+  font-size: 0.9em;
+}
+
+.price {
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 0px 8px rgba(175, 175, 175, 0.9);
+  border-radius: 33px;
+  padding: 9px;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.15em;
+  font-weight: 700;
+  text-align: center;
+}
