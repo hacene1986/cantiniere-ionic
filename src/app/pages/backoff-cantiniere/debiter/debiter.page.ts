@@ -5,11 +5,11 @@ import { ActivatedRoute } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: "app-crediter",
-  templateUrl: "./crediter.page.html",
-  styleUrls: ["./crediter.page.scss"]
+  selector: "app-debiter",
+  templateUrl: "./debiter.page.html",
+  styleUrls: ["./debiter.page.scss"]
 })
-export class CrediterPage implements OnInit {
+export class DebiterPage implements OnInit {
   id: string;
   user: User;
   amount: number;
@@ -28,7 +28,7 @@ export class CrediterPage implements OnInit {
     });
   }
 
-  crediter(form: NgForm) {
+  debiter(form: NgForm) {
     // let formulaire =
     // console.log(formulaire)
     (this.amount = form.value.amount),
@@ -36,7 +36,7 @@ export class CrediterPage implements OnInit {
       console.log(this.amount);
 
     this.userService
-      .crediterUtilisateur(this.id, this.amount)
+      .debiterUtilisateur(this.id, this.amount)
       .subscribe(walet => {
         console.log("ok");
         form.reset();

@@ -5,15 +5,15 @@
 </ion-header>
 
 <ion-content>
-  <form (ngSubmit)="crediter(f)" #f="ngForm">
+  <form (ngSubmit)="debiter(f)" #f="ngForm">
     <div class="infos">
       <p>
-        Veuillez indiquer le montant que vous souhaiter créditer au compte de
+        Veuillez indiquer le montant que vous souhaiter débiter du compte de
         {{ user.firstname }} {{ user.name }}.
       </p>
     </div>
     <div class="cagnotte">
-      <label for="">Créditer: </label>
+      <label for="">Débiter: </label>
       <input class="cagnotteInput" name="amount" type="number" ngModel />
     </div>
     <div class="btnGroup">
@@ -23,9 +23,7 @@
         [routerLink]="['/user-details', user.id]"
         >Valider</ion-button
       >
-      <ion-button class="btn-annuler" [routerLink]="['/user-details', user.id]"
-        >Annuler</ion-button
-      >
+      <ion-button class="btn-annuler">Annuler</ion-button>
     </div>
   </form>
 </ion-content>
