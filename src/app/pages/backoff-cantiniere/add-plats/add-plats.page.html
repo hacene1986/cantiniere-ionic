@@ -5,26 +5,28 @@
 </ion-header>
 
 <ion-content>
-  <div class="ajoutPlat">
-    <div>
-      <label for="">Plat: </label>
-      <input class="ajoutInput" type="text" />
+  <form (ngSubmit)="addMeal(f)" #f="ngForm">
+    <div class="ajoutPlat">
+      <div>
+        <label for="">Plat: </label>
+        <input class="ajoutInput" type="text" name="label" ngModel/>
+      </div>
+      <div>
+        <label for="">Desc: </label>
+        <input class="ajoutInput" type="text" name="description" ngModel/>
+      </div>
+      <div>
+        <label for="">Prix: </label>
+        <input class="ajoutInput" type="number" name="priceDF" ngModel/>
+      </div>
     </div>
-    <div>
-      <label for="">Desc: </label>
-      <input class="ajoutInput" type="text" />
+    <div class="btnGroup">
+      <ion-button class="btn-ajouter" type="submit"
+        >Ajouter</ion-button
+      >
+      <ion-button class="btn-annuler" [routerLink]="['/cantiniere-plat']"
+        >Annuler</ion-button
+      >
     </div>
-    <div>
-      <label for="">Prix: </label>
-      <input class="ajoutInput" type="number" />
-    </div>
-  </div>
-  <div class="btnGroup">
-    <ion-button class="btn-ajouter" [routerLink]="['/cantiniere-plat']"
-      >Ajouter</ion-button
-    >
-    <ion-button class="btn-annuler" [routerLink]="['/cantiniere-plat']"
-      >Annuler</ion-button
-    >
-  </div>
+  </form>
 </ion-content>
