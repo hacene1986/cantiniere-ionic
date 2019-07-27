@@ -5,7 +5,11 @@
         <ion-toolbar style="height: 75px;">
           <ion-title style="height: 75px">
             <a>
-              <img src="../assets/img/logo_cantiniere.png" width="200" height="75" />
+              <img
+                src="../assets/img/logo_cantiniere.png"
+                width="200"
+                height="75"
+              />
             </a>
           </ion-title>
         </ion-toolbar>
@@ -19,7 +23,11 @@
             </ion-label>
           </ion-item>
           <ion-menu-toggle auto-hide="false">
-            <ion-item [routerDirection]="'root'" routerLink="/home" class="firstItem">
+            <ion-item
+              [routerDirection]="'root'"
+              routerLink="/home"
+              class="firstItem"
+            >
               <!-- <ion-icon slot="start" name="home"></ion-icon> -->
               <ion-label>
                 Home
@@ -36,8 +44,50 @@
             </ion-item>
           </ion-menu-toggle>
 
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngIf="isAuth && userConnected.isLunchLady == 0"
+          >
+            <ion-item [routerDirection]="'root'" routerLink="/my-account">
+              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+              <ion-label>
+                Mon compte
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngIf="isAuth && userConnected.isLunchLady == 1"
+          >
+            <ion-item [routerDirection]="'root'" routerLink="/my-account">
+              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+              <ion-label>
+                Mon compte
+              </ion-label>
+            </ion-item>
+            <div class="lunchLadyMenu">
+              <ion-item routerLink="/recap-cantiniere">
+                <label>Récapitulatif</label>
+              </ion-item>
+              <ion-item routerLink="/cantiniere-plat">
+                <label>Plats</label>
+              </ion-item>
+              <ion-item routerLink="/cantiniere-menu">
+                <label>Menus</label>
+              </ion-item>
+              <ion-item routerLink="/user-account">
+                <label>Utilisateurs</label>
+              </ion-item>
+            </div>
+          </ion-menu-toggle>
+
           <ion-menu-toggle auto-hide="false">
-            <ion-item *ngIf="!isAuth" [routerDirection]="'root'" routerLink="/inscription">
+            <ion-item
+              *ngIf="!isAuth"
+              [routerDirection]="'root'"
+              routerLink="/inscription"
+            >
               <!-- <ion-icon slot="start" name="key"></ion-icon> -->
               <ion-label>
                 Inscription
@@ -46,7 +96,11 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item *ngIf="!isAuth" [routerDirection]="'root'" routerLink="/connexion">
+            <ion-item
+              *ngIf="!isAuth"
+              [routerDirection]="'root'"
+              routerLink="/connexion"
+            >
               <!-- <ion-icon slot="start" name="log-in"></ion-icon> -->
               <ion-label>
                 Connexion
@@ -55,10 +109,15 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false">
-            <ion-item *ngIf="isAuth" (click)="deconnexion()" [routerDirection]="'root'" routerLink="/home">
+            <ion-item
+              *ngIf="isAuth"
+              (click)="deconnexion()"
+              [routerDirection]="'root'"
+              routerLink="/home"
+            >
               <!-- <ion-icon slot="end" name="undo"></ion-icon> -->
               <ion-label>
-                Se déconnecter
+                Déconnexion
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
