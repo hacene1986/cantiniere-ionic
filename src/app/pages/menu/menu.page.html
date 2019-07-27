@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot=start>
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-card-header>La cantinière</ion-card-header>
@@ -11,70 +11,92 @@
 </ion-header>
 <ion-content>
   <div class="container-fluid">
-    <br>
-    <br>
+    <br />
+    <br />
     <h1 class="text-h1" color="danger">Les menus</h1>
-    <br>
+    <br />
     <ul id="tabsNav" class="tabsNav nav">
-      <li class="nav-item nav-link nav-link-custom small text-uppercase active today"
-        [class.active]="viewMode == 'tabToday'" rel="tabToday" (click)="viewMode ='tabToday'">Aujourd'hui
+      <li
+        class="nav-item nav-link nav-link-custom small text-uppercase active today"
+        [class.active]="viewMode == 'tabToday'"
+        rel="tabToday"
+        (click)="viewMode = 'tabToday'"
+      >
+        Aujourd'hui
       </li>
-      <li class="nav-item nav-link nav-link-custom small text-uppercase active thisweek"
-        [class.active]="viewMode == 'tabThisWeek'" rel="tabThisWeek" (click)="viewMode ='tabThisWeek'">Cette semaine
+      <li
+        class="nav-item nav-link nav-link-custom small text-uppercase active thisweek"
+        [class.active]="viewMode == 'tabThisWeek'"
+        rel="tabThisWeek"
+        (click)="viewMode = 'tabThisWeek'"
+      >
+        Cette semaine
       </li>
     </ul>
     <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
-      <div id="tabToday" *ngSwitchCase="'tabToday'" class="tab-pane fade active show">
+      <div
+        id="tabToday"
+        *ngSwitchCase="'tabToday'"
+        class="tab-pane fade active show"
+      >
         <ng-container *ngFor="let menu of listMenuToday">
           <ion-card class="card-ion">
-            <img class="" src="../../../assets/menu-default.png">
+            <img class="" src="../../../assets/menu-default.png" />
             <ion-card-header class="header-ion">
-              <ion-card-title class="" role="heading"> {{ menu.label }}</ion-card-title>
+              <ion-card-title class="" role="heading">
+                {{ menu.label }}</ion-card-title
+              >
             </ion-card-header>
             <ion-card-content class="content-ion">
               <div class="meals">
                 <div class="meallabel" *ngFor="let meal of menu.meals">
                   • &nbsp;&nbsp;{{ meal.label }}
-                  <br>
+                  <br />
                 </div>
               </div>
               <div class="price-div">
                 <div class="price">
-                  <p class="card-text">
-                    {{ menu.priceDF }} €
-                  </p>
+                  <p class="card-text">{{ menu.priceDF }} €</p>
                 </div>
-                <hr>
+                <hr />
                 <div class="details">
-                  <a class="btn btn-more " (click)="openDetailMenu(menu.id)">...</a>
-                  <a class="btn btn-add " (click)="addToPanier(menu)">&nbsp;+&nbsp;</a>
+                  <a class="btn btn-more " (click)="openDetailMenu(menu.id)"
+                    >...</a
+                  >
+                  <a class="btn btn-add " (click)="addToPanier(menu)"
+                    >&nbsp;+&nbsp;</a
+                  >
                 </div>
               </div>
             </ion-card-content>
           </ion-card>
         </ng-container>
       </div>
-      <div id="tabThisWeek" *ngSwitchCase="'tabThisWeek'" class="tab-pane fade active show">
+      <div
+        id="tabThisWeek"
+        *ngSwitchCase="'tabThisWeek'"
+        class="tab-pane fade active show"
+      >
         <ng-container *ngFor="let menu of listMenuThisWeek">
           <ion-card class="card-ion">
-            <img class="" src="../../../assets/menu-default.png">
+            <img class="" src="../../../assets/menu-default.png" />
             <ion-card-header class="header-ion">
-              <ion-card-title class="" role="heading"> {{ menu.label }}</ion-card-title>
+              <ion-card-title class="" role="heading">
+                {{ menu.label }}</ion-card-title
+              >
             </ion-card-header>
             <ion-card-content class="content-ionv2">
               <div class="meals">
                 <div class="meallabel" *ngFor="let meal of menu.meals">
                   • &nbsp;&nbsp;{{ meal.label }}
-                  <br>
+                  <br />
                 </div>
               </div>
               <div class="price-div">
                 <div class="priceWeek">
-                  <p class="card-text">
-                    {{ menu.priceDF }} €
-                  </p>
+                  <p class="card-text">{{ menu.priceDF }} €</p>
                 </div>
-                <hr>
+                <hr />
               </div>
             </ion-card-content>
           </ion-card>

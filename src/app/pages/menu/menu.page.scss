@@ -1,181 +1,181 @@
 h1 {
-    filter: drop-shadow(2px 2px 7px rgb(167, 167, 167));
+  filter: drop-shadow(2px 2px 7px rgb(167, 167, 167));
 }
 
 .container-fluid {
-    background: #f5f5f5;
+  background: #f5f5f5;
 }
 
 .nav-item {
-    cursor: pointer;
-    font-size: 1.4em;
-    font-weight: 700;
-    text-align: center;
-    padding: 8px;
+  cursor: pointer;
+  font-size: 1.4em;
+  font-weight: 700;
+  text-align: center;
+  padding: 8px;
 }
 
 .tabsNav {
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-    display: inline-block;
-    padding: 0px !important;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 0px !important;
 }
 
 li {
-    text-align: center;
-    display: inline-block;
+  text-align: center;
+  display: inline-block;
 }
 
 .nav-link-custom {
-    background-color: #dfdfdf;
-    color: rgb(104, 104, 104);
-    border-radius: 20px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+  background-color: #dfdfdf;
+  color: rgb(104, 104, 104);
+  border-radius: 20px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }
 
 .nav-link:hover {
-    filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
+  filter: drop-shadow(2px 2px 7px rgb(194, 194, 194));
 }
 
 .nav-link-custom.active {
-    filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
-    background-color: #3a3a3a;
-    color: rgb(235, 235, 235);
-    font-weight: 600;
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  background-color: #3a3a3a;
+  color: rgb(235, 235, 235);
+  font-weight: 600;
 }
 
 .tab-pane {
-    text-align: center;
+  text-align: center;
 }
 
 .tab-pane.active {
-    animation: appear .8s ease-in-out;
+  animation: appear 0.8s ease-in-out;
 }
 
 @keyframes appear {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 .card-ion {
-    margin: 15px;
-    filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
-    width: 60%;
-    height: -moz-fit-content;
-    display: inline-block;
-    border-radius: 10px;
-    background-color: #ffffff;
+  margin: 15px;
+  filter: drop-shadow(5px 5px 10px rgb(194, 194, 194));
+  width: 60%;
+  height: -moz-fit-content;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: #ffffff;
 }
 
 .card-text {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .btn-add {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    font-weight: 1000;
-    font-size: 1.2em;
-    margin-bottom: -8px;
-    background-color: rgb(248, 68, 68);
-    color: white;
-    opacity: 0.82;
-    cursor: pointer;
-    padding: 10px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-weight: 1000;
+  font-size: 1.2em;
+  margin-bottom: -8px;
+  background-color: rgb(248, 68, 68);
+  color: white;
+  opacity: 0.82;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .btn-more {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    font-weight: 1000;
-    font-size: 1.2em;
-    margin-bottom: -8px;
-    background-color: rgb(28, 126, 255);
-    color: white;
-    opacity: 0.82;
-    cursor: pointer;
-    padding: 10px;
-    margin-right: 6px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-weight: 1000;
+  font-size: 1.2em;
+  margin-bottom: -8px;
+  background-color: rgb(28, 126, 255);
+  color: white;
+  opacity: 0.82;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 6px;
 }
 
 .price {
-    background-color: #f5f5f5;
-    box-shadow: inset 0px 0px 8px rgba(175, 175, 175, 0.9);
-    border-radius: 33px;
-    padding: 9px;
-    width: fit-content;
-    margin: 0 auto;
-    font-size: 1.15em;
-    font-weight: 700;
-    float: left;
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 0px 8px rgba(175, 175, 175, 0.9);
+  border-radius: 33px;
+  padding: 9px;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.15em;
+  font-weight: 700;
+  float: left;
 }
 
 .text-h1 {
-    font-weight: 800;
-    text-align: center;
-    margin-top: 0px !important;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 0px !important;
 }
 
 .today {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .thisweek {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .header-ion {
-    background-color: #ffffff;
-    padding-bottom: 0px;
+  background-color: #ffffff;
+  padding-bottom: 0px;
 }
 
 .content-ion {
-    background-color: #ffffff;
-    padding-bottom: 50px;
+  background-color: #ffffff;
+  padding-bottom: 50px;
 }
 
 .meals {
-    padding-bottom: 23px;
+  padding-bottom: 23px;
 }
 
 .details {
-    float: right;
-    margin-top: -5px;
+  float: right;
+  margin-top: -5px;
 }
 
 .meallabel {
-    font-style: italic;
+  font-style: italic;
 }
 
 .priceWeek {
-    text-align: center;
-    background-color: #f5f5f5;
-    box-shadow: inset 0px 0px 8px rgba(175, 175, 175, 0.9);
-    border-radius: 33px;
-    padding: 9px;
-    width: fit-content;
-    margin: 0 auto;
-    font-size: 1.15em;
-    font-weight: 700;
+  text-align: center;
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 0px 8px rgba(175, 175, 175, 0.9);
+  border-radius: 33px;
+  padding: 9px;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.15em;
+  font-weight: 700;
 }
 
 .content-ionv2 {
-    padding-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 .inner-scroll {
-    background: #f5f5f5;
+  background: #f5f5f5;
 }

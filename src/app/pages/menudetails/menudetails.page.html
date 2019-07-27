@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot=start>
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-card-header>La cantinière</ion-card-header>
@@ -16,32 +16,41 @@
   </div>
   <div class="modal-body">
     <div class="img-div">
-      <img class="img-meal" src="../../../assets/menu-default.png">
+      <img class="img-meal" src="../../../assets/menu-default.png" />
     </div>
     <ion-item-divider></ion-item-divider>
     <div class="contblock">
       <div class="plats">
         <h4 class="ion-text-center">Plats :</h4>
         <div class="row" *ngFor="let plat of menu.meals">
-          <span class="ion-text-center">•
-            <i>{{ plat.label }}</i></span>
+          <span class="ion-text-center"
+            >• <i>{{ plat.label }}</i></span
+          >
         </div>
       </div>
       <div class="ingredients">
         <h4 class="ion-text-center font-weight-light">Ingredients :</h4>
         <div class="row" *ngFor="let plat of menu.meals; let i = index">
           <div class="row" *ngFor="let ingredient of plat.ingredients">
-            <span class="col-12 text-center">• <i>{{ ingredient.label }}</i></span>
+            <span class="col-12 text-center"
+              >• <i>{{ ingredient.label }}</i></span
+            >
           </div>
         </div>
       </div>
       <div class="clear-both"></div>
     </div>
-    <br>
+    <br />
     <div class="full">
       <ion-item>
         <ion-label>Quantité</ion-label>
-        <ion-select name="quantity" id="quantity" [(value)]="quantity" okText="Okay" cancelText="Dismiss">
+        <ion-select
+          name="quantity"
+          id="quantity"
+          [(value)]="quantity"
+          okText="Okay"
+          cancelText="Dismiss"
+        >
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
           <ion-select-option value="3">3</ion-select-option>
@@ -49,7 +58,12 @@
       </ion-item>
     </div>
     <ion-item-divider></ion-item-divider>
-    <ion-button type="button" color="danger" class="buttonPanier" (click)="validerAjoutPanier(menu,quantity)">Ajouter au
-      panier</ion-button>
+    <ion-button
+      type="button"
+      color="danger"
+      class="buttonPanier"
+      (click)="validerAjoutPanier(menu, quantity)"
+      >Ajouter au panier</ion-button
+    >
   </div>
 </ion-content>

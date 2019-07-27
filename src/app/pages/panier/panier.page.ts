@@ -1,22 +1,20 @@
-import { ToastController } from '@ionic/angular';
-import { Quantity } from './../../models/quantity';
-import { Menu } from './../../models/menu';
-import { Order } from './../../models/order';
-import { OrderService } from './../../services/order.service';
-import { Meal } from 'src/app/models/meal';
-import { AuthentificationService } from './../../services/authentification.service';
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { User } from 'src/app/models/user';
-
+import { ToastController } from "@ionic/angular";
+import { Quantity } from "./../../models/quantity";
+import { Menu } from "./../../models/menu";
+import { Order } from "./../../models/order";
+import { OrderService } from "./../../services/order.service";
+import { Meal } from "src/app/models/meal";
+import { AuthentificationService } from "./../../services/authentification.service";
+import { Component, OnInit } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { User } from "src/app/models/user";
 
 @Component({
-  selector: 'app-panier',
-  templateUrl: './panier.page.html',
-  styleUrls: ['./panier.page.scss'],
+  selector: "app-panier",
+  templateUrl: "./panier.page.html",
+  styleUrls: ["./panier.page.scss"]
 })
 export class PanierPage implements OnInit {
-
   menuPanier: [];
   userConnected: User;
   isAuth: boolean;
@@ -31,7 +29,7 @@ export class PanierPage implements OnInit {
     private auth: AuthentificationService,
     private orderService: OrderService,
     private toastController: ToastController
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (this.auth.isLogged()) {
@@ -47,35 +45,36 @@ export class PanierPage implements OnInit {
 
   // Initialiser le panier
   recupererPanier() {
-    this.menuPanier = JSON.parse(localStorage.getItem('panier'));
+    this.menuPanier = JSON.parse(localStorage.getItem("panier"));
     console.log(this.menuPanier);
     // Pour supprimer 'panier' du localstorage s'il est vide
-    if (JSON.stringify(this.menuPanier) === '[]') {
-      localStorage.removeItem('panier');
+    if (JSON.stringify(this.menuPanier) === "[]") {
+      localStorage.removeItem("panier");
     }
   }
 
   // Méthode qui permet de supprimer un menu du panier
   supprimerMenu(i) {
-    console.log(JSON.parse(localStorage.getItem('panier')));
-    const storagePanier = JSON.parse(localStorage.getItem('panier'));
+    console.log(JSON.parse(localStorage.getItem("panier")));
+    const storagePanier = JSON.parse(localStorage.getItem("panier"));
     storagePanier.splice(i, 1);
-    localStorage.setItem('panier', JSON.stringify(storagePanier));
-    console.log(JSON.parse(localStorage.getItem('panier')));
+    localStorage.setItem("panier", JSON.stringify(storagePanier));
+    console.log(JSON.parse(localStorage.getItem("panier")));
     this.ngOnInit();
     this.toastSuccess();
   }
 
   // Pour calculer le prix total du panier
   calculerTotalPanier() {
-    this.local = localStorage.getItem('panier');
+    this.local = localStorage.getItem("panier");
     this.listArticles = JSON.parse(this.local);
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.listArticles.length; i++) {
       // this.price = this.listArticles[i].priceDF;
-      console.log('total panier: ' + this.prixTotalPanier);
-      console.log('Prix article i: ' + this.listArticles[i].priceDF);
-      this.prixTotalPanier = this.prixTotalPanier + this.listArticles[i].priceDF;
+      console.log("total panier: " + this.prixTotalPanier);
+      console.log("Prix article i: " + this.listArticles[i].priceDF);
+      this.prixTotalPanier =
+        this.prixTotalPanier + this.listArticles[i].priceDF;
       console.log(this.prixTotalPanier);
     }
     // FIXME fix NaN
@@ -84,14 +83,9 @@ export class PanierPage implements OnInit {
   creerLaCommande() {
     // FIXME PROBLEME : d'après le back, une commande ne peux être
     // constitué que d'un seul menu (on passe menu.id)
-
-
-
     // const user = this.userConnected;
-
     // const menus = this.listArticles;
     // const menu = this.menuPanier;
-
     // this.order = {
     //   status: 0,
     //   creationDate: new Date(),
@@ -99,7 +93,6 @@ export class PanierPage implements OnInit {
     //   user.id,
     //   quantities: null, // FIXME tableau de quantité ?????
     // };
-
     // this.orderService.addOrder(this.order)
     //   .subscribe(
     //     (response) => {
@@ -118,22 +111,20 @@ export class PanierPage implements OnInit {
 
   async toastSuccess() {
     const toast = await this.toastController.create({
-      message: 'Menu supprimé du panier',
-      position: 'bottom',
-      color: 'danger',
+      message: "Menu supprimé du panier",
+      position: "bottom",
+      color: "danger",
       duration: 3500,
       buttons: [
         {
-          text: 'OK',
-          role: 'cancel',
+          text: "OK",
+          role: "cancel",
           handler: () => {
-            console.log('Cancel clicked');
+            console.log("Cancel clicked");
           }
         }
       ]
     });
     toast.present();
   }
-
 }
-
