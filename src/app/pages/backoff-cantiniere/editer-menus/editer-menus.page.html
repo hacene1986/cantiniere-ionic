@@ -5,26 +5,44 @@
 </ion-header>
 
 <ion-content>
-  <div class="editMenu">
-    <div>
-      <label for="">Menu: </label>
-      <input class="editInput" type="text" />
+  <form (ngSubmit)="editMenu(f)" #f="ngForm">
+    <div class="editMenu">
+      <div>
+        <label for="">Menu: </label>
+        <input
+          class="editInput"
+          type="text"
+          name="label"
+          [ngModel]="menu.label"
+          ngModel
+        />
+      </div>
+      <div>
+        <label for="">Plat: </label>
+        <input
+          class="editInput"
+          type="text"
+          name="description"
+          [ngModel]="menu.description"
+          ngModel
+        />
+      </div>
+      <div>
+        <label for="">Prix: </label>
+        <input
+          class="editInput"
+          type="number"
+          name="priceDF"
+          [ngModel]="menu.priceDF"
+          ngModel
+        />
+      </div>
     </div>
-    <div>
-      <label for="">Plat: </label>
-      <input class="editInput" type="text" />
+    <div class="btnGroup">
+      <ion-button class="btn-modifier" type="submit">Modifier</ion-button>
+      <ion-button class="btn-annuler" [routerLink]="['/cantiniere-menu']"
+        >Annuler</ion-button
+      >
     </div>
-    <div>
-      <label for="">Prix: </label>
-      <input class="editInput" type="number" />
-    </div>
-  </div>
-  <div class="btnGroup">
-    <ion-button class="btn-modifier" [routerLink]="['/cantiniere-menu']"
-      >Modifier</ion-button
-    >
-    <ion-button class="btn-annuler" [routerLink]="['/cantiniere-menu']"
-      >Annuler</ion-button
-    >
-  </div>
+  </form>
 </ion-content>

@@ -1,18 +1,17 @@
-import { AuthentificationService } from './../../services/authentification.service';
-import { ToastController } from '@ionic/angular';
-import { User } from './../../models/user';
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { Router } from '@angular/router';
-import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthentificationService } from "./../../services/authentification.service";
+import { ToastController } from "@ionic/angular";
+import { User } from "./../../models/user";
+import { Component, OnInit } from "@angular/core";
+import { UserService } from "src/app/services/user.service";
+import { Router } from "@angular/router";
+import { NgForm, FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-inscription',
-  templateUrl: './inscription.page.html',
-  styleUrls: ['./inscription.page.scss'],
+  selector: "app-inscription",
+  templateUrl: "./inscription.page.html",
+  styleUrls: ["./inscription.page.scss"]
 })
 export class InscriptionPage implements OnInit {
-
   registerForm: FormGroup;
   userConnected: User;
 
@@ -22,18 +21,19 @@ export class InscriptionPage implements OnInit {
     private formBuilder: FormBuilder,
     private toastController: ToastController,
     private auth: AuthentificationService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      firstname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required]
-    }, {
-        // validator: MustMatch('password', 'confirmPassword')
-      });
+    this.registerForm = this.formBuilder.group(
+      {
+        name: ["", Validators.required],
+        firstname: ["", Validators.required],
+        email: ["", [Validators.required, Validators.email]],
+        password: ["", [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ["", Validators.required]
+      },
+      {}
+    );
   }
 
   creerUtilisateur(form: NgForm) {
@@ -49,60 +49,62 @@ export class InscriptionPage implements OnInit {
       town: form.value.ville,
       isLunchLady: 0,
       wallet: 0,
-      image64: ''
+      image64: ""
     };
 
-    this.userService.creerUtilisateur(user)
-      .subscribe(
-        data => {
-          this.auth.authentification(form.value.mail, form.value.password)
-            .subscribe(
-              data2 => {
-                console.log(data2);
-              }, err => {
-                console.log(err);
-              });
-          form.reset();
-          this.userConnected = user;
-          window.location.reload();
-          this.router.navigate(['/']);
-          this.toastSuccess();
-        },
-        err => {
-          console.log(err);
-          this.router.navigate(['/']);
-          this.toastError();
-        }
-      );
+    this.userService.creerUtilisateur(user).subscribe(
+      data => {
+        this.auth
+          .authentification(form.value.mail, form.value.password)
+          .subscribe(
+            data2 => {
+              console.log(data2);
+            },
+            err => {
+              console.log(err);
+            }
+          );
+        form.reset();
+        this.userConnected = user;
+        window.location.reload();
+        this.router.navigate(["/"]);
+        this.toastSuccess();
+      },
+      err => {
+        console.log(err);
+        this.router.navigate(["/"]);
+        this.toastError();
+      }
+    );
   }
 
   get name() {
-    return this.registerForm.get('name');
+    return this.registerForm.get("name");
   }
   get firstname() {
-    return this.registerForm.get('firstname');
+    return this.registerForm.get("firstname");
   }
 
   get email() {
-    return this.registerForm.get('email');
+    return this.registerForm.get("email");
   }
 
   get password() {
-    return this.registerForm.get('password');
+    return this.registerForm.get("password");
   }
 
   async toastSuccess() {
     const toast = await this.toastController.create({
-      message: 'Vous êtes inscrit.',
-      position: 'bottom',
-      color: 'success',
+      message: "Vous êtes inscrit.",
+      position: "bottom",
+      color: "success",
       duration: 10000,
       buttons: [
         {
-          text: 'OK',
-          role: 'cancel',
+          text: "OK",
+          role: "cancel",
           handler: () => {
-            console.log('Cancel clicked');
+            console.log("Cancel clicked");
           }
         }
       ]
@@ -110,19 +112,18 @@ export class InscriptionPage implements OnInit {
     toast.present();
   }
 
-
   async toastError() {
     const toast = await this.toastController.create({
-      message: 'Probleme serveur',
-      position: 'bottom',
-      color: 'danger',
+      message: "Probleme serveur",
+      position: "bottom",
+      color: "danger",
       duration: 10000,
       buttons: [
         {
-          text: 'OK',
-          role: 'cancel',
+          text: "OK",
+          role: "cancel",
           handler: () => {
-            console.log('Cancel clicked');
+            console.log("Cancel clicked");
           }
         }
       ]

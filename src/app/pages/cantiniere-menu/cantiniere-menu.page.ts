@@ -1,25 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Menu } from '../../models/menu';
-import { NgForm } from '@angular/forms';
-import { MenuService } from 'src/app/services/menu.service';
+import { Component, OnInit } from "@angular/core";
+import { Menu } from "../../models/menu";
+import { MenuService } from "src/app/services/menu.service";
 @Component({
-  selector: 'app-cantiniere-menu',
-  templateUrl: './cantiniere-menu.page.html',
-  styleUrls: ['./cantiniere-menu.page.scss'],
+  selector: "app-cantiniere-menu",
+  templateUrl: "./cantiniere-menu.page.html",
+  styleUrls: ["./cantiniere-menu.page.scss"]
 })
 export class CantiniereMenuPage implements OnInit {
 
   // Pour afficher l'onglet Formules (menu) par défaut
-  viewMode = 'tabToday';
+  viewMode = "tabToday";
   weekNumber = 49;
   listMenuThisWeek: Array<Menu>;
   listMenuToday: Array<Menu>;
-  // listMenuWeek: Array<Menu>;
-  // listPlatsWeek: Array<Meal>;
 
-  constructor(
-    private menuService: MenuService,
-  ) { }
+  constructor(private menuService: MenuService) {}
 
   ngOnInit() {
     this.getAllMealsForToday();
@@ -27,63 +22,35 @@ export class CantiniereMenuPage implements OnInit {
   }
 
   getAllMealsForWeek() {
-    this.menuService.getAllMenuForWeek(this.weekNumber)
-      .subscribe(
-        (response) => {
-          this.listMenuThisWeek = response;
-          // console.log('listMenuWeek: ', this.listMenuThisWeek);
-          // console.log(response);
-        },
-        (error) => {
-          // this.openSnackBarError();
-          console.log('Error in Plats.ts ... getAllMealsForWeek()', error);
-        }
-      );
-
+    this.menuService.getAllMenuForWeek(this.weekNumber).subscribe(
+      response => {
+        this.listMenuThisWeek = response;
+      },
+      error => {
+        console.log("Error in Plats.ts ... getAllMealsForWeek()", error);
+      }
+    );
   }
 
   getAllMealsForToday() {
-    this.menuService.getAllMenuForToday()
-      .subscribe(
-        (response) => {
-          this.listMenuToday = response;
-          // console.log('listPlatsToday: ', this.listMenuToday);
-        },
-        (error) => {
-          // this.openSnackBarError();
-          console.log('Error in Plats.ts ... getAllMealsForToday()', error);
-        }
-      );
-  }
-
-  creerMenu(form: NgForm) {
-    const menu: Menu = {
-      label: form.value.label,
-      description: form.value.description,
-      priceDF: form.value.priceDF,
-      image: form.value.image,
-      meals: form.value.meals,
-      availableForWeeks: form.value.availableForWeeks
-    };
-    console.log(menu);
-    this.menuService.addMenu(menu)
-      .subscribe(
-        data => {
-          console.log(data);
-          form.reset();
-        },
-        err => {
-
-        });
+    this.menuService.getAllMenuForToday().subscribe(
+      response => {
+        this.listMenuToday = response;
+      },
+      error => {
+        console.log("Error in Plats.ts ... getAllMealsForToday()", error);
+      }
+    );
   }
 
   deleteMenu(id) {
-    this.menuService.deleteMenu(id)
-      .subscribe(successCode => {
-        // console.log(this.listPlatsWeek);
-        this.listMenuThisWeek = this.listMenuThisWeek.filter(listMenuThisWeek => listMenuThisWeek.id !== id);
-        this.listMenuToday = this.listMenuToday.filter(listMenuToday => listMenuToday.id !== id);
-      });
-
+    this.menuService.deleteMenu(id).subscribe(successCode => {
+      this.listMenuThisWeek = this.listMenuThisWeek.filter(
+        listMenuThisWeek => listMenuThisWeek.id !== id
+      );
+      this.listMenuToday = this.listMenuToday.filter(
+        listMenuToday => listMenuToday.id !== id
+      );
+    });
   }
 }

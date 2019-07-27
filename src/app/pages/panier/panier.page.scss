@@ -1,56 +1,49 @@
 .center {
-    border: 3px solid black;
-    border-radius: 25px;
-    padding: 10px;
-    margin: 0 auto;
-    margin-top: 4px;
-    width: fit-content;
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 4px;
+  width: fit-content;
 }
 
 h1 {
-    filter: drop-shadow(2px 2px 7px rgb(167, 167, 167));
+  filter: drop-shadow(2px 2px 7px rgb(167, 167, 167));
 }
 
 .btn-test {
-    float: right;
-    color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 23px;
-    // border-radius: 10px;
+  float: right;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 23px;
 }
 
 .delete {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 
 .delete:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
-
 .block {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100%;
 }
 
 .imgMenuPanier {
-    margin-bottom: 5px;
-    border-radius: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 
-// .nomMenu {
-//     margin-top: -20px !important;
-//     margin-bottom: 20px !important;
-// }
-
 ion-item {
-    height: 160px;
+  height: 160px;
 }

@@ -12,7 +12,6 @@ ion-content {
   padding-bottom: 65px;
   padding-right: 30px;
   padding-left: 30px;
-  //   background: #f0f0f0;
 }
 
 h1 {
@@ -22,7 +21,6 @@ h1 {
 .saisir {
   margin-top: 40px;
   text-align: left !important;
-  //   text-align: center;
 }
 
 .formPasswordForgot {
@@ -52,19 +50,9 @@ h1 {
   }
 }
 
-// .form-control {
-//   border: 1px solid rgb(110, 110, 110);
-//   border-radius: 15px;
-//   margin-bottom: 5px;
-//   text-align: center;
-// }
-
 .btn-test {
-  //   text-align: center;
-  //   margin-top: 22px;
   margin-top: 20px;
   text-transform: none;
-  // background-color: #D3283F;
   --border-radius: 19px !important;
   --background: #d3283f;
   font-weight: bold;
