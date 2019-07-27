@@ -11,90 +11,120 @@
     >
   </div>
 
-  <ul id="tabsNav" class="tabsNav nav">
-    <li
-      class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
-      [class.active]="viewMode == 'tabToday'"
-      rel="tabToday"
-      (click)="viewMode = 'tabToday'"
-    >
-      Aujourd'hui
-    </li>
-    <li
-      class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
-      [class.active]="viewMode == 'tabThisWeek'"
-      rel="tabThisWeek"
-      (click)="viewMode = 'tabThisWeek'"
-    >
-      Cette semaine
-    </li>
-  </ul>
+  <div>
+    <ul id="tabsNav" class="tabsNav nav">
+      <li
+        class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
+        [class.active]="viewMode == 'tabToday'"
+        rel="tabToday"
+        (click)="viewMode = 'tabToday'"
+      >
+        Aujourd'hui
+      </li>
+      <li
+        class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
+        [class.active]="viewMode == 'tabThisWeek'"
+        rel="tabThisWeek"
+        (click)="viewMode = 'tabThisWeek'"
+      >
+        Cette semaine
+      </li>
+    </ul>
+  </div>
 
-  <ion-slides>
-    <ion-slide>
-      <ion-card class="card-ion">
-        <img class="" src="../../../assets/menu-default.png" />
-        <ion-card-header class="header-ion">
-          <ion-card-title class="" role="heading">
-            {{ meal.label }}</ion-card-title
-          >
-        </ion-card-header>
-        <ion-card-content class="content-ion">
-          <div class="meals">
-            <div class="meallabel" *ngFor="let ingredient of meal.ingredients">
-              • &nbsp;&nbsp;{{ ingredient.label }}
-              <br />
+  <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+    <div
+      id="tabToday"
+      *ngSwitchCase="'tabToday'"
+      class="tab-pane fade active show"
+    >
+      <ion-slides>
+        <ion-slide *ngFor="let meal of listPlatsToday; let i = index">
+          <ion-card class="card-ion">
+            <img class="" src="../../../assets/menu-default.png" />
+            <ion-card-header class="header-ion">
+              <ion-card-title class="" role="heading">
+                {{ meal.label }}</ion-card-title
+              >
+            </ion-card-header>
+            <ion-card-content class="content-ion">
+              <div class="meals">
+                <div
+                  class="meallabel"
+                  *ngFor="let ingredient of meal.ingredients"
+                >
+                  • &nbsp;&nbsp;{{ ingredient.label }}
+                  <br />
+                </div>
+              </div>
+              <div class="price-div">
+                <div class="price">
+                  <p class="card-text">{{ meal.priceDF }} €</p>
+                </div>
+                <hr />
+              </div>
+            </ion-card-content>
+            <div class="btnGroup">
+              <ion-button
+                class="btn-edit"
+                [routerLink]="['/editer-plats', meal.id]"
+                >Editer</ion-button
+              >
+              <ion-button class="btn-delete" [routerLink]="['/delete-plats']"
+                >Supprimer</ion-button
+              >
             </div>
-          </div>
-          <div class="price-div">
-            <div class="price">
-              <p class="card-text">{{ meal.priceDF }} €</p>
-            </div>
-            <hr />
-          </div>
-        </ion-card-content>
-        <div class="btnGroup">
-          <ion-button class="btn-edit" routerLink="[/editer-plats']"
-            >Editer</ion-button
-          >
-          <ion-button class="btn-delete" [routerLink]="['/delete-plats']"
-            >Supprimer</ion-button
-          >
-        </div>
-      </ion-card>
-    </ion-slide>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
 
-    <ion-slide>
-      <ion-card class="card-ion">
-        <img class="" src="../../../assets/menu-default.png" />
-        <ion-card-header class="header-ion">
-          <ion-card-title class="" role="heading">
-            {{ meal.label }}</ion-card-title
-          >
-        </ion-card-header>
-        <ion-card-content class="content-ion">
-          <div class="meals">
-            <div class="meallabel" *ngFor="let ingredient of meal.ingredients">
-              • &nbsp;&nbsp;{{ ingredient.label }}
-              <br />
-            </div>
-          </div>
-          <div class="price-div">
-            <div class="price">
-              <p class="card-text">{{ meal.priceDF }} €</p>
-            </div>
-            <hr />
-          </div>
-        </ion-card-content>
-        <div class="btnGroup">
-          <ion-button class="btn-edit" [routerLink]="['/editer-plats']"
-            >Editer</ion-button
-          >
-          <ion-button class="btn-delete" [routerLink]="['/delete-plats']"
-            >Supprimer</ion-button
-          >
-        </div>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
+    <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+      <div
+        id="tabThisWeek"
+        *ngSwitchCase="'tabThisWeek'"
+        class="tab-pane fade active show"
+      >
+        <ion-slides>
+          <ion-slide *ngFor="let meal of listPlatsWeek; let i = index">
+            <ion-card class="card-ion">
+              <img class="" src="../../../assets/menu-default.png" />
+              <ion-card-header class="header-ion">
+                <ion-card-title class="" role="heading">
+                  {{ meal.label }}</ion-card-title
+                >
+              </ion-card-header>
+              <ion-card-content class="content-ion">
+                <div class="meals">
+                  <div
+                    class="meallabel"
+                    *ngFor="let ingredient of meal.ingredients"
+                  >
+                    • &nbsp;&nbsp;{{ ingredient.label }}
+                    <br />
+                  </div>
+                </div>
+                <div class="price-div">
+                  <div class="price">
+                    <p class="card-text">{{ meal.priceDF }} €</p>
+                  </div>
+                  <hr />
+                </div>
+              </ion-card-content>
+              <div class="btnGroup">
+                <ion-button
+                  class="btn-edit"
+                  [routerLink]="['/editer-plats', meal.id]"
+                  >Editer</ion-button
+                >
+                <ion-button class="btn-delete" [routerLink]="['/delete-plats']"
+                  >Supprimer</ion-button
+                >
+              </div>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+  </div>
 </ion-content>
