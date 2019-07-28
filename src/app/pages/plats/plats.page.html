@@ -3,12 +3,13 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-card-header>La cantinière</ion-card-header>
+    <ion-title>La cantinière</ion-title>
     <ion-buttons slot="end">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <div class="container-fluid">
     <br />
@@ -32,73 +33,79 @@
         Cette semaine
       </li>
     </ul>
+
     <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
       <div
         id="tabToday"
         *ngSwitchCase="'tabToday'"
         class="tab-pane fade active show"
       >
-        <ng-container *ngFor="let meal of listPlatsToday; let i = index">
-          <ion-card class="card-ion">
-            <img class="" src="../../../assets/menu-default.png" />
-            <ion-card-header class="header-ion">
-              <ion-card-title class="" role="heading">
-                {{ meal.label }}</ion-card-title
-              >
-            </ion-card-header>
-            <ion-card-content class="content-ion">
-              <div class="meals">
-                <div
-                  class="meallabel"
-                  *ngFor="let ingredient of meal.ingredients"
+        <ion-slides>
+          <ion-slide *ngFor="let meal of listPlatsToday; let i = index">
+            <ion-card class="card-ion">
+              <img class="" src="../../../assets/menu-default.png" />
+              <ion-card-header class="header-ion">
+                <ion-card-title class="" role="heading">
+                  {{ meal.label }}</ion-card-title
                 >
-                  • &nbsp;&nbsp;{{ ingredient.label }}
-                  <br />
+              </ion-card-header>
+              <ion-card-content class="content-ion">
+                <div class="meals">
+                  <div
+                    class="meallabel"
+                    *ngFor="let ingredient of meal.ingredients"
+                  >
+                    • &nbsp;&nbsp;{{ ingredient.label }}
+                    <br />
+                  </div>
                 </div>
-              </div>
-              <div class="price-div">
-                <div class="price">
-                  <p class="card-text">{{ meal.priceDF }} €</p>
+                <div class="price-div">
+                  <div class="price">
+                    <p class="card-text">{{ meal.priceDF }} €</p>
+                  </div>
+                  <hr />
                 </div>
-                <hr />
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ng-container>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
       </div>
+
       <!-- Pour "tabThisWeek", on récupère tous les plats de la semaine avec listPlatsWeek -->
       <div
         id="tabThisWeek"
         *ngSwitchCase="'tabThisWeek'"
         class="tab-pane fade active show"
       >
-        <ng-container *ngFor="let meal of listPlatsWeek; let i = index">
-          <ion-card class="card-ion">
-            <img class="" src="../../../assets/menu-default.png" />
-            <ion-card-header class="header-ion">
-              <ion-card-title class="" role="heading">
-                {{ meal.label }}</ion-card-title
-              >
-            </ion-card-header>
-            <ion-card-content class="content-ion">
-              <div class="meals">
-                <div
-                  class="meallabel"
-                  *ngFor="let ingredient of meal.ingredients"
+        <ion-slides>
+          <ion-slide *ngFor="let meal of listPlatsWeek; let i = index">
+            <ion-card class="card-ion">
+              <img class="" src="../../../assets/menu-default.png" />
+              <ion-card-header class="header-ion">
+                <ion-card-title class="" role="heading">
+                  {{ meal.label }}</ion-card-title
                 >
-                  • &nbsp;&nbsp;{{ ingredient.label }}
-                  <br />
+              </ion-card-header>
+              <ion-card-content class="content-ion">
+                <div class="meals">
+                  <div
+                    class="meallabel"
+                    *ngFor="let ingredient of meal.ingredients"
+                  >
+                    • &nbsp;&nbsp;{{ ingredient.label }}
+                    <br />
+                  </div>
                 </div>
-              </div>
-              <div class="price-div">
-                <div class="price">
-                  <p class="card-text">{{ meal.priceDF }} €</p>
+                <div class="price-div">
+                  <div class="price">
+                    <p class="card-text">{{ meal.priceDF }} €</p>
+                  </div>
+                  <hr />
                 </div>
-                <hr />
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ng-container>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
       </div>
     </div>
   </div>

@@ -24,34 +24,83 @@
     </li>
   </ul>
 
-  <ion-slides>
-    <ion-slide *ngFor="let order of orders; let i = index">
-      <ion-card>
-        <ion-card-content>
-          <h4 class="infos">
-            {{ order.user.firstname }} {{ order.user.name }}
-          </h4>
-          <h5 class="infos" *ngIf="order.menu">{{ order.menu.label }}</h5>
-          <div class="takeaway">
-            <input type="checkbox" />
-            <label>Emporter</label>
-          </div>
-          <div class="price-div">
-            <div class="price">
-              <p class="card-text" *ngIf="order.menu">
-                {{ order.menu.priceDF }}
-              </p>
-            </div>
-            <hr />
-            <div class="details">
-              <a class="btn btn-remove " [routerLink]="['/delete-order']">X</a>
-            </div>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
+  <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+    <div
+      id="tabToday"
+      *ngSwitchCase="'tabToday'"
+      class="tab-pane fade active show"
+    >
+      <ion-slides>
+        <ion-slide *ngFor="let order of orders; let i = index">
+          <ion-card>
+            <ion-card-content>
+              <h4 class="infos">
+                {{ order.user.firstname }} {{ order.user.name }}
+              </h4>
+              <h5 class="infos" *ngIf="order.menu">{{ order.menu.label }}</h5>
+              <div class="takeaway">
+                <input type="checkbox" />
+                <label>Emporter</label>
+              </div>
+              <div class="price-div">
+                <div class="price">
+                  <p class="card-text" *ngIf="order.menu">
+                    {{ order.menu.priceDF }}
+                  </p>
+                </div>
+                <hr />
+                <div class="details">
+                  <a class="btn btn-remove " [routerLink]="['/delete-order']"
+                    >X</a
+                  >
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
 
-    <!-- <ion-slide>
+    <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+      <div
+        id="tabThisWeek"
+        *ngSwitchCase="'tabThisWeek'"
+        class="tab-pane fade active show"
+      >
+        <ion-slides>
+          <ion-slide *ngFor="let order of orders; let i = index">
+            <ion-card>
+              <ion-card-content>
+                <h4 class="infos">
+                  {{ order.user.firstname }} {{ order.user.name }}
+                </h4>
+                <h5 class="infos" *ngIf="order.menu">{{ order.menu.label }}</h5>
+                <div class="takeaway">
+                  <input type="checkbox" />
+                  <label>Emporter</label>
+                </div>
+                <div class="price-div">
+                  <div class="price">
+                    <p class="card-text" *ngIf="order.menu">
+                      {{ order.menu.priceDF }}
+                    </p>
+                  </div>
+                  <hr />
+                  <div class="details">
+                    <a class="btn btn-remove " [routerLink]="['/delete-order']"
+                      >X</a
+                    >
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+  </div>
+
+  <!-- <ion-slide>
       <ion-card>
         <ion-card-content>
           <h4 class="infos">Kevin Lorem</h4>
@@ -72,5 +121,4 @@
         </ion-card-content>
       </ion-card>
     </ion-slide> -->
-  </ion-slides>
 </ion-content>

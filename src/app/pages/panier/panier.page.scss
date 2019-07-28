@@ -1,27 +1,64 @@
-.center {
-  border: 3px solid black;
+ion-title {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+ion-content {
+  --ion-background-color: #f5f5f5;
+}
+
+.cagnotte-border {
+  border: 1px solid #707070;
   border-radius: 25px;
   padding: 10px;
   margin: 0 auto;
-  margin-top: 4px;
-  width: fit-content;
+  margin-top: 20px;
+  text-align: center;
+  width: 50%;
+  background: white;
+  font-weight: bold;
+}
+
+.infos {
+  margin-left: 10px;
+  margin-top: -30px;
 }
 
 h1 {
-  filter: drop-shadow(2px 2px 7px rgb(167, 167, 167));
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: #dc3545;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
 .btn-test {
   float: right;
-  color: white;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 23px;
+  text-transform: none;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 35%;
+  margin-right: 20px;
+  height: 40px;
+}
+
+.chooseMenu {
+  text-transform: none;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 45%;
+  margin-right: 20px;
+  height: 40px;
 }
 
 .delete {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
 }
 

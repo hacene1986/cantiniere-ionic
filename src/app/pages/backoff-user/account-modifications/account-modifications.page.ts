@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../../services/user.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { NgForm } from '@angular/forms';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-account-modifications",
@@ -24,7 +24,6 @@ export class AccountModificationsPage implements OnInit {
   }
 
   getUser(id) {
-    // console.log(id)
     this.userService.getUtilisateur(id).subscribe(res => {
       console.log(res);
       this.user = res;
@@ -38,6 +37,7 @@ export class AccountModificationsPage implements OnInit {
       .subscribe(user => {
         console.log("ok");
         form.reset();
+        window.location.reload();
       });
   }
 }
