@@ -23,17 +23,12 @@ export class CrediterPage implements OnInit {
 
   userDetail(id) {
     this.userService.getUtilisateur(id).subscribe(res => {
-      // console.log(res)
       this.user = res;
     });
   }
 
   crediter(form: NgForm) {
-    // let formulaire =
-    // console.log(formulaire)
-    (this.amount = form.value.amount),
-      // location.search = "?amount="+this.amount
-      console.log(this.amount);
+    (this.amount = form.value.amount), console.log(this.amount);
 
     this.userService
       .crediterUtilisateur(this.id, this.amount)

@@ -28,7 +28,6 @@
               routerLink="/home"
               class="firstItem"
             >
-              <!-- <ion-icon slot="start" name="home"></ion-icon> -->
               <ion-label>
                 Home
               </ion-label>
@@ -37,7 +36,6 @@
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
               <ion-label>
                 {{ p.title }}
               </ion-label>
@@ -49,7 +47,6 @@
             *ngIf="isAuth && userConnected.isLunchLady == 0"
           >
             <ion-item [routerDirection]="'root'" routerLink="/my-account">
-              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
               <ion-label>
                 Mon compte
               </ion-label>
@@ -61,7 +58,6 @@
             *ngIf="isAuth && userConnected.isLunchLady == 1"
           >
             <ion-item [routerDirection]="'root'" routerLink="/my-account">
-              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
               <ion-label>
                 Mon compte
               </ion-label>
@@ -88,7 +84,6 @@
               [routerDirection]="'root'"
               routerLink="/inscription"
             >
-              <!-- <ion-icon slot="start" name="key"></ion-icon> -->
               <ion-label>
                 Inscription
               </ion-label>
@@ -101,7 +96,6 @@
               [routerDirection]="'root'"
               routerLink="/connexion"
             >
-              <!-- <ion-icon slot="start" name="log-in"></ion-icon> -->
               <ion-label>
                 Connexion
               </ion-label>
@@ -115,7 +109,6 @@
               [routerDirection]="'root'"
               routerLink="/home"
             >
-              <!-- <ion-icon slot="end" name="undo"></ion-icon> -->
               <ion-label>
                 Déconnexion
               </ion-label>

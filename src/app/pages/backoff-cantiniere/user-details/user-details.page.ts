@@ -22,7 +22,6 @@ export class UserDetailsPage implements OnInit {
 
   userDetail(id) {
     this.userService.getUtilisateur(id).subscribe(res => {
-      // console.log(res)
       this.user = res;
     });
   }

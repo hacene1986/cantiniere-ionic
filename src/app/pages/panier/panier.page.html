@@ -3,22 +3,22 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-card-header>La cantinière</ion-card-header>
+    <ion-title>Votre panier</ion-title>
     <ion-buttons slot="end">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-  <ion-text *ngIf="menuPanier === null" color="danger" class="block">
+  <ion-text *ngIf="menuPanier === null" class="block">
     <h1 class="ion-text-center ion-margin-bottom">Votre panier est vide !</h1>
     <br />
-    <ion-button color="danger" routerLink="/menu">Choisir un menu </ion-button>
+    <ion-button class="chooseMenu" routerLink="/menu">Choisir un menu </ion-button>
   </ion-text>
-  <h1 *ngIf="menuPanier != null" class="ion-text-center">Votre panier</h1>
-  <h4 class="center" *ngIf="isAuth">
-    Ma cagnotte:
-    <span class="user-details"> {{ userConnected.wallet }} €</span>
+  <!-- <h1 *ngIf="menuPanier != null" class="ion-text-center">Votre panier</h1> -->
+  <h4 class="cagnotte-border" *ngIf="isAuth">
+    Cagnotte: {{ userConnected.wallet }}€
   </h4>
   <ion-list *ngIf="menuPanier != null">
     <ion-item-sliding *ngFor="let panier of menuPanier; let i = index">
@@ -26,13 +26,13 @@
         <ion-label class="imgLabel" text-wrap>
           <img class="imgMenuPanier" src="../../../assets/menu-default.png" />
         </ion-label>
-        <ion-label class="ion-text-center">
+        <div class="infos">
           <h1 class="ion-text-center nomMenu">
             <b>{{ panier.menu.label }}</b>
           </h1>
-          <ion-label><b>Quantité :</b> {{ panier.quantity }}</ion-label>
-          <ion-label><b>Prix :</b> {{ panier.menu.priceDF }} €</ion-label>
-        </ion-label>
+          <ion-label> <b>Quantité:</b> {{ panier.quantity }} </ion-label>
+          <ion-label> <b>Prix:</b> {{ panier.menu.priceDF }} € </ion-label>
+        </div>
         <img
           class="delete"
           src="../../../assets/img/delete.png"
@@ -43,7 +43,6 @@
   </ion-list>
   <ion-button
     *ngIf="isAuth && menuPanier != null"
-    color="danger"
     class="btn-test"
     (click)="creerLaCommande()"
     >Valider

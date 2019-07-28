@@ -40,9 +40,9 @@ export class ConnexionPage implements OnInit {
           console.log("userConnected in Connexion :");
           console.log(this.userConnected);
 
-          this.router.navigate(["/"]);
           this.toastSuccess();
-          // window.location.reload();
+          window.location.reload();
+          this.router.navigate(["/"]);
         },
         err => {
           console.log("Erreur d'authentification: " + err);

@@ -8,24 +8,60 @@
   <div>
     <h4 class="cagnotte-border">Cagnotte: {{ user.wallet }}€</h4>
   </div>
-  <form (ngSubmit)='updateUser(f)' #f='ngForm'>
-  <div class="search">
-    <input class="searchInput" type="text" placeholder="Prénom" name='firstname' [ngModel]="user.firstname" ngModel />
-    <input class="searchInput" type="text" placeholder="Nom" name='name' [ngModel]="user.name" ngModel />
-    <input class="searchInput" type="email" placeholder="Email" name='email' [ngModel]="user.email" ngModel />
-    <input class="searchInput" type="password" placeholder="Mot de passe" name='password' [ngModel]="user.password" ngModel />
-  </div>
+  <form (ngSubmit)="updateUser(f)" #f="ngForm">
+    <div class="search">
+      <input
+        class="searchInput"
+        type="text"
+        placeholder="Prénom"
+        name="firstname"
+        [ngModel]="user.firstname"
+        ngModel
+      />
+      <input
+        class="searchInput"
+        type="text"
+        placeholder="Nom"
+        name="name"
+        [ngModel]="user.name"
+        ngModel
+      />
+      <input
+        class="searchInput"
+        type="email"
+        placeholder="Email"
+        name="email"
+        [ngModel]="user.email"
+        ngModel
+      />
+      <input
+        class="searchInput"
+        type="number"
+        placeholder="Sexe"
+        name="sex"
+        [ngModel]="user.sex"
+        ngModel
+      />
+      <input
+        class="searchInput"
+        type="password"
+        placeholder="Mot de passe"
+        name="password"
+        [ngModel]="user.password"
+        ngModel
+      />
+    </div>
 
-  <div class="btnGroup">
-    <ion-button class="btn-valider" [routerLink]="['/account-modifications']"
-      >Valider</ion-button
-    >
-    <ion-button class="btn-annuler" [routerLink]="['/my-account']"
-      >Annuler</ion-button
-    >
-  </div>
-</form>
-  <!-- <div class="btn">
-    <ion-button class="btn-valider">Valider</ion-button>
-  </div> -->
+    <div class="btnGroup">
+      <ion-button
+        class="btn-valider"
+        type="submit"
+        [routerLink]="['/my-account']"
+        >Valider</ion-button
+      >
+      <ion-button class="btn-annuler" [routerLink]="['/my-account']"
+        >Annuler</ion-button
+      >
+    </div>
+  </form>
 </ion-content>

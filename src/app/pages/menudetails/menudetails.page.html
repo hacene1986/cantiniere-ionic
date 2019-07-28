@@ -48,8 +48,8 @@
           name="quantity"
           id="quantity"
           [(value)]="quantity"
-          okText="Okay"
-          cancelText="Dismiss"
+          cancelText="Annuler"
+          okText="Valider"
         >
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
@@ -60,7 +60,6 @@
     <ion-item-divider></ion-item-divider>
     <ion-button
       type="button"
-      color="danger"
       class="buttonPanier"
       (click)="validerAjoutPanier(menu, quantity)"
       >Ajouter au panier</ion-button

@@ -42,6 +42,10 @@
 
 .buttonPanier {
   float: right;
-  margin-top: 25px;
-  margin-right: 20px;
+  text-transform: none;
+  --border-radius: 19px !important;
+  --background: #d3283f;
+  font-weight: bold;
+  width: 45%;
+  height: 40px;
 }
