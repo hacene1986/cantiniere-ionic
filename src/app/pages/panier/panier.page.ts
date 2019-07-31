@@ -29,7 +29,7 @@ export class PanierPage implements OnInit {
     private auth: AuthentificationService,
     private orderService: OrderService,
     private toastController: ToastController
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (this.auth.isLogged()) {
@@ -81,32 +81,42 @@ export class PanierPage implements OnInit {
   }
 
   creerLaCommande() {
-    // FIXME PROBLEME : d'après le back, une commande ne peux être
-    // constitué que d'un seul menu (on passe menu.id)
-    // const user = this.userConnected;
-    // const menus = this.listArticles;
-    // const menu = this.menuPanier;
-    // this.order = {
-    //   status: 0,
-    //   creationDate: new Date(),
-    //   // menu, // id -> Un seul menu par commande ???
-    //   user.id,
-    //   quantities: null, // FIXME tableau de quantité ?????
-    // };
-    // this.orderService.addOrder(this.order)
-    //   .subscribe(
-    //     (response) => {
-    //       this.order = response;
-    //       console.log('order: ', this.order);
-    //     },
-    //     (error) => {
-    //       // this.openSnackBarError();
-    //       console.log('Error in Order.ts ... addOrder()', error);
-    //       console.log('user: ', user);
-    //       console.log('menu: ', menu);
-    //       console.log('order: ', this.order);
-    //     }
-    //   );
+    const user = this.userConnected;
+
+    console.log('user connecté : ');
+
+    const menus = this.listArticles;
+    const menu = this.menuPanier;
+
+    for (let i = 0; i < this.listArticles.length; i++) {
+      // const element = this.listArticles[i];
+      // console.log(element.menu.id);
+
+      this.order = {
+        status: 0,
+        creationDate: new Date(),
+        menuId: this.listArticles[i].menu.id,
+        user: this.userConnected.id,
+        quantities: null,
+      };
+
+      console.log('before: ', this.order);
+
+      this.orderService.addOrder(this.order)
+        .subscribe(
+          (response) => {
+            console.log('response ', response);
+            this.order = response;
+            console.log('order retour: ', this.order);
+          },
+          (error) => {
+            console.log('Error in Order.ts ... addOrder()', error);
+            console.log('user: ', user);
+            console.log('menu: ', menu);
+            console.log('order: ', this.order);
+          }
+        );
+    }
   }
 
   async toastSuccess() {

@@ -8,14 +8,14 @@ import { Injectable } from "@angular/core";
   providedIn: "root"
 })
 export class PlatService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   // Méthode pour récupérer tous les plats de la semaine
   getAllMealsForWeek(weekNumber: number): Observable<Meal[]> {
     return this.httpClient.get<Meal[]>(
       environment.urlServeurBackEnd +
-        "meal/findallavailableforweek/" +
-        weekNumber
+      "meal/findallavailableforweek/" +
+      weekNumber
     );
   }
 
