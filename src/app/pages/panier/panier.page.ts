@@ -46,7 +46,6 @@ export class PanierPage implements OnInit {
   // Initialiser le panier
   recupererPanier() {
     this.menuPanier = JSON.parse(localStorage.getItem("panier"));
-    console.log(this.menuPanier);
     // Pour supprimer 'panier' du localstorage s'il est vide
     if (JSON.stringify(this.menuPanier) === "[]") {
       localStorage.removeItem("panier");
@@ -55,11 +54,9 @@ export class PanierPage implements OnInit {
 
   // Méthode qui permet de supprimer un menu du panier
   supprimerMenu(i) {
-    console.log(JSON.parse(localStorage.getItem("panier")));
     const storagePanier = JSON.parse(localStorage.getItem("panier"));
     storagePanier.splice(i, 1);
     localStorage.setItem("panier", JSON.stringify(storagePanier));
-    console.log(JSON.parse(localStorage.getItem("panier")));
     this.ngOnInit();
     this.toastSuccess();
   }
@@ -71,11 +68,8 @@ export class PanierPage implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.listArticles.length; i++) {
       // this.price = this.listArticles[i].priceDF;
-      console.log("total panier: " + this.prixTotalPanier);
-      console.log("Prix article i: " + this.listArticles[i].priceDF);
       this.prixTotalPanier =
         this.prixTotalPanier + this.listArticles[i].priceDF;
-      console.log(this.prixTotalPanier);
     }
     // FIXME fix NaN
   }
@@ -83,9 +77,6 @@ export class PanierPage implements OnInit {
   creerLaCommande() {
     const user = this.userConnected;
 
-    console.log('user connecté : ');
-
-    const menus = this.listArticles;
     const menu = this.menuPanier;
 
     for (let i = 0; i < this.listArticles.length; i++) {
@@ -96,23 +87,18 @@ export class PanierPage implements OnInit {
         status: 0,
         creationDate: new Date(),
         menuId: this.listArticles[i].menu.id,
-        user: this.userConnected.id,
+        userId: this.userConnected.id,
         quantities: null,
       };
-
-      console.log('before: ', this.order);
 
       this.orderService.addOrder(this.order)
         .subscribe(
           (response) => {
-            console.log('response ', response);
             this.order = response;
             console.log('order retour: ', this.order);
           },
           (error) => {
             console.log('Error in Order.ts ... addOrder()', error);
-            console.log('user: ', user);
-            console.log('menu: ', menu);
             console.log('order: ', this.order);
           }
         );

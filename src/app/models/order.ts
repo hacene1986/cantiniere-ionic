@@ -6,12 +6,12 @@ export class Order {
     status?: number;
     creationDate?: Date;
     menuId: number;
-    user: number;
+    userId: number;
     quantities: Quantity[];
     constructor(
         id: number,
         menuId: number,
-        user: number,
+        userId: number,
         status: number,
         creationDate: Date,
         quantities: Quantity[]
@@ -20,7 +20,7 @@ export class Order {
         this.status = status;
         this.creationDate = creationDate;
         this.menuId = menuId;
-        this.user = user;
+        this.userId = userId;
         this.quantities = quantities;
     }
 
