@@ -65,13 +65,12 @@ export class PanierPage implements OnInit {
   calculerTotalPanier() {
     this.local = localStorage.getItem("panier");
     this.listArticles = JSON.parse(this.local);
-    // tslint:disable-next-line:prefer-for-of
+    console.log(this.listArticles);
+    this.prixTotalPanier = 0;
     for (let i = 0; i < this.listArticles.length; i++) {
-      // this.price = this.listArticles[i].priceDF;
-      this.prixTotalPanier =
-        this.prixTotalPanier + this.listArticles[i].priceDF;
+      this.prixTotalPanier = this.prixTotalPanier + (this.listArticles[i].menu.priceDF * this.listArticles[i].quantity);
+      console.log(this.prixTotalPanier);
     }
-    // FIXME fix NaN
   }
 
   creerLaCommande() {
