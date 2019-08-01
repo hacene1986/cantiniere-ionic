@@ -80,5 +80,6 @@ export class AppComponent {
     this.auth.logout();
     this.initializeApp();
     window.location.reload();
+    this.router.navigate(["/"]);
   }
 }
