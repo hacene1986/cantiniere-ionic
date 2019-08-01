@@ -9,6 +9,7 @@ export class Menu {
     image?: string;
     meals: Meal[];
     menu?: any;
+    quantity?: any;
     constructor(
         id: number,
         status?: number,
