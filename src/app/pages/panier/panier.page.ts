@@ -1,18 +1,19 @@
-import { ToastController } from "@ionic/angular";
-import { Quantity } from "./../../models/quantity";
-import { Menu } from "./../../models/menu";
-import { Order } from "./../../models/order";
-import { OrderService } from "./../../services/order.service";
-import { Meal } from "src/app/models/meal";
-import { AuthentificationService } from "./../../services/authentification.service";
-import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { User } from "src/app/models/user";
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { Quantity } from './../../models/quantity';
+import { Menu } from './../../models/menu';
+import { Order } from './../../models/order';
+import { OrderService } from './../../services/order.service';
+import { Meal } from 'src/app/models/meal';
+import { AuthentificationService } from './../../services/authentification.service';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { User } from 'src/app/models/user';
 
 @Component({
-  selector: "app-panier",
-  templateUrl: "./panier.page.html",
-  styleUrls: ["./panier.page.scss"]
+  selector: 'app-panier',
+  templateUrl: './panier.page.html',
+  styleUrls: ['./panier.page.scss']
 })
 export class PanierPage implements OnInit {
   menuPanier: [];
@@ -28,7 +29,8 @@ export class PanierPage implements OnInit {
     // private snackbar: MatSnackBar,
     private auth: AuthentificationService,
     private orderService: OrderService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -45,28 +47,29 @@ export class PanierPage implements OnInit {
 
   // Initialiser le panier
   recupererPanier() {
-    this.menuPanier = JSON.parse(localStorage.getItem("panier"));
+    this.menuPanier = JSON.parse(localStorage.getItem('panier'));
     // Pour supprimer 'panier' du localstorage s'il est vide
-    if (JSON.stringify(this.menuPanier) === "[]") {
-      localStorage.removeItem("panier");
+    if (JSON.stringify(this.menuPanier) === '[]') {
+      localStorage.removeItem('panier');
     }
   }
 
   // Méthode qui permet de supprimer un menu du panier
   supprimerMenu(i) {
-    const storagePanier = JSON.parse(localStorage.getItem("panier"));
+    const storagePanier = JSON.parse(localStorage.getItem('panier'));
     storagePanier.splice(i, 1);
-    localStorage.setItem("panier", JSON.stringify(storagePanier));
+    localStorage.setItem('panier', JSON.stringify(storagePanier));
     this.ngOnInit();
-    this.toastSuccess();
+    this.toastSupprimerMenu();
   }
 
   // Pour calculer le prix total du panier
   calculerTotalPanier() {
-    this.local = localStorage.getItem("panier");
+    this.local = localStorage.getItem('panier');
     this.listArticles = JSON.parse(this.local);
     console.log(this.listArticles);
     this.prixTotalPanier = 0;
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.listArticles.length; i++) {
       this.prixTotalPanier = this.prixTotalPanier + (this.listArticles[i].menu.priceDF * this.listArticles[i].quantity);
       console.log(this.prixTotalPanier);
@@ -78,6 +81,7 @@ export class PanierPage implements OnInit {
 
     const menu = this.menuPanier;
 
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.listArticles.length; i++) {
       // const element = this.listArticles[i];
       // console.log(element.menu.id);
@@ -94,9 +98,14 @@ export class PanierPage implements OnInit {
         .subscribe(
           (response) => {
             this.order = response;
+            this.toastCommander();
+            localStorage.removeItem('panier');
+            this.router.navigate(['/']);
+
             console.log('order retour: ', this.order);
           },
           (error) => {
+            this.toastCommanderAvant();
             console.log('Error in Order.ts ... addOrder()', error);
             console.log('order: ', this.order);
           }
@@ -104,18 +113,56 @@ export class PanierPage implements OnInit {
     }
   }
 
-  async toastSuccess() {
+  async toastSupprimerMenu() {
     const toast = await this.toastController.create({
-      message: "Menu supprimé du panier",
-      position: "bottom",
-      color: "danger",
+      message: 'Menu supprimé du panier',
+      position: 'bottom',
+      color: 'success',
       duration: 3500,
       buttons: [
         {
-          text: "OK",
-          role: "cancel",
+          text: 'OK',
+          role: 'cancel',
           handler: () => {
-            console.log("Cancel clicked");
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
+  }
+
+  async toastCommander() {
+    const toast = await this.toastController.create({
+      message: 'Votre commande a été enregistrée.',
+      position: 'bottom',
+      color: 'success',
+      duration: 3500,
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
+  }
+
+  async toastCommanderAvant() {
+    const toast = await this.toastController.create({
+      message: 'Vous devez commander avant 10h30',
+      position: 'bottom',
+      color: 'danger',
+      duration: 10000,
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
           }
         }
       ]

@@ -16,6 +16,7 @@ ion-content {
   padding: 10px;
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 3px;
   text-align: center;
   width: 50%;
   background: white;
@@ -83,4 +84,10 @@ h1 {
 
 ion-item {
   height: 160px;
+}
+
+.prixTotal {
+  text-align: right;
+  margin-right: 27px;
+  margin-bottom: 10px;
 }
