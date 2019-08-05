@@ -32,7 +32,7 @@ export class CrediterPage implements OnInit {
 
     this.userService
       .crediterUtilisateur(this.id, this.amount)
-      .subscribe(walet => {
+      .subscribe(wallet => {
         console.log("ok");
         form.reset();
         window.location.reload();

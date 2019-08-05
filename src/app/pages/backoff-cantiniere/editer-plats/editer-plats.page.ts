@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { Meal } from "../../../models/meal";
 import { ActivatedRoute } from "@angular/router";
 import { PlatService } from "src/app/services/plat.service";
 import { NgForm } from "@angular/forms";
@@ -16,8 +14,7 @@ export class EditerPlatsPage implements OnInit {
 
   constructor(
     private platServices: PlatService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) {
     this.route.params.subscribe(params => (this.id = params.id));
   }

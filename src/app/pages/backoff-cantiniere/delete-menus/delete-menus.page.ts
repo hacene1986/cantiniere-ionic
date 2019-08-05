@@ -24,11 +24,8 @@ export class DeleteMenusPage implements OnInit {
     this.menuService.getAllMenuForWeek(this.weekNumber).subscribe(
       response => {
         this.listMenuThisWeek = response;
-        // console.log('listMenuWeek: ', this.listMenuThisWeek);
-        // console.log(response);
       },
       error => {
-        // this.openSnackBarError();
         console.log("Error in Plats.ts ... getAllMealsForWeek()", error);
       }
     );
@@ -38,10 +35,8 @@ export class DeleteMenusPage implements OnInit {
     this.menuService.getAllMenuForToday().subscribe(
       response => {
         this.listMenuToday = response;
-        // console.log('listPlatsToday: ', this.listMenuToday);
       },
       error => {
-        // this.openSnackBarError();
         console.log("Error in Plats.ts ... getAllMealsForToday()", error);
       }
     );
@@ -49,7 +44,6 @@ export class DeleteMenusPage implements OnInit {
 
   deleteMenu(id) {
     this.menuService.deleteMenu(id).subscribe(successCode => {
-      // console.log(this.listPlatsWeek);
       this.listMenuThisWeek = this.listMenuThisWeek.filter(
         listMenuThisWeek => listMenuThisWeek.id !== id
       );
