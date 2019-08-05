@@ -11,12 +11,11 @@ export class UserService {
   // Est stocké dans une variable d'environnement -> environment.ts
   urlServeur = environment.urlServeurBackEnd;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   // Méthode pour creer un utilisateur
   creerUtilisateur(user: User): Observable<User> {
-    return this.httpClient.put<User>(this.urlServeur + "user/register", user
-    );
+    return this.httpClient.put<User>(this.urlServeur + "user/register", user);
   }
 
   // Méthode pour update le compte d'un utilisateur

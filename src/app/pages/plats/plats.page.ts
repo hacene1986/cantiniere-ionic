@@ -43,7 +43,6 @@ export class PlatsPage implements OnInit {
     this.platServices.getAllMealsForToday().subscribe(
       response => {
         this.listPlatsToday = response;
-        console.log("listPlatsToday: ", this.listPlatsToday);
       },
       error => {
         console.log("Error in Plats.ts ... getAllMealsForToday()", error);

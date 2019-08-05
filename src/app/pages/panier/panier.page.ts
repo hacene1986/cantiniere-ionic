@@ -63,14 +63,12 @@ export class PanierPage implements OnInit {
   calculerTotalPanier() {
     this.local = localStorage.getItem("panier");
     this.listArticles = JSON.parse(this.local);
-    console.log(this.listArticles);
     this.prixTotalPanier = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.listArticles.length; i++) {
       this.prixTotalPanier =
         this.prixTotalPanier +
         this.listArticles[i].menu.priceDF * this.listArticles[i].quantity;
-      console.log(this.prixTotalPanier);
     }
   }
 
@@ -91,13 +89,9 @@ export class PanierPage implements OnInit {
           this.toastCommander();
           localStorage.removeItem("panier");
           this.router.navigate(["/"]);
-
-          console.log("order retour: ", this.order);
         },
         error => {
           this.toastCommanderAvant();
-          console.log("Error in Order.ts ... addOrder()", error);
-          console.log("order: ", this.order);
         }
       );
     }
