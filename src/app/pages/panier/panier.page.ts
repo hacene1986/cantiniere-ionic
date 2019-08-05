@@ -23,7 +23,6 @@ export class PanierPage implements OnInit {
   order: Order;
 
   constructor(
-    // private snackbar: MatSnackBar,
     private auth: AuthentificationService,
     private orderService: OrderService,
     private toastController: ToastController,
