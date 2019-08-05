@@ -37,7 +37,7 @@ h1 {
 }
 
 .btn-test {
-  float: right;
+  // float: right;
   text-transform: none;
   --border-radius: 19px !important;
   --background: #d3283f;
@@ -77,6 +77,10 @@ h1 {
   height: 100%;
 }
 
+.blockConnexion {
+  text-align: center;
+}
+
 .imgMenuPanier {
   margin-bottom: 5px;
   border-radius: 5px;
@@ -87,7 +91,12 @@ ion-item {
 }
 
 .prixTotal {
-  text-align: right;
+  text-align: center;
   margin-right: 27px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+
+  & > h4 {
+    margin-top: 0;
+    font-weight: bold;
+  }
 }
