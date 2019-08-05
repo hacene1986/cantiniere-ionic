@@ -26,7 +26,6 @@ export class CantinierePlatPage implements OnInit {
     this.platServices.getAllMealsForWeek(this.weekNumber).subscribe(
       response => {
         this.listPlatsWeek = response;
-        console.log("listPlatsWeek: ", this.listPlatsWeek);
       },
       error => {
         console.log("Error in Plats.ts ... getAllMealsForWeek()", error);
@@ -38,7 +37,6 @@ export class CantinierePlatPage implements OnInit {
     this.platServices.getAllMealsForToday().subscribe(
       response => {
         this.listPlatsToday = response;
-        console.log("listPlatsToday: ", this.listPlatsToday);
       },
       error => {
         console.log("Error in Plats.ts ... getAllMealsForToday()", error);
@@ -57,7 +55,6 @@ export class CantinierePlatPage implements OnInit {
     };
 
     this.platServices.addMeal(meal).subscribe(plat => {
-      console.log("ok");
       form.reset();
     });
   }
