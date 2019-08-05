@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../../services/user.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -11,11 +11,7 @@ import { NgForm } from "@angular/forms";
 export class AccountModificationsPage implements OnInit {
   id: number;
   user: Object;
-  constructor(
-    private userService: UserService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
+  constructor(private userService: UserService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => (this.id = params.id));
   }
 
@@ -25,17 +21,14 @@ export class AccountModificationsPage implements OnInit {
 
   getUser(id) {
     this.userService.getUtilisateur(id).subscribe(res => {
-      console.log(res);
       this.user = res;
     });
   }
 
   updateUser(form: NgForm) {
-    console.log(form.form.value);
     this.userService
       .updateUtilisateur(this.id, form.form.value)
       .subscribe(user => {
-        console.log("ok");
         form.reset();
         window.location.reload();
       });
