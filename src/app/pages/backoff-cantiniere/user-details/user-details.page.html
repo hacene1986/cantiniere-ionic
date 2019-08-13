@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="user != null">
   <div>
     <h4 class="cagnotte-border">Cagnotte: {{ user.wallet }}€</h4>
     <div class="btnGroup">
@@ -18,12 +18,35 @@
 
   <div>
     <h4 class="commande">Commandes en cours:</h4>
-    <div *ngFor="let order of orders">
-      {{ this.order.creationDate }}
-    </div>
   </div>
 
-  <div class="recap">
-    <h4 class="recapTitle">Récapitulatif de la commande</h4>
+  <div id="tabToday" class="tab-pane fade active show">
+    <ion-slides>
+      <ng-container *ngFor="let order of orders">
+        <ion-slide *ngIf="order.menu != null">
+          <ion-card class="card-ion" *ngIf="order.menu != null">
+            <img class="" src="../../../assets/menu-default.png" />
+            <ion-card-header class="header-ion">
+              <ion-card-title class="" role="heading">
+                {{ order.menu.label }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="content-ion">
+              <div class="meals">
+                <div class="meallabel" *ngFor="let meal of order.menu.meals">
+                  • &nbsp;&nbsp;{{ meal.label }}
+                  <br />
+                </div>
+              </div>
+              <div class="price-div">
+                <div class="price">
+                  <p class="card-text">{{ order.menu.priceDF }} €</p>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ng-container>
+    </ion-slides>
   </div>
+
 </ion-content>

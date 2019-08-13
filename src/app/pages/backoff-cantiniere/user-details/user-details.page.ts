@@ -22,30 +22,36 @@ export class UserDetailsPage implements OnInit {
     private route: ActivatedRoute,
     private orderService: OrderService
   ) {
-    this.route.params.subscribe(params => (this.id = params.id));
+    // this.route.params.subscribe(params => (this.id = params.id));
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => (this.id = params.id));
     this.userDetail(this.id);
     this.getOrderFromUser();
-    // this.order = this.getOrderFromUser();
   }
 
   getOrderFromUser() {
     return this.orderService.getAllOrderForUser(null, null, null, this.id).subscribe(
       (res) => {
-        console.log(res);
-
+        console.log('res getOrderFromUser : ', res);
         this.orders = res;
       },
       (err) => {
+        console.log('erreur getOrderFromUser : ', err);
 
       });
   }
 
   userDetail(id) {
-    this.userService.getUtilisateur(id).subscribe(res => {
-      this.user = res;
-    });
+    this.userService.getUtilisateur(id).subscribe(
+      (res) => {
+        console.log('res userDetail : ', res);
+        this.user = res;
+      },
+      (err) => {
+        console.log('erreur userDetail : ', err);
+      }
+    );
   }
 }
