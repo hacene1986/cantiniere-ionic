@@ -22,11 +22,10 @@ export class UserDetailsPage implements OnInit {
     private route: ActivatedRoute,
     private orderService: OrderService
   ) {
-    // this.route.params.subscribe(params => (this.id = params.id));
+    this.route.params.subscribe(params => (this.id = params.id));
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => (this.id = params.id));
     this.userDetail(this.id);
     this.getOrderFromUser();
   }
