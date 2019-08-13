@@ -65,10 +65,14 @@ export class OrderService {
     beginDate: string,
     endDate: string,
     status: number,
-    user: User
+    userId: number
   ): Observable<Order[]> {
+    const reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('token')
+    });
     return this.httpClient.get<Order[]>(
-      environment.urlServeurBackEnd + 'order/findallforuser/' + user.id
+      environment.urlServeurBackEnd + 'order/findallforuser/' + userId, { headers: reqHeader }
     );
   }
 

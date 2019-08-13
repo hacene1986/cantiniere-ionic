@@ -78,39 +78,41 @@ export class PanierPage implements OnInit {
 
   creerLaCommande() {
     const user = this.userConnected;
-
     const menu = this.menuPanier;
 
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.listArticles.length; i++) {
-      // const element = this.listArticles[i];
-      // console.log(element.menu.id);
+    if (this.userConnected.wallet < this.prixTotalPanier) {
+      this.toastCagnotteTropFaible();
+    } else {
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < this.listArticles.length; i++) {
 
-      this.order = {
-        status: 0,
-        creationDate: new Date(),
-        menuId: this.listArticles[i].menu.id,
-        userId: this.userConnected.id,
-        quantities: null,
-      };
+        this.order = {
+          status: 0,
+          creationDate: new Date(),
+          menuId: this.listArticles[i].menu.id,
+          userId: this.userConnected.id,
+          quantities: null,
+        };
 
-      this.orderService.addOrder(this.order)
-        .subscribe(
-          (response) => {
-            this.order = response;
-            this.toastCommander();
-            localStorage.removeItem('panier');
-            this.router.navigate(['/']);
+        this.orderService.addOrder(this.order)
+          .subscribe(
+            (response) => {
+              this.order = response;
+              this.toastCommander();
+              localStorage.removeItem('panier');
+              this.router.navigate(['/']);
 
-            console.log('order retour: ', this.order);
-          },
-          (error) => {
-            this.toastCommanderAvant();
-            console.log('Error in Order.ts ... addOrder()', error);
-            console.log('order: ', this.order);
-          }
-        );
+              console.log('order retour: ', this.order);
+            },
+            (error) => {
+              this.toastCommanderAvant();
+              console.log('Error in Order.ts ... addOrder()', error);
+              console.log('order: ', this.order);
+            }
+          );
+      }
     }
+
   }
 
   async toastSupprimerMenu() {
@@ -154,6 +156,25 @@ export class PanierPage implements OnInit {
   async toastCommanderAvant() {
     const toast = await this.toastController.create({
       message: 'Vous devez commander avant 10h30',
+      position: 'bottom',
+      color: 'danger',
+      duration: 10000,
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
+  }
+
+  async toastCagnotteTropFaible() {
+    const toast = await this.toastController.create({
+      message: 'Vous n\'avez pas assez d\'argent dans votre cagnotte',
       position: 'bottom',
       color: 'danger',
       duration: 10000,

@@ -11,7 +11,7 @@ export class UserAccountPage implements OnInit {
   public searchText: string;
   users: Array<User>;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.getAllUtilisateur();

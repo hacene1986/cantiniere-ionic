@@ -8,12 +8,8 @@
   <div>
     <h4 class="cagnotte-border">Cagnotte: {{ user.wallet }}€</h4>
     <div class="btnGroup">
-      <ion-button class="btn-crediter" [routerLink]="['/crediter', user.id]"
-        >Créditer</ion-button
-      >
-      <ion-button class="btn-debiter" [routerLink]="['/debiter', user.id]"
-        >Débiter</ion-button
-      >
+      <ion-button class="btn-crediter" [routerLink]="['/crediter', user.id]">Créditer</ion-button>
+      <ion-button class="btn-debiter" [routerLink]="['/debiter', user.id]">Débiter</ion-button>
     </div>
     <h4 class="infos">{{ user.name }}</h4>
     <h4 class="infos">{{ user.firstname }}</h4>
@@ -22,6 +18,9 @@
 
   <div>
     <h4 class="commande">Commandes en cours:</h4>
+    <div *ngFor="let order of orders">
+      {{ this.order.creationDate }}
+    </div>
   </div>
 
   <div class="recap">
