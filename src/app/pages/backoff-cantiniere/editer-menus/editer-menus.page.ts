@@ -12,11 +12,7 @@ export class EditerMenusPage implements OnInit {
   id: string;
   menu: Object;
 
-  constructor(
-    private menuService: MenuService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
+  constructor(private menuService: MenuService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => (this.id = params.id));
   }
 

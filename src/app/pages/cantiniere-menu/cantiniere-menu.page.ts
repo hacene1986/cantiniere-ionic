@@ -7,7 +7,6 @@ import { MenuService } from "src/app/services/menu.service";
   styleUrls: ["./cantiniere-menu.page.scss"]
 })
 export class CantiniereMenuPage implements OnInit {
-
   // Pour afficher l'onglet Formules (menu) par défaut
   viewMode = "tabToday";
   weekNumber = 49;

@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from "src/app/services/user.service";
 import jwt_decod from "jwt-decode";
 
 @Component({
@@ -10,7 +9,7 @@ import jwt_decod from "jwt-decode";
 export class MyAccountPage implements OnInit {
   id: string;
   user: Object;
-  constructor(private userService: UserService) {}
+  constructor() {}
 
   ngOnInit() {
     this.getUser();
@@ -19,7 +18,6 @@ export class MyAccountPage implements OnInit {
   getUser() {
     let tok = localStorage.getItem("token");
     let decod = jwt_decod(tok);
-    console.log(decod.user);
     this.user = decod.user;
   }
 }

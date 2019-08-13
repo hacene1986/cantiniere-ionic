@@ -19,9 +19,8 @@ export class InscriptionPage implements OnInit {
     private userService: UserService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private toastController: ToastController,
-    private auth: AuthentificationService
-  ) { }
+    private toastController: ToastController
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
@@ -54,16 +53,6 @@ export class InscriptionPage implements OnInit {
 
     this.userService.creerUtilisateur(user).subscribe(
       data => {
-        // this.auth
-        //   .authentification(user.email, user.password)
-        //   .subscribe(
-        //     data2 => {
-        //       console.log(data2);
-        //     },
-        //     err => {
-        //       console.log(err);
-        //     }
-        //   );
         form.reset();
         this.userConnected = user;
         window.location.reload();
@@ -71,8 +60,6 @@ export class InscriptionPage implements OnInit {
         this.toastSuccess();
       },
       err => {
-        console.log(user);
-        console.log(err);
         this.router.navigate(["/"]);
         this.toastError();
       }

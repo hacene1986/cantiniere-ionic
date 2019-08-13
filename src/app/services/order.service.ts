@@ -19,7 +19,11 @@ export class OrderService {
       Authorization: 'Bearer ' + localStorage.getItem('token')
     });
 
-    return this.httpClient.put<Order>(environment.urlServeurBackEnd + 'order/add/', order, { headers: reqHeader });
+    return this.httpClient.put<Order>(
+      environment.urlServeurBackEnd + 'order/add/',
+      order,
+      { headers: reqHeader }
+    );
   }
 
   // Méthode pour annuler une commande

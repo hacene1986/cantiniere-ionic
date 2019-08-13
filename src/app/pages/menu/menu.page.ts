@@ -87,7 +87,6 @@ export class MenuPage implements OnInit {
 
   // Méthode du bouton "+" de la card pour directement ajouter un menu dans le panier
   addToPanier(menu) {
-    console.log(menu);
     let panier = [];
     if (localStorage.getItem("panier")) {
       panier = JSON.parse(localStorage.getItem("panier"));
@@ -95,7 +94,6 @@ export class MenuPage implements OnInit {
     panier.push({ quantity: this.quantity, menu });
     localStorage.setItem("panier", JSON.stringify(panier));
     this.toastSuccess();
-    console.log(JSON.parse(localStorage.getItem("panier")));
   }
 
   async toastSuccess() {

@@ -23,24 +23,18 @@ export class DebiterPage implements OnInit {
 
   userDetail(id) {
     this.userService.getUtilisateur(id).subscribe(res => {
-      // console.log(res)
       this.user = res;
     });
   }
 
   debiter(form: NgForm) {
-    // let formulaire =
-    // console.log(formulaire)
     (this.amount = form.value.amount),
-      // location.search = "?amount="+this.amount
-      console.log(this.amount);
-
-    this.userService
-      .debiterUtilisateur(this.id, this.amount)
-      .subscribe(walet => {
-        console.log("ok");
-        form.reset();
-        window.location.reload();
-      });
+      this.userService
+        .debiterUtilisateur(this.id, this.amount)
+        .subscribe(wallet => {
+          console.log("ok");
+          form.reset();
+          window.location.reload();
+        });
   }
 }

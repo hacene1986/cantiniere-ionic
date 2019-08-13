@@ -1,22 +1,21 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Supprimer un menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <div class="message">
-      <p>
-        Êtes-vous sur de vouloir supprimer ce menu ?
-      </p>
-    </div>
-    <div class="btnGroup">
-      <ion-button class="btn-valider" (click)="deleteMenu(menu.id)"
-        >Confirmer</ion-button
-      >
-      <ion-button class="btn-annuler" [routerLink]="['/cantiniere-menu']"
-        >Annuler</ion-button
-      >
-    </div>
-  </ion-content>
-  
+  <ion-toolbar>
+    <ion-title>Supprimer un menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="message">
+    <p>
+      Êtes-vous sur de vouloir supprimer ce menu ?
+    </p>
+  </div>
+  <div class="btnGroup">
+    <ion-button class="btn-valider" (click)="deleteMenu(menu.id)"
+      >Confirmer</ion-button
+    >
+    <ion-button class="btn-annuler" [routerLink]="['/cantiniere-menu']"
+      >Annuler</ion-button
+    >
+  </div>
+</ion-content>

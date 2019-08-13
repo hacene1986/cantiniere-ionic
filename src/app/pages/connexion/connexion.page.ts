@@ -2,7 +2,7 @@ import { ToastController } from "@ionic/angular";
 import { AuthentificationService } from "../../services/authentification.service";
 import { User } from "../../models/user";
 import { Router } from "@angular/router";
-import { Component, OnInit, ViewChild, TemplateRef } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Validators, FormGroup, FormBuilder, NgForm } from "@angular/forms";
 import jwt_decode from "jwt-decode";
 
@@ -37,8 +37,6 @@ export class ConnexionPage implements OnInit {
       .subscribe(
         user => {
           this.userConnected = this.authService.getUserConnected();
-          console.log("userConnected in Connexion :");
-          console.log(this.userConnected);
 
           this.toastSuccess();
           window.location.reload();

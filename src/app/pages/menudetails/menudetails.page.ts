@@ -48,7 +48,6 @@ export class MenudetailsPage implements OnInit {
     localStorage.setItem("panier", JSON.stringify(panier));
 
     this.toastSuccess();
-    console.log(JSON.parse(localStorage.getItem("panier")));
     this.router.navigate(["/panier"]);
   }
 

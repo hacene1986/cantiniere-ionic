@@ -1,13 +1,10 @@
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { Quantity } from './../../models/quantity';
 import { Menu } from './../../models/menu';
 import { Order } from './../../models/order';
 import { OrderService } from './../../services/order.service';
-import { Meal } from 'src/app/models/meal';
 import { AuthentificationService } from './../../services/authentification.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -26,7 +23,6 @@ export class PanierPage implements OnInit {
   order: Order;
 
   constructor(
-    // private snackbar: MatSnackBar,
     private auth: AuthentificationService,
     private orderService: OrderService,
     private toastController: ToastController,
@@ -67,12 +63,12 @@ export class PanierPage implements OnInit {
   calculerTotalPanier() {
     this.local = localStorage.getItem('panier');
     this.listArticles = JSON.parse(this.local);
-    console.log(this.listArticles);
     this.prixTotalPanier = 0;
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.listArticles.length; i++) {
-      this.prixTotalPanier = this.prixTotalPanier + (this.listArticles[i].menu.priceDF * this.listArticles[i].quantity);
-      console.log(this.prixTotalPanier);
+      this.prixTotalPanier =
+        this.prixTotalPanier +
+        this.listArticles[i].menu.priceDF * this.listArticles[i].quantity;
     }
   }
 

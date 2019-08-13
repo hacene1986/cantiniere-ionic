@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import { Meal } from "../../../models/meal";
-//import { ActivatedRoute } from '@angular/router';
 import { PlatService } from "src/app/services/plat.service";
 import { NgForm } from "@angular/forms";
 
