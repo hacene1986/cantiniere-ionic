@@ -172,7 +172,7 @@ export class PanierPage implements OnInit {
 
   async toastCagnotteTropFaible() {
     const toast = await this.toastController.create({
-      message: 'Vous n\'avez pas assez d\'argent dans votre cagnotte',
+      message: 'Vous n\'avez pas assez d\'argent dans votre cagnotte. Veuillez créditer votre cagnotte auprès de la cantiniere.',
       position: 'bottom',
       color: 'danger',
       duration: 10000,
