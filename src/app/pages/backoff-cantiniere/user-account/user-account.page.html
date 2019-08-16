@@ -1,6 +1,12 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Utilisateurs</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,8 +18,7 @@
   </div>
 
   <ion-slides>
-    <ion-slide
-      *ngFor="
+    <ion-slide *ngFor="
         let user of users
           | search
             : {
@@ -22,8 +27,7 @@
                 email: searchText
               };
         let i = index
-      "
-    >
+      ">
       <ion-card>
         <ion-card-content>
           <h4 class="infos">{{ user.name }}</h4>

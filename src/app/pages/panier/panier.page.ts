@@ -65,10 +65,12 @@ export class PanierPage implements OnInit {
     this.listArticles = JSON.parse(this.local);
     this.prixTotalPanier = 0;
     // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.listArticles.length; i++) {
-      this.prixTotalPanier =
-        this.prixTotalPanier +
-        this.listArticles[i].menu.priceDF * this.listArticles[i].quantity;
+    if (this.listArticles != null) {
+      for (let i = 0; i < this.listArticles.length; i++) {
+        this.prixTotalPanier =
+          this.prixTotalPanier +
+          this.listArticles[i].menu.priceDF * this.listArticles[i].quantity;
+      }
     }
   }
 

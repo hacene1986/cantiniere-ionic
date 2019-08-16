@@ -1,74 +1,32 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Récapitulatif</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ul id="tabsNav" class="tabsNav nav">
-    <li
-      class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
-      [class.active]="viewMode == 'tabToday'"
-      rel="tabToday"
-      (click)="viewMode = 'tabToday'"
-    >
+    <li class="nav-item nav-link nav-link-custom small text-uppercase active mr-3"
+      [class.active]="viewMode == 'tabToday'" rel="tabToday" (click)="viewMode = 'tabToday'">
       Aujourd'hui
     </li>
-    <li
-      class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
-      [class.active]="viewMode == 'tabThisWeek'"
-      rel="tabThisWeek"
-      (click)="viewMode = 'tabThisWeek'"
-    >
+    <li class="nav-item nav-link nav-link-custom small text-uppercase active ml-3"
+      [class.active]="viewMode == 'tabThisWeek'" rel="tabThisWeek" (click)="viewMode = 'tabThisWeek'">
       Cette semaine
     </li>
   </ul>
 
   <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
-    <div
-      id="tabToday"
-      *ngSwitchCase="'tabToday'"
-      class="tab-pane fade active show"
-    >
+    <div id="tabToday" *ngSwitchCase="'tabToday'" class="tab-pane fade active show">
       <ion-slides>
-        <ion-slide *ngFor="let order of orders; let i = index">
-          <ion-card>
-            <ion-card-content>
-              <h4 class="infos">
-                {{ order.user.firstname }} {{ order.user.name }}
-              </h4>
-              <h5 class="infos" *ngIf="order.menu">{{ order.menu.label }}</h5>
-              <div class="takeaway">
-                <input type="checkbox" />
-                <label>Emporter</label>
-              </div>
-              <div class="price-div">
-                <div class="price">
-                  <p class="card-text" *ngIf="order.menu">
-                    {{ order.menu.priceDF }}
-                  </p>
-                </div>
-                <hr />
-                <div class="details">
-                  <a class="btn btn-remove " [routerLink]="['/delete-order']"
-                    >X</a
-                  >
-                </div>
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ion-slide>
-      </ion-slides>
-    </div>
-
-    <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
-      <div
-        id="tabThisWeek"
-        *ngSwitchCase="'tabThisWeek'"
-        class="tab-pane fade active show"
-      >
-        <ion-slides>
-          <ion-slide *ngFor="let order of orders; let i = index">
+        <ng-container *ngFor="let order of orders; let i = index">
+          <ion-slide *ngIf="order.menu != null">
             <ion-card>
               <ion-card-content>
                 <h4 class="infos">
@@ -82,19 +40,51 @@
                 <div class="price-div">
                   <div class="price">
                     <p class="card-text" *ngIf="order.menu">
-                      {{ order.menu.priceDF }}
+                      {{ order.menu.priceDF }}€
                     </p>
                   </div>
                   <hr />
                   <div class="details">
-                    <a class="btn btn-remove " [routerLink]="['/delete-order']"
-                      >X</a
-                    >
+                    <a class="btn btn-remove " [routerLink]="['/delete-order']">X</a>
                   </div>
                 </div>
               </ion-card-content>
             </ion-card>
           </ion-slide>
+        </ng-container>
+      </ion-slides>
+    </div>
+
+    <div id="tabsContent" class="tab-content tabsContent" [ngSwitch]="viewMode">
+      <div id="tabThisWeek" *ngSwitchCase="'tabThisWeek'" class="tab-pane fade active show">
+        <ion-slides>
+          <ng-container *ngFor="let order of orders; let i = index">
+            <ion-slide *ngIf="order.menu != null">
+              <ion-card>
+                <ion-card-content>
+                  <h4 class="infos">
+                    {{ order.user.firstname }} {{ order.user.name }}
+                  </h4>
+                  <h5 class="infos" *ngIf="order.menu">{{ order.menu.label }}</h5>
+                  <div class="takeaway">
+                    <input type="checkbox" />
+                    <label>Emporter</label>
+                  </div>
+                  <div class="price-div">
+                    <div class="price">
+                      <p class="card-text" *ngIf="order.menu">
+                        {{ order.menu.priceDF }}€
+                      </p>
+                    </div>
+                    <hr />
+                    <div class="details">
+                      <a class="btn btn-remove " [routerLink]="['/delete-order']">X</a>
+                    </div>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+          </ng-container>
         </ion-slides>
       </div>
     </div>
