@@ -11,6 +11,9 @@
 </ion-header>
 
 <ion-content>
+  <h4 class="cagnotte-border" *ngIf="isAuth">
+    Cagnotte: {{ userConnected.wallet }}€
+  </h4>
   <ion-text *ngIf="menuPanier === null" class="block">
     <h1 class="ion-text-center ion-margin-bottom">Votre panier est vide !</h1>
     <br />
@@ -18,9 +21,6 @@
       >Choisir un menu
     </ion-button>
   </ion-text>
-  <h4 class="cagnotte-border" *ngIf="isAuth">
-    Cagnotte: {{ userConnected.wallet }}€
-  </h4>
   <ion-list *ngIf="menuPanier != null">
     <ion-item-sliding *ngFor="let panier of menuPanier; let i = index">
       <ion-item>
